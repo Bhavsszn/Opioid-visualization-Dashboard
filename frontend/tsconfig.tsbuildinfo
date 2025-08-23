@@ -1,0 +1,1 @@
+{"root":["./src/app.tsx","./src/main.tsx","./src/components/explainer.tsx","./src/components/footer.tsx","./src/components/nav.tsx","./src/lib/api.ts","./src/pages/forecast.tsx","./src/pages/map.tsx","./src/pages/overview.tsx","./src/types/react-simple-maps.d.ts.tsx"],"version":"5.9.2"}

@@ -1,0 +1,19 @@
+﻿# Node
+node_modules/
+dist/
+.cache/
+npm-debug.log*
+yarn-*.log
+
+# Python
+.venv/
+__pycache__/
+*.pyc
+*.egg-info/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Data (keep large DBs out of repo)
+data/*.db
