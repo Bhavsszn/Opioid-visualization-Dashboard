@@ -15,4 +15,4 @@ spark.sql("CREATE SCHEMA IF NOT EXISTS opioid")
 bronze.write.format("delta").mode("overwrite").saveAsTable(BRONZE_TABLE)
 
 display(bronze.limit(10))
-print("✅ Wrote:", BRONZE_TABLE)
+print("Wrote:", BRONZE_TABLE)
