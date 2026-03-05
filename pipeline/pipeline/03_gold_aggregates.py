@@ -33,4 +33,4 @@ latest = (
 latest.write.format("delta").mode("overwrite").saveAsTable(GOLD_STATE_LATEST)
 
 display(latest.orderBy("state").limit(10))
-print("✅ Wrote:", GOLD_STATE_YEAR, "and", GOLD_STATE_LATEST)
+print("Wrote:", GOLD_STATE_YEAR, "and", GOLD_STATE_LATEST)
