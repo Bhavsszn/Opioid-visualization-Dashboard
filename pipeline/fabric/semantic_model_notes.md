@@ -1,82 +1,49 @@
-# Power BI Semantic Model
+# Power BI Semantic Model Notes
 
 This document explains the semantic model used by the Power BI dashboard.
 
-The semantic model sits on top of the Fabric Lakehouse dataset.
+The semantic model sits on top of the Fabric Lakehouse dataset and uses `dbo.gold_state_year` as the main fact-style table.
 
-Lakehouse Table:
-gold_state_year
+## Model structure
 
----
+### Base table
+- `gold_state_year`
 
-# Model Structure
+### Core fields
+- `year`
+- `state`
+- `population`
+- `deaths`
+- `crude_rate`
+- `age_adjusted_rate`
 
-The dataset is modeled as a single fact table containing yearly overdose statistics.
+### Key measures
+- `Total Deaths`
+- `Total Population`
+- `Deaths per 100k`
+- `Average Overdose Rate`
+- `YoY Death Change`
+- `YoY % Change`
 
-Fact Table
-
-gold_state_year
-
-Dimensions
-
-state  
-year
-
-Measures
-
-Total Deaths  
-Total Population  
-Deaths per 100k  
-Average Overdose Rate  
-YoY Death Change  
-YoY Percentage Change
-
----
-
-# Key Measures
-
-Total Deaths
-
-SUM(gold_state_year[deaths])
-
----
-
-Deaths per 100k
-
-DIVIDE([Total Deaths], [Total Population]) * 100000
-
----
-
-YoY Percentage Change
-
-DIVIDE(
-    [YoY Death Change],
-    [PrevYearDeaths]
-)
-
----
-
-# Semantic Layer Purpose
+## Semantic layer purpose
 
 The semantic model enables:
+- KPI monitoring
+- trend analysis over time
+- state-level overdose comparison
+- year-over-year change analysis
+- decomposition tree exploration
 
-• KPI monitoring  
-• trend analysis over time  
-• state-level overdose comparisons  
-• year-over-year change analysis
+## Connection mode
 
-The model is consumed by the Power BI dashboard.
-
----
-
-# Connection Mode
-
-Power BI connects to the dataset using:
-
-Direct Lake Mode
+Power BI connects to Fabric using **Direct Lake**.
 
 Benefits:
+- no separate imported data copy
+- lower duplication of storage
+- tighter integration with the Lakehouse
+- fast report development on curated tables
 
-• no data duplication  
-• real-time queries  
-• improved performance
+## Downstream consumer
+
+The semantic model is consumed by the Power BI dashboard documented in `pipeline/powerbi/`.
