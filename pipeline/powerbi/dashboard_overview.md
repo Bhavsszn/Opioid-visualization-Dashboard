@@ -1,10 +1,10 @@
 # Power BI Analytics Dashboard
 
-This dashboard is the Business Intelligence layer of the Opioid Visualization project.
+This dashboard is the enterprise BI layer of the Opioid Visualization project.
 
-It analyzes overdose trends across U.S. states using data processed by the project pipeline.
+It analyzes opioid overdose trends across U.S. states using data produced by the project pipeline.
 
-## Key Metrics
+## Key metrics
 
 - Total deaths
 - Deaths per 100k population
@@ -13,20 +13,26 @@ It analyzes overdose trends across U.S. states using data processed by the proje
 
 ## Visualizations
 
+- KPI cards
 - Overdose death trend over time
 - Highest risk states
-- Population vs overdose correlation
-- Decomposition tree for state/year exploration
+- Population vs overdose death rate scatter plot
+- Decomposition tree for state/year drill-down
 
-## Data Source
+## Data source
 
-The dashboard uses the curated dataset produced by the project data pipeline.
+The dashboard uses the curated dataset produced upstream by the project pipeline.
 
-Pipeline flow:
-
+```text
 CDC Overdose Data
-→ Backend data processing
-→ Cleaned dataset
+→ Backend / Databricks processing
+→ Curated dataset
 → Fabric Lakehouse table
 → Power BI semantic model
 → Power BI dashboard
+```
+
+## Purpose
+
+The React dashboard in this repository is the public-facing visualization layer.
+The Power BI dashboard is the enterprise reporting layer focused on KPI monitoring, trend analysis, and stakeholder reporting.
