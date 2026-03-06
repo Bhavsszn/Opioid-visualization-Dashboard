@@ -1,85 +1,142 @@
-# backend/export_static.py
-import os
 import json
-import sqlite3
+import os
 import pathlib
+import sqlite3
+from typing import Any
+
+import pandas as pd
 
 HERE = os.path.dirname(__file__)
-DB_PATH = os.environ.get("DB_PATH", os.path.join(HERE, "..", "data", "opioid.db"))
-
-# Default: write into the React app's public folder
+ROOT = os.path.abspath(os.path.join(HERE, ".."))
+DB_PATH = os.environ.get("DB_PATH", os.path.join(ROOT, "data", "opioid.db"))
+CSV_PATH = os.environ.get(
+    "CSV_PATH", os.path.join(ROOT, "data", "overdoses_state_year_clean_typed.csv")
+)
 OUT_DIR = os.environ.get(
-    "STATIC_OUT_DIR",
-    os.path.join(HERE, "..", "frontend", "public", "api")
+    "STATIC_OUT_DIR", os.path.join(ROOT, "frontend", "public", "api")
 )
 pathlib.Path(OUT_DIR).mkdir(parents=True, exist_ok=True)
 
 
-def dump_json(filename: str, obj):
+def dump_json(filename: str, obj: Any) -> None:
     out_path = os.path.join(OUT_DIR, filename)
     with open(out_path, "w", encoding="utf-8") as f:
         json.dump(obj, f, ensure_ascii=False, indent=2)
 
 
-def main():
-    if not os.path.exists(DB_PATH):
-        raise FileNotFoundError(f"DB not found at: {DB_PATH}")
+def _safe_float(value: Any) -> float | None:
+    if pd.isna(value):
+        return None
+    return float(value)
 
-    conn = sqlite3.connect(DB_PATH)
-    c = conn.cursor()
 
-    dump_json("health.json", {"ok": True, "db_path": DB_PATH})
+def load_dataframe() -> tuple[pd.DataFrame, str]:
+    """Load curated state/year data from SQLite if available, otherwise CSV."""
+    if os.path.exists(DB_PATH):
+        conn = sqlite3.connect(DB_PATH)
+        try:
+            df = pd.read_sql_query(
+                """
+                SELECT year, state, population, deaths, crude_rate, age_adjusted_rate
+                FROM state_year_overdoses
+                ORDER BY year, state
+                """,
+                conn,
+            )
+            return df, f"sqlite:{DB_PATH}"
+        finally:
+            conn.close()
 
-    # States
-    rows = c.execute("SELECT DISTINCT state FROM metrics ORDER BY state").fetchall()
-    states = [r[0] for r in rows]
+    if os.path.exists(CSV_PATH):
+        df = pd.read_csv(CSV_PATH)
+        needed = ["year", "state", "population", "deaths", "crude_rate", "age_adjusted_rate"]
+        missing = [c for c in needed if c not in df.columns]
+        if missing:
+            raise ValueError(f"CSV is missing required columns: {missing}")
+        df = df[needed].copy()
+        return df, f"csv:{CSV_PATH}"
+
+    raise FileNotFoundError(
+        f"Could not find either SQLite database at {DB_PATH} or CSV at {CSV_PATH}."
+    )
+
+
+def build_static_payloads(df: pd.DataFrame) -> None:
+    df["year"] = df["year"].astype(int)
+    for col in ["population", "deaths", "crude_rate", "age_adjusted_rate"]:
+        df[col] = pd.to_numeric(df[col], errors="coerce")
+
+    states = sorted(df["state"].dropna().unique().tolist())
     dump_json("states.json", states)
 
-    # State-year metrics
-    metrics = {}
-    for s in states:
-        mrows = c.execute(
-            """
-            SELECT year, deaths, prescriptions, overdose_rate, population
-            FROM metrics
-            WHERE state = ?
-            ORDER BY year
-            """,
-            (s,),
-        ).fetchall()
-
-        metrics[s] = [
+    metrics_by_state: dict[str, list[dict[str, Any]]] = {}
+    for state in states:
+        subset = df[df["state"] == state].sort_values("year")
+        metrics_by_state[state] = [
             {
-                "year": int(r[0]),
-                "deaths": float(r[1]) if r[1] is not None else None,
-                "prescriptions": float(r[2]) if r[2] is not None else None,
-                "overdose_rate": float(r[3]) if r[3] is not None else None,
-                "population": float(r[4]) if r[4] is not None else None,
+                "year": int(row["year"]),
+                "deaths": _safe_float(row["deaths"]),
+                "population": _safe_float(row["population"]),
+                "crude_rate": _safe_float(row["crude_rate"]),
+                "overdose_rate": _safe_float(row["crude_rate"]),
+                "age_adjusted_rate": _safe_float(row["age_adjusted_rate"]),
             }
-            for r in mrows
+            for _, row in subset.iterrows()
         ]
+    dump_json("metrics_state_year.json", metrics_by_state)
 
-    dump_json("metrics_state_year.json", metrics)
+    latest_year = int(df["year"].max())
+    latest = (
+        df[df["year"] == latest_year]
+        .sort_values("crude_rate", ascending=False)
+        .reset_index(drop=True)
+    )
+    states_latest = [
+        {
+            "state": row["state"],
+            "year": int(row["year"]),
+            "population": _safe_float(row["population"]),
+            "deaths": _safe_float(row["deaths"]),
+            "crude_rate": _safe_float(row["crude_rate"]),
+            "overdose_rate": _safe_float(row["crude_rate"]),
+            "age_adjusted_rate": _safe_float(row["age_adjusted_rate"]),
+        }
+        for _, row in latest.iterrows()
+    ]
+    dump_json("states_latest.json", states_latest)
 
-    # Simple forecast placeholder (kept lightweight for static demo)
-    forecasts = {}
-    for s in states:
-        hist = metrics.get(s, [])
-        last = hist[-1] if hist else None
-        if last and last.get("overdose_rate") is not None:
-            y0 = last["year"]
-            base = float(last["overdose_rate"])
-            forecasts[s] = [
-                {"year": y0 + i, "overdose_rate": round(base * (1 + 0.02 * i), 2)}
-                for i in range(1, 6)
-            ]
-        else:
-            forecasts[s] = []
-
+    forecasts: dict[str, list[dict[str, Any]]] = {}
+    for state, rows in metrics_by_state.items():
+        if not rows:
+            forecasts[state] = []
+            continue
+        last = rows[-1]
+        base = last.get("overdose_rate") or last.get("age_adjusted_rate") or 0
+        year0 = int(last["year"])
+        forecasts[state] = [
+            {
+                "year": year0 + i,
+                "overdose_rate": round(float(base) * (1 + 0.02 * i), 2),
+            }
+            for i in range(1, 6)
+        ]
     dump_json("forecast_by_state.json", forecasts)
 
-    conn.close()
-    print(f"✅ Static API exported to: {OUT_DIR}")
+
+def main() -> None:
+    df, source = load_dataframe()
+    build_static_payloads(df)
+    dump_json(
+        "health.json",
+        {
+            "ok": True,
+            "source": source,
+            "rows": int(len(df)),
+            "latest_year": int(df["year"].max()),
+        },
+    )
+    print(f"Exported static API files to: {OUT_DIR}")
+    print(f"Source: {source}")
 
 
 if __name__ == "__main__":
