@@ -1,74 +1,98 @@
 # Power BI Measures (DAX)
 
-This document describes the key DAX measures used in the opioid overdose analytics dashboard.
-
-The dataset contains state-level overdose statistics including deaths, population, crude death rate, and age-adjusted death rate.
-
----
+This document describes the main DAX measures used in the opioid overdose analytics dashboard.
 
 ## Total Deaths
 
-Calculates the total number of overdose deaths within the current filter context.
+Calculates the total number of overdose deaths in the current filter context.
 
 ```DAX
 Total Deaths =
 SUM(gold_state_year[deaths])
-Total Population
+```
 
-Aggregates the total population for the selected states and years.
+## Total Population
 
+Aggregates the total population in the current filter context.
+
+```DAX
 Total Population =
 SUM(gold_state_year[population])
-Deaths per 100k
+```
+
+## Deaths per 100k
 
 Normalizes deaths relative to population size.
 
+```DAX
 Deaths per 100k =
-DIVIDE(
-    [Total Deaths],
-    [Total Population]
-) * 100000
-Average Overdose Rate
+DIVIDE([Total Deaths], [Total Population]) * 100000
+```
 
-Average of the age-adjusted overdose rate across selected states.
+## Average Overdose Rate
 
+Uses the age-adjusted rate field to summarize overdose burden.
+
+```DAX
 Average Overdose Rate =
 AVERAGE(gold_state_year[age_adjusted_rate])
-Previous Year Deaths
+```
 
-Calculates deaths for the previous year within the current filter context.
+## YoY Death Change
 
-PrevYearDeaths =
-CALCULATE(
-    [Total Deaths],
-    FILTER(
-        ALL(gold_state_year[year]),
-        gold_state_year[year] = MAX(gold_state_year[year]) - 1
-    )
-)
-Year-over-Year Death Change
+Compares the selected year to the previous year.
 
-Difference in deaths between current year and previous year.
-
+```DAX
 YoY Death Change =
-[Total Deaths] - [PrevYearDeaths]
-YoY Percentage Change
-
-Measures the percentage increase or decrease in overdose deaths compared to the previous year.
-
-YoY % Change =
-DIVIDE(
-    [YoY Death Change],
-    [PrevYearDeaths]
+VAR SelectedYear = SELECTEDVALUE(gold_state_year[year])
+VAR CurrYearDeaths =
+    CALCULATE(
+        [Total Deaths],
+        FILTER(ALL(gold_state_year), gold_state_year[year] = SelectedYear)
+    )
+VAR PrevYearDeaths =
+    CALCULATE(
+        [Total Deaths],
+        FILTER(ALL(gold_state_year), gold_state_year[year] = SelectedYear - 1)
+    )
+RETURN
+IF(
+    ISBLANK(SelectedYear) || ISBLANK(PrevYearDeaths),
+    BLANK(),
+    CurrYearDeaths - PrevYearDeaths
 )
-Notes
+```
 
-The measures were designed to support:
+## YoY % Change
 
-• KPI cards
-• state-level comparison
-• trend analysis
-• decomposition tree exploration
-• population vs overdose correlation analysis
+Calculates the percentage change relative to the previous year.
 
-All measures operate dynamically based on the filter context applied in the Power BI report.
+```DAX
+YoY % Change =
+VAR SelectedYear = SELECTEDVALUE(gold_state_year[year])
+VAR CurrYearDeaths =
+    CALCULATE(
+        [Total Deaths],
+        FILTER(ALL(gold_state_year), gold_state_year[year] = SelectedYear)
+    )
+VAR PrevYearDeaths =
+    CALCULATE(
+        [Total Deaths],
+        FILTER(ALL(gold_state_year), gold_state_year[year] = SelectedYear - 1)
+    )
+RETURN
+IF(
+    ISBLANK(SelectedYear) || ISBLANK(PrevYearDeaths),
+    BLANK(),
+    DIVIDE(CurrYearDeaths - PrevYearDeaths, PrevYearDeaths)
+)
+```
+
+## Notes
+
+These measures support:
+- KPI cards
+- state risk ranking
+- population correlation analysis
+- decomposition tree exploration
+- year-over-year monitoring
