@@ -1,8 +1,4 @@
 
----
-
-# 2️`model_plan.md`
-
 # Data Model Plan
 
 This document outlines the data modeling strategy used for the opioid overdose analytics dashboard.
