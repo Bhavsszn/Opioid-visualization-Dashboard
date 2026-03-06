@@ -2,62 +2,44 @@
 
 This document describes how the opioid overdose dataset is stored and managed in Microsoft Fabric.
 
-## Lakehouse Overview
+## Lakehouse overview
 
 The project uses a Fabric Lakehouse to store the curated overdose dataset.
 
-Lakehouse Name:
-opioid
+- **Lakehouse name:** `opioid`
+- **Schema:** `dbo`
+- **Primary table:** `gold_state_year`
 
-Schema:
-dbo
+## Table structure
 
-Primary Table:
-gold_state_year
-
----
-
-## Table Structure
-
-Table: gold_state_year
+Table: `gold_state_year`
 
 Columns:
+- `year`
+- `state`
+- `population`
+- `deaths`
+- `crude_rate`
+- `age_adjusted_rate`
 
-year  
-state  
-population  
-deaths  
-crude_rate  
-age_adjusted_rate  
+Each row represents a unique `state + year` combination.
 
-Each row represents overdose statistics for a specific state and year.
+## Data flow
 
-Example:
-
-State: Alabama  
-Year: 2020  
-Deaths: 1203  
-Population: 4921532
-
----
-
-## Data Flow
-
-CDC Overdose Data  
-↓  
-Python Data Processing  
-↓  
-Cleaned Dataset  
-↓  
-Fabric Lakehouse Table (gold_state_year)
-
----
+```text
+CDC Overdose Data
+↓
+Python / Databricks data processing
+↓
+Curated dataset
+↓
+Fabric Lakehouse table (dbo.gold_state_year)
+```
 
 ## Why Fabric Lakehouse
 
 Using a Lakehouse provides:
-
-• scalable storage for analytical data  
-• compatibility with Power BI Direct Lake  
-• simplified integration with data pipelines  
-• centralized analytics dataset
+- centralized analytical storage
+- compatibility with Power BI Direct Lake
+- simpler integration with downstream BI workflows
+- a clean handoff point between engineering and reporting
