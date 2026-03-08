@@ -1,0 +1,2047 @@
+{
+  "source": "csv:D:\\Downloads\\Opioid Git\\Opioid-visualization-Dashboard\\data\\overdoses_state_year_clean_typed.csv",
+  "created_at": "2026-03-08T22:19:30.673364+00:00",
+  "quality": {
+    "status": "pass",
+    "checked_at": "2026-03-08T22:19:30.673364+00:00",
+    "checks": [
+      {
+        "name": "required_columns_present",
+        "status": "pass",
+        "value": {
+          "missing": []
+        },
+        "threshold": {
+          "required": [
+            "state",
+            "year",
+            "deaths",
+            "crude_rate",
+            "population"
+          ]
+        },
+        "detail": "Core schema columns must be present."
+      },
+      {
+        "name": "row_count_positive",
+        "status": "pass",
+        "value": 306,
+        "threshold": "> 0",
+        "detail": "Dataset must contain at least one row."
+      },
+      {
+        "name": "nonnull_rate_state",
+        "status": "pass",
+        "value": 1.0,
+        "threshold": 1.0,
+        "detail": "Non-null coverage for state."
+      },
+      {
+        "name": "nonnull_rate_year",
+        "status": "pass",
+        "value": 1.0,
+        "threshold": 1.0,
+        "detail": "Non-null coverage for year."
+      },
+      {
+        "name": "nonnull_rate_deaths",
+        "status": "pass",
+        "value": 1.0,
+        "threshold": 0.98,
+        "detail": "Non-null coverage for deaths."
+      },
+      {
+        "name": "nonnull_rate_crude_rate",
+        "status": "pass",
+        "value": 1.0,
+        "threshold": 0.9,
+        "detail": "Non-null coverage for crude_rate."
+      },
+      {
+        "name": "nonnull_rate_population",
+        "status": "pass",
+        "value": 1.0,
+        "threshold": 0.98,
+        "detail": "Non-null coverage for population."
+      },
+      {
+        "name": "state_year_unique",
+        "status": "pass",
+        "value": 0,
+        "threshold": 0,
+        "detail": "(state, year) should be unique."
+      },
+      {
+        "name": "latest_year_coverage",
+        "status": "pass",
+        "value": 1.0,
+        "threshold": 0.95,
+        "detail": "Share of states represented in latest year."
+      }
+    ],
+    "summary": {
+      "rows": 306,
+      "columns": [
+        "age_adjusted_rate",
+        "crude_rate",
+        "deaths",
+        "population",
+        "state",
+        "year"
+      ],
+      "latest_year": 2023,
+      "pass_count": 9,
+      "fail_count": 0,
+      "pass_rate": 1.0
+    }
+  },
+  "forecast_evaluation": {
+    "by_state": [
+      {
+        "state": "Alabama",
+        "points": 6,
+        "selected_model": "naive_last",
+        "mae": 104.5,
+        "mape": 5.9284,
+        "interval_coverage": 0.0,
+        "train_start_year": 2018,
+        "train_end_year": 2022,
+        "backtest_points": [
+          {
+            "year": 2022,
+            "actual": 1646.0,
+            "naive_pred": 1595.0,
+            "sarimax_pred": 2075.652786740834,
+            "sarimax_lo": 2075.617497381812,
+            "sarimax_hi": 2075.688076099856
+          },
+          {
+            "year": 2023,
+            "actual": 1804.0,
+            "naive_pred": 1646.0,
+            "sarimax_pred": 1515.3789082598048,
+            "sarimax_lo": 1283.985773143626,
+            "sarimax_hi": 1746.7720433759837
+          }
+        ],
+        "benchmark": {
+          "naive_last": {
+            "mae": 104.5,
+            "mape": 5.9284
+          },
+          "sarimax": {
+            "mae": 359.1369,
+            "mape": 21.0509
+          }
+        }
+      },
+      {
+        "state": "Alaska",
+        "points": 6,
+        "selected_model": "naive_last",
+        "mae": 58.5,
+        "mape": 15.5168,
+        "interval_coverage": 0.0,
+        "train_start_year": 2018,
+        "train_end_year": 2022,
+        "backtest_points": [
+          {
+            "year": 2022,
+            "actual": 276.0,
+            "naive_pred": 283.0,
+            "sarimax_pred": 605.1964041650638,
+            "sarimax_lo": 605.1962014747899,
+            "sarimax_hi": 605.1966068553377
+          },
+          {
+            "year": 2023,
+            "actual": 386.0,
+            "naive_pred": 276.0,
+            "sarimax_pred": 259.79844237636416,
+            "sarimax_lo": 173.05602272320147,
+            "sarimax_hi": 346.54086202952686
+          }
+        ],
+        "benchmark": {
+          "naive_last": {
+            "mae": 58.5,
+            "mape": 15.5168
+          },
+          "sarimax": {
+            "mae": 227.699,
+            "mape": 75.9844
+          }
+        }
+      },
+      {
+        "state": "Arizona",
+        "points": 6,
+        "selected_model": "naive_last",
+        "mae": 57.0,
+        "mape": 1.9895,
+        "interval_coverage": 0.5,
+        "train_start_year": 2018,
+        "train_end_year": 2022,
+        "backtest_points": [
+          {
+            "year": 2022,
+            "actual": 2898.0,
+            "naive_pred": 2951.0,
+            "sarimax_pred": 3094.359246206055,
+            "sarimax_lo": 3094.312675947088,
+            "sarimax_hi": 3094.4058164650223
+          },
+          {
+            "year": 2023,
+            "actual": 2837.0,
+            "naive_pred": 2898.0,
+            "sarimax_pred": 2942.7096856578573,
+            "sarimax_lo": 2819.125599029965,
+            "sarimax_hi": 3066.2937722857496
+          }
+        ],
+        "benchmark": {
+          "naive_last": {
+            "mae": 57.0,
+            "mape": 1.9895
+          },
+          "sarimax": {
+            "mae": 151.0345,
+            "mape": 5.2509
+          }
+        }
+      },
+      {
+        "state": "Arkansas",
+        "points": 6,
+        "selected_model": "naive_last",
+        "mae": 48.5,
+        "mape": 7.0998,
+        "interval_coverage": 0.0,
+        "train_start_year": 2018,
+        "train_end_year": 2022,
+        "backtest_points": [
+          {
+            "year": 2022,
+            "actual": 728.0,
+            "naive_pred": 760.0,
+            "sarimax_pred": 810.250835288414,
+            "sarimax_lo": 810.2478495458581,
+            "sarimax_hi": 810.2538210309699
+          },
+          {
+            "year": 2023,
+            "actual": 663.0,
+            "naive_pred": 728.0,
+            "sarimax_pred": 696.6274012876469,
+            "sarimax_lo": 663.3532294261929,
+            "sarimax_hi": 729.9015731491008
+          }
+        ],
+        "benchmark": {
+          "naive_last": {
+            "mae": 48.5,
+            "mape": 7.0998
+          },
+          "sarimax": {
+            "mae": 57.9391,
+            "mape": 8.1851
+          }
+        }
+      },
+      {
+        "state": "California",
+        "points": 6,
+        "selected_model": "naive_last",
+        "mae": 227.0,
+        "mape": 1.865,
+        "interval_coverage": 0.0,
+        "train_start_year": 2018,
+        "train_end_year": 2022,
+        "backtest_points": [
+          {
+            "year": 2022,
+            "actual": 11862.0,
+            "naive_pred": 11784.0,
+            "sarimax_pred": 13845.644842952468,
+            "sarimax_lo": 13845.500377043358,
+            "sarimax_hi": 13845.789308861578
+          },
+          {
+            "year": 2023,
+            "actual": 12238.0,
+            "naive_pred": 11862.0,
+            "sarimax_pred": 11532.427550245682,
+            "sarimax_lo": 11084.40820525115,
+            "sarimax_hi": 11980.446895240215
+          }
+        ],
+        "benchmark": {
+          "naive_last": {
+            "mae": 227.0,
+            "mape": 1.865
+          },
+          "sarimax": {
+            "mae": 1344.6086,
+            "mape": 11.2441
+          }
+        }
+      },
+      {
+        "state": "Colorado",
+        "points": 6,
+        "selected_model": "naive_last",
+        "mae": 83.5,
+        "mape": 4.205,
+        "interval_coverage": 0.0,
+        "train_start_year": 2018,
+        "train_end_year": 2022,
+        "backtest_points": [
+          {
+            "year": 2022,
+            "actual": 1957.0,
+            "naive_pred": 2054.0,
+            "sarimax_pred": 2566.640500358242,
+            "sarimax_lo": 2566.6339604084656,
+            "sarimax_hi": 2566.647040308019
+          },
+          {
+            "year": 2023,
+            "actual": 2027.0,
+            "naive_pred": 1957.0,
+            "sarimax_pred": 1749.1467068741754,
+            "sarimax_lo": 1513.7347957594627,
+            "sarimax_hi": 1984.558617988888
+          }
+        ],
+        "benchmark": {
+          "naive_last": {
+            "mae": 83.5,
+            "mape": 4.205
+          },
+          "sarimax": {
+            "mae": 443.7469,
+            "mape": 22.4297
+          }
+        }
+      },
+      {
+        "state": "Connecticut",
+        "points": 6,
+        "selected_model": "naive_last",
+        "mae": 119.0,
+        "mape": 8.1916,
+        "interval_coverage": 0.5,
+        "train_start_year": 2018,
+        "train_end_year": 2022,
+        "backtest_points": [
+          {
+            "year": 2022,
+            "actual": 1564.0,
+            "naive_pred": 1642.0,
+            "sarimax_pred": 1864.6664669074794,
+            "sarimax_lo": 1864.649213058832,
+            "sarimax_hi": 1864.6837207561268
+          },
+          {
+            "year": 2023,
+            "actual": 1404.0,
+            "naive_pred": 1564.0,
+            "sarimax_pred": 1534.6911029519317,
+            "sarimax_lo": 1387.7600272182801,
+            "sarimax_hi": 1681.6221786855833
+          }
+        ],
+        "benchmark": {
+          "naive_last": {
+            "mae": 119.0,
+            "mape": 8.1916
+          },
+          "sarimax": {
+            "mae": 215.6788,
+            "mape": 14.2663
+          }
+        }
+      },
+      {
+        "state": "Delaware",
+        "points": 6,
+        "selected_model": "naive_last",
+        "mae": 54.5,
+        "mape": 9.3999,
+        "interval_coverage": 0.0,
+        "train_start_year": 2018,
+        "train_end_year": 2022,
+        "backtest_points": [
+          {
+            "year": 2022,
+            "actual": 601.0,
+            "naive_pred": 539.0,
+            "sarimax_pred": -42.94358947200794,
+            "sarimax_lo": -42.967291341084845,
+            "sarimax_hi": -42.91988760293104
+          },
+          {
+            "year": 2023,
+            "actual": 554.0,
+            "naive_pred": 601.0,
+            "sarimax_pred": 695.254051822782,
+            "sarimax_lo": 667.1039590903795,
+            "sarimax_hi": 723.4041445551845
+          }
+        ],
+        "benchmark": {
+          "naive_last": {
+            "mae": 54.5,
+            "mape": 9.3999
+          },
+          "sarimax": {
+            "mae": 392.5988,
+            "mape": 66.3212
+          }
+        }
+      },
+      {
+        "state": "District of Columbia",
+        "points": 6,
+        "selected_model": "naive_last",
+        "mae": 16.5,
+        "mape": 3.64,
+        "interval_coverage": 0.0,
+        "train_start_year": 2018,
+        "train_end_year": 2022,
+        "backtest_points": [
+          {
+            "year": 2022,
+            "actual": 471.0,
+            "naive_pred": 480.0,
+            "sarimax_pred": 504.049976245998,
+            "sarimax_lo": 504.04835271850385,
+            "sarimax_hi": 504.0515997734921
+          },
+          {
+            "year": 2023,
+            "actual": 447.0,
+            "naive_pred": 471.0,
+            "sarimax_pred": 478.9475861367327,
+            "sarimax_lo": 457.602563819869,
+            "sarimax_hi": 500.2926084535964
+          }
+        ],
+        "benchmark": {
+          "naive_last": {
+            "mae": 16.5,
+            "mape": 3.64
+          },
+          "sarimax": {
+            "mae": 32.4988,
+            "mape": 7.082
+          }
+        }
+      },
+      {
+        "state": "Florida",
+        "points": 6,
+        "selected_model": "naive_last",
+        "mae": 378.5,
+        "mape": 4.7912,
+        "interval_coverage": 0.0,
+        "train_start_year": 2018,
+        "train_end_year": 2022,
+        "backtest_points": [
+          {
+            "year": 2022,
+            "actual": 8252.0,
+            "naive_pred": 8498.0,
+            "sarimax_pred": 8954.294940481026,
+            "sarimax_lo": 8952.814260950692,
+            "sarimax_hi": 8955.77562001136
+          },
+          {
+            "year": 2023,
+            "actual": 7741.0,
+            "naive_pred": 8252.0,
+            "sarimax_pred": 8209.04641358605,
+            "sarimax_lo": 8105.15855162128,
+            "sarimax_hi": 8312.934275550819
+          }
+        ],
+        "benchmark": {
+          "naive_last": {
+            "mae": 378.5,
+            "mape": 4.7912
+          },
+          "sarimax": {
+            "mae": 585.1707,
+            "mape": 7.2785
+          }
+        }
+      },
+      {
+        "state": "Georgia",
+        "points": 6,
+        "selected_model": "naive_last",
+        "mae": 185.5,
+        "mape": 6.0271,
+        "interval_coverage": 0.5,
+        "train_start_year": 2018,
+        "train_end_year": 2022,
+        "backtest_points": [
+          {
+            "year": 2022,
+            "actual": 3110.0,
+            "naive_pred": 2847.0,
+            "sarimax_pred": 3843.5242201450787,
+            "sarimax_lo": 3843.5154005801382,
+            "sarimax_hi": 3843.5330397100192
+          },
+          {
+            "year": 2023,
+            "actual": 3002.0,
+            "naive_pred": 3110.0,
+            "sarimax_pred": 3152.7301518111985,
+            "sarimax_lo": 2982.022511237405,
+            "sarimax_hi": 3323.437792384992
+          }
+        ],
+        "benchmark": {
+          "naive_last": {
+            "mae": 185.5,
+            "mape": 6.0271
+          },
+          "sarimax": {
+            "mae": 442.1272,
+            "mape": 14.3035
+          }
+        }
+      },
+      {
+        "state": "Hawaii",
+        "points": 6,
+        "selected_model": "naive_last",
+        "mae": 21.0,
+        "mape": 6.1848,
+        "interval_coverage": 0.0,
+        "train_start_year": 2018,
+        "train_end_year": 2022,
+        "backtest_points": [
+          {
+            "year": 2022,
+            "actual": 335.0,
+            "naive_pred": 307.0,
+            "sarimax_pred": 307.0849224025901,
+            "sarimax_lo": 307.08446735230547,
+            "sarimax_hi": 307.08537745287475
+          },
+          {
+            "year": 2023,
+            "actual": 349.0,
+            "naive_pred": 335.0,
+            "sarimax_pred": 273.9385298016137,
+            "sarimax_lo": 257.40171084828415,
+            "sarimax_hi": 290.47534875494324
+          }
+        ],
+        "benchmark": {
+          "naive_last": {
+            "mae": 21.0,
+            "mape": 6.1848
+          },
+          "sarimax": {
+            "mae": 51.4883,
+            "mape": 14.9202
+          }
+        }
+      },
+      {
+        "state": "Idaho",
+        "points": 6,
+        "selected_model": "naive_last",
+        "mae": 23.5,
+        "mape": 5.3613,
+        "interval_coverage": 0.5,
+        "train_start_year": 2018,
+        "train_end_year": 2022,
+        "backtest_points": [
+          {
+            "year": 2022,
+            "actual": 442.0,
+            "naive_pred": 408.0,
+            "sarimax_pred": 626.3763481052671,
+            "sarimax_lo": 626.3663258968071,
+            "sarimax_hi": 626.3863703137271
+          },
+          {
+            "year": 2023,
+            "actual": 429.0,
+            "naive_pred": 442.0,
+            "sarimax_pred": 445.42645829050235,
+            "sarimax_lo": 397.1831332574588,
+            "sarimax_hi": 493.6697833235459
+          }
+        ],
+        "benchmark": {
+          "naive_last": {
+            "mae": 23.5,
+            "mape": 5.3613
+          },
+          "sarimax": {
+            "mae": 100.4014,
+            "mape": 22.7716
+          }
+        }
+      },
+      {
+        "state": "Illinois",
+        "points": 6,
+        "selected_model": "sarimax",
+        "mae": 239.5185,
+        "mape": 6.0588,
+        "interval_coverage": 0.0,
+        "train_start_year": 2018,
+        "train_end_year": 2022,
+        "backtest_points": [
+          {
+            "year": 2022,
+            "actual": 4271.0,
+            "naive_pred": 4124.0,
+            "sarimax_pred": 4237.200856968412,
+            "sarimax_lo": 4237.083133676591,
+            "sarimax_hi": 4237.318580260233
+          },
+          {
+            "year": 2023,
+            "actual": 3931.0,
+            "naive_pred": 4271.0,
+            "sarimax_pred": 4376.237796832622,
+            "sarimax_lo": 4365.9611123451,
+            "sarimax_hi": 4386.514481320143
+          }
+        ],
+        "benchmark": {
+          "naive_last": {
+            "mae": 243.5,
+            "mape": 6.0455
+          },
+          "sarimax": {
+            "mae": 239.5185,
+            "mape": 6.0588
+          }
+        }
+      },
+      {
+        "state": "Indiana",
+        "points": 6,
+        "selected_model": "naive_last",
+        "mae": 272.0,
+        "mape": 10.6209,
+        "interval_coverage": 0.0,
+        "train_start_year": 2018,
+        "train_end_year": 2022,
+        "backtest_points": [
+          {
+            "year": 2022,
+            "actual": 2971.0,
+            "naive_pred": 3048.0,
+            "sarimax_pred": 3273.51722928788,
+            "sarimax_lo": 3273.489494392595,
+            "sarimax_hi": 3273.544964183165
+          },
+          {
+            "year": 2023,
+            "actual": 2504.0,
+            "naive_pred": 2971.0,
+            "sarimax_pred": 2792.413714015645,
+            "sarimax_lo": 2600.6142461803647,
+            "sarimax_hi": 2984.213181850925
+          }
+        ],
+        "benchmark": {
+          "naive_last": {
+            "mae": 272.0,
+            "mape": 10.6209
+          },
+          "sarimax": {
+            "mae": 295.4655,
+            "mape": 10.8502
+          }
+        }
+      },
+      {
+        "state": "Iowa",
+        "points": 6,
+        "selected_model": "naive_last",
+        "mae": 3.0,
+        "mape": 0.5486,
+        "interval_coverage": 0.5,
+        "train_start_year": 2018,
+        "train_end_year": 2022,
+        "backtest_points": [
+          {
+            "year": 2022,
+            "actual": 547.0,
+            "naive_pred": 552.0,
+            "sarimax_pred": 588.9426702364199,
+            "sarimax_lo": 588.9422163666499,
+            "sarimax_hi": 588.9431241061899
+          },
+          {
+            "year": 2023,
+            "actual": 546.0,
+            "naive_pred": 547.0,
+            "sarimax_pred": 536.9925671142352,
+            "sarimax_lo": 524.7284894391216,
+            "sarimax_hi": 549.2566447893487
+          }
+        ],
+        "benchmark": {
+          "naive_last": {
+            "mae": 3.0,
+            "mape": 0.5486
+          },
+          "sarimax": {
+            "mae": 25.4751,
+            "mape": 4.6587
+          }
+        }
+      },
+      {
+        "state": "Kansas",
+        "points": 6,
+        "selected_model": "naive_last",
+        "mae": 84.5,
+        "mape": 10.5879,
+        "interval_coverage": 0.0,
+        "train_start_year": 2018,
+        "train_end_year": 2022,
+        "backtest_points": [
+          {
+            "year": 2022,
+            "actual": 841.0,
+            "naive_pred": 755.0,
+            "sarimax_pred": 1043.5299685460238,
+            "sarimax_lo": 1043.5219786220846,
+            "sarimax_hi": 1043.537958469963
+          },
+          {
+            "year": 2023,
+            "actual": 758.0,
+            "naive_pred": 841.0,
+            "sarimax_pred": 849.6776057357625,
+            "sarimax_lo": 775.3881601272697,
+            "sarimax_hi": 923.9670513442554
+          }
+        ],
+        "benchmark": {
+          "naive_last": {
+            "mae": 84.5,
+            "mape": 10.5879
+          },
+          "sarimax": {
+            "mae": 147.1038,
+            "mape": 18.0884
+          }
+        }
+      },
+      {
+        "state": "Kentucky",
+        "points": 6,
+        "selected_model": "sarimax",
+        "mae": 109.2192,
+        "mape": 4.8101,
+        "interval_coverage": 0.0,
+        "train_start_year": 2018,
+        "train_end_year": 2022,
+        "backtest_points": [
+          {
+            "year": 2022,
+            "actual": 2397.0,
+            "naive_pred": 2502.0,
+            "sarimax_pred": 2471.730501016399,
+            "sarimax_lo": 2471.7264624732115,
+            "sarimax_hi": 2471.7345395595867
+          },
+          {
+            "year": 2023,
+            "actual": 2210.0,
+            "naive_pred": 2397.0,
+            "sarimax_pred": 2353.707928673986,
+            "sarimax_lo": 2290.9390810535397,
+            "sarimax_hi": 2416.476776294432
+          }
+        ],
+        "benchmark": {
+          "naive_last": {
+            "mae": 146.0,
+            "mape": 6.421
+          },
+          "sarimax": {
+            "mae": 109.2192,
+            "mape": 4.8101
+          }
+        }
+      },
+      {
+        "state": "Louisiana",
+        "points": 6,
+        "selected_model": "naive_last",
+        "mae": 116.5,
+        "mape": 4.7913,
+        "interval_coverage": 0.5,
+        "train_start_year": 2018,
+        "train_end_year": 2022,
+        "backtest_points": [
+          {
+            "year": 2022,
+            "actual": 2579.0,
+            "naive_pred": 2628.0,
+            "sarimax_pred": 3311.253315553438,
+            "sarimax_lo": 3311.19399046084,
+            "sarimax_hi": 3311.312640646036
+          },
+          {
+            "year": 2023,
+            "actual": 2395.0,
+            "naive_pred": 2579.0,
+            "sarimax_pred": 2368.618278467737,
+            "sarimax_lo": 2120.3888390485495,
+            "sarimax_hi": 2616.847717886925
+          }
+        ],
+        "benchmark": {
+          "naive_last": {
+            "mae": 116.5,
+            "mape": 4.7913
+          },
+          "sarimax": {
+            "mae": 379.3175,
+            "mape": 14.7472
+          }
+        }
+      },
+      {
+        "state": "Maine",
+        "points": 6,
+        "selected_model": "naive_last",
+        "mae": 111.5,
+        "mape": 16.1506,
+        "interval_coverage": 0.0,
+        "train_start_year": 2018,
+        "train_end_year": 2022,
+        "backtest_points": [
+          {
+            "year": 2022,
+            "actual": 749.0,
+            "naive_pred": 636.0,
+            "sarimax_pred": 747.3607690929061,
+            "sarimax_lo": 747.3605294196881,
+            "sarimax_hi": 747.3610087661242
+          },
+          {
+            "year": 2023,
+            "actual": 639.0,
+            "naive_pred": 749.0,
+            "sarimax_pred": 876.3389235953159,
+            "sarimax_lo": 875.5170055645245,
+            "sarimax_hi": 877.1608416261073
+          }
+        ],
+        "benchmark": {
+          "naive_last": {
+            "mae": 111.5,
+            "mape": 16.1506
+          },
+          "sarimax": {
+            "mae": 119.4891,
+            "mape": 18.6805
+          }
+        }
+      },
+      {
+        "state": "Maryland",
+        "points": 6,
+        "selected_model": "naive_last",
+        "mae": 108.5,
+        "mape": 3.8856,
+        "interval_coverage": 0.5,
+        "train_start_year": 2018,
+        "train_end_year": 2022,
+        "backtest_points": [
+          {
+            "year": 2022,
+            "actual": 2816.0,
+            "naive_pred": 2962.0,
+            "sarimax_pred": 2988.916561216075,
+            "sarimax_lo": 2988.860320357792,
+            "sarimax_hi": 2988.9728020743582
+          },
+          {
+            "year": 2023,
+            "actual": 2745.0,
+            "naive_pred": 2816.0,
+            "sarimax_pred": 2796.6023220765587,
+            "sarimax_lo": 2677.046463916661,
+            "sarimax_hi": 2916.1581802364562
+          }
+        ],
+        "benchmark": {
+          "naive_last": {
+            "mae": 108.5,
+            "mape": 3.8856
+          },
+          "sarimax": {
+            "mae": 112.2594,
+            "mape": 4.0102
+          }
+        }
+      },
+      {
+        "state": "Massachusetts",
+        "points": 6,
+        "selected_model": "naive_last",
+        "mae": 157.5,
+        "mape": 6.1637,
+        "interval_coverage": 0.0,
+        "train_start_year": 2018,
+        "train_end_year": 2022,
+        "backtest_points": [
+          {
+            "year": 2022,
+            "actual": 2767.0,
+            "naive_pred": 2708.0,
+            "sarimax_pred": 3842.235204152943,
+            "sarimax_lo": 3842.23239666462,
+            "sarimax_hi": 3842.238011641266
+          },
+          {
+            "year": 2023,
+            "actual": 2511.0,
+            "naive_pred": 2767.0,
+            "sarimax_pred": 2736.9399446259495,
+            "sarimax_lo": 2552.296135368053,
+            "sarimax_hi": 2921.583753883846
+          }
+        ],
+        "benchmark": {
+          "naive_last": {
+            "mae": 157.5,
+            "mape": 6.1637
+          },
+          "sarimax": {
+            "mae": 650.5876,
+            "mape": 23.9286
+          }
+        }
+      },
+      {
+        "state": "Michigan",
+        "points": 6,
+        "selected_model": "naive_last",
+        "mae": 140.0,
+        "mape": 4.3159,
+        "interval_coverage": 0.5,
+        "train_start_year": 2018,
+        "train_end_year": 2022,
+        "backtest_points": [
+          {
+            "year": 2022,
+            "actual": 3327.0,
+            "naive_pred": 3456.0,
+            "sarimax_pred": 3840.4182474827603,
+            "sarimax_lo": 3840.278879801659,
+            "sarimax_hi": 3840.5576151638616
+          },
+          {
+            "year": 2023,
+            "actual": 3176.0,
+            "naive_pred": 3327.0,
+            "sarimax_pred": 3114.4785584417546,
+            "sarimax_lo": 2904.3846290475494,
+            "sarimax_hi": 3324.5724878359597
+          }
+        ],
+        "benchmark": {
+          "naive_last": {
+            "mae": 140.0,
+            "mape": 4.3159
+          },
+          "sarimax": {
+            "mae": 287.4698,
+            "mape": 8.6845
+          }
+        }
+      },
+      {
+        "state": "Minnesota",
+        "points": 6,
+        "selected_model": "naive_last",
+        "mae": 57.5,
+        "mape": 3.8793,
+        "interval_coverage": 0.5,
+        "train_start_year": 2018,
+        "train_end_year": 2022,
+        "backtest_points": [
+          {
+            "year": 2022,
+            "actual": 1536.0,
+            "naive_pred": 1499.0,
+            "sarimax_pred": 1932.8252083631578,
+            "sarimax_lo": 1932.779568423753,
+            "sarimax_hi": 1932.8708483025625
+          },
+          {
+            "year": 2023,
+            "actual": 1458.0,
+            "naive_pred": 1536.0,
+            "sarimax_pred": 1444.9323019688811,
+            "sarimax_lo": 1272.3683161257227,
+            "sarimax_hi": 1617.4962878120396
+          }
+        ],
+        "benchmark": {
+          "naive_last": {
+            "mae": 57.5,
+            "mape": 3.8793
+          },
+          "sarimax": {
+            "mae": 204.9465,
+            "mape": 13.3656
+          }
+        }
+      },
+      {
+        "state": "Mississippi",
+        "points": 6,
+        "selected_model": "naive_last",
+        "mae": 44.0,
+        "mape": 5.1498,
+        "interval_coverage": 0.5,
+        "train_start_year": 2018,
+        "train_end_year": 2022,
+        "backtest_points": [
+          {
+            "year": 2022,
+            "actual": 899.0,
+            "naive_pred": 925.0,
+            "sarimax_pred": 1194.7984340808239,
+            "sarimax_lo": 1194.786743680026,
+            "sarimax_hi": 1194.8101244816219
+          },
+          {
+            "year": 2023,
+            "actual": 837.0,
+            "naive_pred": 899.0,
+            "sarimax_pred": 811.0879722692107,
+            "sarimax_lo": 682.0118558925187,
+            "sarimax_hi": 940.1640886459027
+          }
+        ],
+        "benchmark": {
+          "naive_last": {
+            "mae": 44.0,
+            "mape": 5.1498
+          },
+          "sarimax": {
+            "mae": 160.8552,
+            "mape": 17.9994
+          }
+        }
+      },
+      {
+        "state": "Missouri",
+        "points": 6,
+        "selected_model": "naive_last",
+        "mae": 158.5,
+        "mape": 7.1634,
+        "interval_coverage": 0.0,
+        "train_start_year": 2018,
+        "train_end_year": 2022,
+        "backtest_points": [
+          {
+            "year": 2022,
+            "actual": 2408.0,
+            "naive_pred": 2337.0,
+            "sarimax_pred": 2762.3683836021296,
+            "sarimax_lo": 2762.3583677146707,
+            "sarimax_hi": 2762.3783994895884
+          },
+          {
+            "year": 2023,
+            "actual": 2162.0,
+            "naive_pred": 2408.0,
+            "sarimax_pred": 2381.529421757863,
+            "sarimax_lo": 2309.1015691933817,
+            "sarimax_hi": 2453.9572743223443
+          }
+        ],
+        "benchmark": {
+          "naive_last": {
+            "mae": 158.5,
+            "mape": 7.1634
+          },
+          "sarimax": {
+            "mae": 286.9489,
+            "mape": 12.4351
+          }
+        }
+      },
+      {
+        "state": "Montana",
+        "points": 6,
+        "selected_model": "naive_last",
+        "mae": 13.0,
+        "mape": 5.7955,
+        "interval_coverage": 0.0,
+        "train_start_year": 2018,
+        "train_end_year": 2022,
+        "backtest_points": [
+          {
+            "year": 2022,
+            "actual": 231.0,
+            "naive_pred": 218.0,
+            "sarimax_pred": 278.2581173413848,
+            "sarimax_lo": 278.2572566623222,
+            "sarimax_hi": 278.25897802044733
+          },
+          {
+            "year": 2023,
+            "actual": 218.0,
+            "naive_pred": 231.0,
+            "sarimax_pred": 250.02343440956042,
+            "sarimax_lo": 232.5667147122501,
+            "sarimax_hi": 267.4801541068707
+          }
+        ],
+        "benchmark": {
+          "naive_last": {
+            "mae": 13.0,
+            "mape": 5.7955
+          },
+          "sarimax": {
+            "mae": 39.6408,
+            "mape": 17.5739
+          }
+        }
+      },
+      {
+        "state": "Nebraska",
+        "points": 6,
+        "selected_model": "sarimax",
+        "mae": 31.1847,
+        "mape": 12.1542,
+        "interval_coverage": 0.0,
+        "train_start_year": 2018,
+        "train_end_year": 2022,
+        "backtest_points": [
+          {
+            "year": 2022,
+            "actual": 291.0,
+            "naive_pred": 271.0,
+            "sarimax_pred": 270.99294007093783,
+            "sarimax_lo": 270.98916670683803,
+            "sarimax_hi": 270.99671343503763
+          },
+          {
+            "year": 2023,
+            "actual": 243.0,
+            "naive_pred": 291.0,
+            "sarimax_pred": 285.3623354408083,
+            "sarimax_lo": 271.36170888779395,
+            "sarimax_hi": 299.36296199382264
+          }
+        ],
+        "benchmark": {
+          "naive_last": {
+            "mae": 34.0,
+            "mape": 13.313
+          },
+          "sarimax": {
+            "mae": 31.1847,
+            "mape": 12.1542
+          }
+        }
+      },
+      {
+        "state": "Nevada",
+        "points": 6,
+        "selected_model": "sarimax",
+        "mae": 149.7809,
+        "mape": 10.9346,
+        "interval_coverage": 0.0,
+        "train_start_year": 2018,
+        "train_end_year": 2022,
+        "backtest_points": [
+          {
+            "year": 2022,
+            "actual": 1067.0,
+            "naive_pred": 1033.0,
+            "sarimax_pred": 1064.5473416050888,
+            "sarimax_lo": 1064.5114844501156,
+            "sarimax_hi": 1064.583198760062
+          },
+          {
+            "year": 2023,
+            "actual": 1373.0,
+            "naive_pred": 1067.0,
+            "sarimax_pred": 1075.8908529701685,
+            "sarimax_lo": 1075.887372910526,
+            "sarimax_hi": 1075.894333029811
+          }
+        ],
+        "benchmark": {
+          "naive_last": {
+            "mae": 170.0,
+            "mape": 12.7367
+          },
+          "sarimax": {
+            "mae": 149.7809,
+            "mape": 10.9346
+          }
+        }
+      },
+      {
+        "state": "New Hampshire",
+        "points": 6,
+        "selected_model": "naive_last",
+        "mae": 40.5,
+        "mape": 8.3796,
+        "interval_coverage": 0.0,
+        "train_start_year": 2018,
+        "train_end_year": 2022,
+        "backtest_points": [
+          {
+            "year": 2022,
+            "actual": 506.0,
+            "naive_pred": 467.0,
+            "sarimax_pred": -816.3373899582821,
+            "sarimax_lo": -824.4807023563603,
+            "sarimax_hi": -808.1940775602038
+          },
+          {
+            "year": 2023,
+            "actual": 464.0,
+            "naive_pred": 506.0,
+            "sarimax_pred": 522.0495992469885,
+            "sarimax_lo": 489.9146301978963,
+            "sarimax_hi": 554.1845682960806
+          }
+        ],
+        "benchmark": {
+          "naive_last": {
+            "mae": 40.5,
+            "mape": 8.3796
+          },
+          "sarimax": {
+            "mae": 690.1935,
+            "mape": 136.9211
+          }
+        }
+      },
+      {
+        "state": "New Jersey",
+        "points": 6,
+        "selected_model": "naive_last",
+        "mae": 171.5,
+        "mape": 5.8098,
+        "interval_coverage": 0.0,
+        "train_start_year": 2018,
+        "train_end_year": 2022,
+        "backtest_points": [
+          {
+            "year": 2022,
+            "actual": 3181.0,
+            "naive_pred": 3246.0,
+            "sarimax_pred": 13471.64571333542,
+            "sarimax_lo": 13462.395622018745,
+            "sarimax_hi": 13480.895804652095
+          },
+          {
+            "year": 2023,
+            "actual": 2903.0,
+            "naive_pred": 3181.0,
+            "sarimax_pred": 3144.9901225202434,
+            "sarimax_lo": 2960.4780153341435,
+            "sarimax_hi": 3329.5022297063433
+          }
+        ],
+        "benchmark": {
+          "naive_last": {
+            "mae": 171.5,
+            "mape": 5.8098
+          },
+          "sarimax": {
+            "mae": 5266.3179,
+            "mape": 165.9197
+          }
+        }
+      },
+      {
+        "state": "New Mexico",
+        "points": 6,
+        "selected_model": "naive_last",
+        "mae": 28.0,
+        "mape": 2.7024,
+        "interval_coverage": 0.5,
+        "train_start_year": 2018,
+        "train_end_year": 2022,
+        "backtest_points": [
+          {
+            "year": 2022,
+            "actual": 1081.0,
+            "naive_pred": 1087.0,
+            "sarimax_pred": 1467.7512320962664,
+            "sarimax_lo": 1467.737613526153,
+            "sarimax_hi": 1467.76485066638
+          },
+          {
+            "year": 2023,
+            "actual": 1031.0,
+            "naive_pred": 1081.0,
+            "sarimax_pred": 986.9570672711209,
+            "sarimax_lo": 831.1754113586242,
+            "sarimax_hi": 1142.7387231836176
+          }
+        ],
+        "benchmark": {
+          "naive_last": {
+            "mae": 28.0,
+            "mape": 2.7024
+          },
+          "sarimax": {
+            "mae": 215.3971,
+            "mape": 20.0245
+          }
+        }
+      },
+      {
+        "state": "New York",
+        "points": 6,
+        "selected_model": "naive_last",
+        "mae": 279.0,
+        "mape": 4.1127,
+        "interval_coverage": 0.0,
+        "train_start_year": 2018,
+        "train_end_year": 2022,
+        "backtest_points": [
+          {
+            "year": 2022,
+            "actual": 6787.0,
+            "naive_pred": 6271.0,
+            "sarimax_pred": 7226.727123792087,
+            "sarimax_lo": 7226.68982452467,
+            "sarimax_hi": 7226.764423059503
+          },
+          {
+            "year": 2023,
+            "actual": 6745.0,
+            "naive_pred": 6787.0,
+            "sarimax_pred": 7099.141398624455,
+            "sarimax_lo": 7099.12251513529,
+            "sarimax_hi": 7099.16028211362
+          }
+        ],
+        "benchmark": {
+          "naive_last": {
+            "mae": 279.0,
+            "mape": 4.1127
+          },
+          "sarimax": {
+            "mae": 396.9343,
+            "mape": 5.8647
+          }
+        }
+      },
+      {
+        "state": "North Carolina",
+        "points": 6,
+        "selected_model": "naive_last",
+        "mae": 577.5,
+        "mape": 13.7769,
+        "interval_coverage": 0.0,
+        "train_start_year": 2018,
+        "train_end_year": 2022,
+        "backtest_points": [
+          {
+            "year": 2022,
+            "actual": 4740.0,
+            "naive_pred": 4359.0,
+            "sarimax_pred": 5383.992938097623,
+            "sarimax_lo": 5383.808803156959,
+            "sarimax_hi": 5384.177073038287
+          },
+          {
+            "year": 2023,
+            "actual": 3966.0,
+            "naive_pred": 4740.0,
+            "sarimax_pred": 4925.864962746459,
+            "sarimax_lo": 4925.862200302019,
+            "sarimax_hi": 4925.867725190899
+          }
+        ],
+        "benchmark": {
+          "naive_last": {
+            "mae": 577.5,
+            "mape": 13.7769
+          },
+          "sarimax": {
+            "mae": 801.929,
+            "mape": 18.8943
+          }
+        }
+      },
+      {
+        "state": "North Dakota",
+        "points": 6,
+        "selected_model": "sarimax",
+        "mae": 17.7512,
+        "mape": 10.8949,
+        "interval_coverage": 0.5,
+        "train_start_year": 2018,
+        "train_end_year": 2022,
+        "backtest_points": [
+          {
+            "year": 2022,
+            "actual": 168.0,
+            "naive_pred": 138.0,
+            "sarimax_pred": 138.01998598240417,
+            "sarimax_lo": 138.01912096427748,
+            "sarimax_hi": 138.02085100053085
+          },
+          {
+            "year": 2023,
+            "actual": 140.0,
+            "naive_pred": 168.0,
+            "sarimax_pred": 134.47768710067012,
+            "sarimax_lo": 111.76881941298437,
+            "sarimax_hi": 157.1865547883559
+          }
+        ],
+        "benchmark": {
+          "naive_last": {
+            "mae": 29.0,
+            "mape": 18.9286
+          },
+          "sarimax": {
+            "mae": 17.7512,
+            "mape": 10.8949
+          }
+        }
+      },
+      {
+        "state": "Ohio",
+        "points": 6,
+        "selected_model": "naive_last",
+        "mae": 325.0,
+        "mape": 6.0661,
+        "interval_coverage": 0.0,
+        "train_start_year": 2018,
+        "train_end_year": 2022,
+        "backtest_points": [
+          {
+            "year": 2022,
+            "actual": 5602.0,
+            "naive_pred": 5859.0,
+            "sarimax_pred": 6003.341791765287,
+            "sarimax_lo": 6003.334388431266,
+            "sarimax_hi": 6003.3491950993075
+          },
+          {
+            "year": 2023,
+            "actual": 5209.0,
+            "naive_pred": 5602.0,
+            "sarimax_pred": 5649.822989119388,
+            "sarimax_lo": 5388.870092806399,
+            "sarimax_hi": 5910.7758854323765
+          }
+        ],
+        "benchmark": {
+          "naive_last": {
+            "mae": 325.0,
+            "mape": 6.0661
+          },
+          "sarimax": {
+            "mae": 421.0824,
+            "mape": 7.8135
+          }
+        }
+      },
+      {
+        "state": "Oklahoma",
+        "points": 6,
+        "selected_model": "naive_last",
+        "mae": 155.5,
+        "mape": 11.3487,
+        "interval_coverage": 0.5,
+        "train_start_year": 2018,
+        "train_end_year": 2022,
+        "backtest_points": [
+          {
+            "year": 2022,
+            "actual": 1349.0,
+            "naive_pred": 1121.0,
+            "sarimax_pred": 2557.5169359799074,
+            "sarimax_lo": 2557.2794007318853,
+            "sarimax_hi": 2557.7544712279296
+          },
+          {
+            "year": 2023,
+            "actual": 1432.0,
+            "naive_pred": 1349.0,
+            "sarimax_pred": 1459.0408479986058,
+            "sarimax_lo": 1306.112138245253,
+            "sarimax_hi": 1611.9695577519587
+          }
+        ],
+        "benchmark": {
+          "naive_last": {
+            "mae": 155.5,
+            "mape": 11.3487
+          },
+          "sarimax": {
+            "mae": 617.7789,
+            "mape": 45.7372
+          }
+        }
+      },
+      {
+        "state": "Oregon",
+        "points": 6,
+        "selected_model": "naive_last",
+        "mae": 315.5,
+        "mape": 18.3793,
+        "interval_coverage": 0.0,
+        "train_start_year": 2018,
+        "train_end_year": 2022,
+        "backtest_points": [
+          {
+            "year": 2022,
+            "actual": 1454.0,
+            "naive_pred": 1249.0,
+            "sarimax_pred": 1996.0461797160838,
+            "sarimax_lo": 1996.0372831542318,
+            "sarimax_hi": 1996.0550762779358
+          },
+          {
+            "year": 2023,
+            "actual": 1880.0,
+            "naive_pred": 1454.0,
+            "sarimax_pred": 1474.788679776712,
+            "sarimax_lo": 1284.7162717724652,
+            "sarimax_hi": 1664.8610877809585
+          }
+        ],
+        "benchmark": {
+          "naive_last": {
+            "mae": 315.5,
+            "mape": 18.3793
+          },
+          "sarimax": {
+            "mae": 473.6287,
+            "mape": 29.4167
+          }
+        }
+      },
+      {
+        "state": "Pennsylvania",
+        "points": 6,
+        "selected_model": "naive_last",
+        "mae": 348.5,
+        "mape": 6.5882,
+        "interval_coverage": 0.0,
+        "train_start_year": 2018,
+        "train_end_year": 2022,
+        "backtest_points": [
+          {
+            "year": 2022,
+            "actual": 5581.0,
+            "naive_pred": 5834.0,
+            "sarimax_pred": 5998.245150901548,
+            "sarimax_lo": 5998.233689473158,
+            "sarimax_hi": 5998.256612329938
+          },
+          {
+            "year": 2023,
+            "actual": 5137.0,
+            "naive_pred": 5581.0,
+            "sarimax_pred": 5441.719592889717,
+            "sarimax_lo": 5258.5865655012185,
+            "sarimax_hi": 5624.852620278216
+          }
+        ],
+        "benchmark": {
+          "naive_last": {
+            "mae": 348.5,
+            "mape": 6.5882
+          },
+          "sarimax": {
+            "mae": 360.9824,
+            "mape": 6.704
+          }
+        }
+      },
+      {
+        "state": "Rhode Island",
+        "points": 6,
+        "selected_model": "naive_last",
+        "mae": 19.5,
+        "mape": 4.3797,
+        "interval_coverage": 0.5,
+        "train_start_year": 2018,
+        "train_end_year": 2022,
+        "backtest_points": [
+          {
+            "year": 2022,
+            "actual": 449.0,
+            "naive_pred": 476.0,
+            "sarimax_pred": 536.8906508859477,
+            "sarimax_lo": 536.8831972183754,
+            "sarimax_hi": 536.89810455352
+          },
+          {
+            "year": 2023,
+            "actual": 437.0,
+            "naive_pred": 449.0,
+            "sarimax_pred": 409.96083568841755,
+            "sarimax_lo": 371.01757927620525,
+            "sarimax_hi": 448.90409210062984
+          }
+        ],
+        "benchmark": {
+          "naive_last": {
+            "mae": 19.5,
+            "mape": 4.3797
+          },
+          "sarimax": {
+            "mae": 57.4649,
+            "mape": 12.8811
+          }
+        }
+      },
+      {
+        "state": "South Carolina",
+        "points": 6,
+        "selected_model": "naive_last",
+        "mae": 97.0,
+        "mape": 3.9815,
+        "interval_coverage": 0.0,
+        "train_start_year": 2018,
+        "train_end_year": 2022,
+        "backtest_points": [
+          {
+            "year": 2022,
+            "actual": 2465.0,
+            "naive_pred": 2345.0,
+            "sarimax_pred": 2628.2478116053326,
+            "sarimax_lo": 2628.2444197434365,
+            "sarimax_hi": 2628.2512034672286
+          },
+          {
+            "year": 2023,
+            "actual": 2391.0,
+            "naive_pred": 2465.0,
+            "sarimax_pred": 2500.037295494369,
+            "sarimax_lo": 2499.9925888542416,
+            "sarimax_hi": 2500.0820021344966
+          }
+        ],
+        "benchmark": {
+          "naive_last": {
+            "mae": 97.0,
+            "mape": 3.9815
+          },
+          "sarimax": {
+            "mae": 136.1426,
+            "mape": 5.5915
+          }
+        }
+      },
+      {
+        "state": "South Dakota",
+        "points": 6,
+        "selected_model": "naive_last",
+        "mae": 3.5,
+        "mape": 2.8138,
+        "interval_coverage": 0.0,
+        "train_start_year": 2018,
+        "train_end_year": 2022,
+        "backtest_points": [
+          {
+            "year": 2022,
+            "actual": 128.0,
+            "naive_pred": 126.0,
+            "sarimax_pred": 156.97747182269563,
+            "sarimax_lo": 156.97545447771307,
+            "sarimax_hi": 156.9794891676782
+          },
+          {
+            "year": 2023,
+            "actual": 123.0,
+            "naive_pred": 128.0,
+            "sarimax_pred": 129.5290384283882,
+            "sarimax_lo": 128.40450986360028,
+            "sarimax_hi": 130.6535669931761
+          }
+        ],
+        "benchmark": {
+          "naive_last": {
+            "mae": 3.5,
+            "mape": 2.8138
+          },
+          "sarimax": {
+            "mae": 17.7533,
+            "mape": 13.9734
+          }
+        }
+      },
+      {
+        "state": "Tennessee",
+        "points": 6,
+        "selected_model": "naive_last",
+        "mae": 117.0,
+        "mape": 3.032,
+        "interval_coverage": 0.5,
+        "train_start_year": 2018,
+        "train_end_year": 2022,
+        "backtest_points": [
+          {
+            "year": 2022,
+            "actual": 4026.0,
+            "naive_pred": 3989.0,
+            "sarimax_pred": 4814.195656546162,
+            "sarimax_lo": 4814.122788455204,
+            "sarimax_hi": 4814.268524637121
+          },
+          {
+            "year": 2023,
+            "actual": 3829.0,
+            "naive_pred": 4026.0,
+            "sarimax_pred": 3870.097883094204,
+            "sarimax_lo": 3662.384209097891,
+            "sarimax_hi": 4077.811557090517
+          }
+        ],
+        "benchmark": {
+          "naive_last": {
+            "mae": 117.0,
+            "mape": 3.032
+          },
+          "sarimax": {
+            "mae": 414.6468,
+            "mape": 10.3255
+          }
+        }
+      },
+      {
+        "state": "Texas",
+        "points": 6,
+        "selected_model": "sarimax",
+        "mae": 314.7413,
+        "mape": 4.7783,
+        "interval_coverage": 0.0,
+        "train_start_year": 2018,
+        "train_end_year": 2022,
+        "backtest_points": [
+          {
+            "year": 2022,
+            "actual": 6523.0,
+            "naive_pred": 5938.0,
+            "sarimax_pred": 6972.613629972968,
+            "sarimax_lo": 6972.56478323535,
+            "sarimax_hi": 6972.662476710586
+          },
+          {
+            "year": 2023,
+            "actual": 6752.0,
+            "naive_pred": 6523.0,
+            "sarimax_pred": 6931.86902996989,
+            "sarimax_lo": 6931.863547767826,
+            "sarimax_hi": 6931.874512171954
+          }
+        ],
+        "benchmark": {
+          "naive_last": {
+            "mae": 407.0,
+            "mape": 6.1799
+          },
+          "sarimax": {
+            "mae": 314.7413,
+            "mape": 4.7783
+          }
+        }
+      },
+      {
+        "state": "Utah",
+        "points": 6,
+        "selected_model": "naive_last",
+        "mae": 37.0,
+        "mape": 4.582,
+        "interval_coverage": 0.0,
+        "train_start_year": 2018,
+        "train_end_year": 2022,
+        "backtest_points": [
+          {
+            "year": 2022,
+            "actual": 751.0,
+            "naive_pred": 760.0,
+            "sarimax_pred": 1032.2239813222984,
+            "sarimax_lo": 1032.172855141107,
+            "sarimax_hi": 1032.2751075034898
+          },
+          {
+            "year": 2023,
+            "actual": 816.0,
+            "naive_pred": 751.0,
+            "sarimax_pred": 737.6575577003711,
+            "sarimax_lo": 724.7182041822878,
+            "sarimax_hi": 750.5969112184544
+          }
+        ],
+        "benchmark": {
+          "naive_last": {
+            "mae": 37.0,
+            "mape": 4.582
+          },
+          "sarimax": {
+            "mae": 179.7832,
+            "mape": 23.5237
+          }
+        }
+      },
+      {
+        "state": "Vermont",
+        "points": 6,
+        "selected_model": "naive_last",
+        "mae": 17.0,
+        "mape": 6.1137,
+        "interval_coverage": 0.0,
+        "train_start_year": 2018,
+        "train_end_year": 2022,
+        "backtest_points": [
+          {
+            "year": 2022,
+            "actual": 284.0,
+            "naive_pred": 264.0,
+            "sarimax_pred": 410.7580564675874,
+            "sarimax_lo": 410.7396971383566,
+            "sarimax_hi": 410.7764157968182
+          },
+          {
+            "year": 2023,
+            "actual": 270.0,
+            "naive_pred": 284.0,
+            "sarimax_pred": 283.8307036251249,
+            "sarimax_lo": 272.5614306513798,
+            "sarimax_hi": 295.09997659887
+          }
+        ],
+        "benchmark": {
+          "naive_last": {
+            "mae": 17.0,
+            "mape": 6.1137
+          },
+          "sarimax": {
+            "mae": 70.2944,
+            "mape": 24.8778
+          }
+        }
+      },
+      {
+        "state": "Virginia",
+        "points": 6,
+        "selected_model": "naive_last",
+        "mae": 73.0,
+        "mape": 2.6162,
+        "interval_coverage": 0.5,
+        "train_start_year": 2018,
+        "train_end_year": 2022,
+        "backtest_points": [
+          {
+            "year": 2022,
+            "actual": 2812.0,
+            "naive_pred": 2902.0,
+            "sarimax_pred": 3285.829529471091,
+            "sarimax_lo": 3285.80853789416,
+            "sarimax_hi": 3285.850521048022
+          },
+          {
+            "year": 2023,
+            "actual": 2756.0,
+            "naive_pred": 2812.0,
+            "sarimax_pred": 2705.0742529466047,
+            "sarimax_lo": 2590.5817668684676,
+            "sarimax_hi": 2819.5667390247418
+          }
+        ],
+        "benchmark": {
+          "naive_last": {
+            "mae": 73.0,
+            "mape": 2.6162
+          },
+          "sarimax": {
+            "mae": 262.3776,
+            "mape": 9.349
+          }
+        }
+      },
+      {
+        "state": "Washington",
+        "points": 6,
+        "selected_model": "sarimax",
+        "mae": 307.2791,
+        "mape": 9.4945,
+        "interval_coverage": 0.0,
+        "train_start_year": 2018,
+        "train_end_year": 2022,
+        "backtest_points": [
+          {
+            "year": 2022,
+            "actual": 2914.0,
+            "naive_pred": 2428.0,
+            "sarimax_pred": 3228.2115244024576,
+            "sarimax_lo": 3228.1753402633276,
+            "sarimax_hi": 3228.2477085415876
+          },
+          {
+            "year": 2023,
+            "actual": 3660.0,
+            "naive_pred": 2914.0,
+            "sarimax_pred": 3359.6533970266155,
+            "sarimax_lo": 3359.6509024340635,
+            "sarimax_hi": 3359.6558916191675
+          }
+        ],
+        "benchmark": {
+          "naive_last": {
+            "mae": 616.0,
+            "mape": 18.5303
+          },
+          "sarimax": {
+            "mae": 307.2791,
+            "mape": 9.4945
+          }
+        }
+      },
+      {
+        "state": "West Virginia",
+        "points": 6,
+        "selected_model": "naive_last",
+        "mae": 92.5,
+        "mape": 6.6293,
+        "interval_coverage": 0.5,
+        "train_start_year": 2018,
+        "train_end_year": 2022,
+        "backtest_points": [
+          {
+            "year": 2022,
+            "actual": 1392.0,
+            "naive_pred": 1552.0,
+            "sarimax_pred": 1683.2067563675562,
+            "sarimax_lo": 1683.1401870479065,
+            "sarimax_hi": 1683.273325687206
+          },
+          {
+            "year": 2023,
+            "actual": 1417.0,
+            "naive_pred": 1392.0,
+            "sarimax_pred": 1308.7940306608127,
+            "sarimax_lo": 1195.4386771961426,
+            "sarimax_hi": 1422.1493841254828
+          }
+        ],
+        "benchmark": {
+          "naive_last": {
+            "mae": 92.5,
+            "mape": 6.6293
+          },
+          "sarimax": {
+            "mae": 199.7064,
+            "mape": 14.2781
+          }
+        }
+      },
+      {
+        "state": "Wisconsin",
+        "points": 6,
+        "selected_model": "naive_last",
+        "mae": 35.0,
+        "mape": 1.8022,
+        "interval_coverage": 0.0,
+        "train_start_year": 2018,
+        "train_end_year": 2022,
+        "backtest_points": [
+          {
+            "year": 2022,
+            "actual": 1964.0,
+            "naive_pred": 1933.0,
+            "sarimax_pred": 2118.0461606610247,
+            "sarimax_lo": 2118.031097342097,
+            "sarimax_hi": 2118.0612239799525
+          },
+          {
+            "year": 2023,
+            "actual": 1925.0,
+            "naive_pred": 1964.0,
+            "sarimax_pred": 1967.77925900351,
+            "sarimax_lo": 1966.568391633429,
+            "sarimax_hi": 1968.9901263735912
+          }
+        ],
+        "benchmark": {
+          "naive_last": {
+            "mae": 35.0,
+            "mape": 1.8022
+          },
+          "sarimax": {
+            "mae": 98.4127,
+            "mape": 5.0329
+          }
+        }
+      },
+      {
+        "state": "Wyoming",
+        "points": 6,
+        "selected_model": "naive_last",
+        "mae": 11.5,
+        "mape": 7.8877,
+        "interval_coverage": 0.0,
+        "train_start_year": 2018,
+        "train_end_year": 2022,
+        "backtest_points": [
+          {
+            "year": 2022,
+            "actual": 148.0,
+            "naive_pred": 132.0,
+            "sarimax_pred": -79.53496704137737,
+            "sarimax_lo": -79.53973308264258,
+            "sarimax_hi": -79.53020100011216
+          },
+          {
+            "year": 2023,
+            "actual": 141.0,
+            "naive_pred": 148.0,
+            "sarimax_pred": 167.04842767925786,
+            "sarimax_lo": 159.79918062010697,
+            "sarimax_hi": 174.29767473840874
+          }
+        ],
+        "benchmark": {
+          "naive_last": {
+            "mae": 11.5,
+            "mape": 7.8877
+          },
+          "sarimax": {
+            "mae": 126.7917,
+            "mape": 86.107
+          }
+        }
+      }
+    ],
+    "aggregate": {
+      "states_evaluated": 51,
+      "states_with_metrics": 51,
+      "mae": 128.5779,
+      "mape": 6.6545,
+      "interval_coverage": 0.1667
+    }
+  }
+}

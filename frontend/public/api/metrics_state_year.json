@@ -3,1938 +3,2550 @@
     {
       "year": 2018,
       "deaths": 967.0,
+      "population": 4887871.0,
+      "crude_rate": 19.8,
       "overdose_rate": 19.8,
-      "population": 4887871.0
+      "age_adjusted_rate": 21.3
     },
     {
       "year": 2019,
       "deaths": 953.0,
+      "population": 4903185.0,
+      "crude_rate": 19.4,
       "overdose_rate": 19.4,
-      "population": 4903185.0
+      "age_adjusted_rate": 20.8
     },
     {
       "year": 2020,
       "deaths": 1203.0,
+      "population": 4921532.0,
+      "crude_rate": 24.4,
       "overdose_rate": 24.4,
-      "population": 4921532.0
+      "age_adjusted_rate": 26.6
     },
     {
       "year": 2021,
       "deaths": 1595.0,
+      "population": 5039877.0,
+      "crude_rate": 31.6,
       "overdose_rate": 31.6,
-      "population": 5039877.0
+      "age_adjusted_rate": 34.7
     },
     {
       "year": 2022,
       "deaths": 1646.0,
+      "population": 5074296.0,
+      "crude_rate": 32.4,
       "overdose_rate": 32.4,
-      "population": 5074296.0
+      "age_adjusted_rate": 35.2
     },
     {
       "year": 2023,
       "deaths": 1804.0,
+      "population": 5108468.0,
+      "crude_rate": 35.3,
       "overdose_rate": 35.3,
-      "population": 5108468.0
+      "age_adjusted_rate": 38.5
     }
   ],
   "Alaska": [
     {
       "year": 2018,
       "deaths": 129.0,
+      "population": 737438.0,
+      "crude_rate": 17.5,
       "overdose_rate": 17.5,
-      "population": 737438.0
+      "age_adjusted_rate": 17.1
     },
     {
       "year": 2019,
       "deaths": 144.0,
+      "population": 731545.0,
+      "crude_rate": 19.7,
       "overdose_rate": 19.7,
-      "population": 731545.0
+      "age_adjusted_rate": 19.4
     },
     {
       "year": 2020,
       "deaths": 177.0,
+      "population": 731158.0,
+      "crude_rate": 24.2,
       "overdose_rate": 24.2,
-      "population": 731158.0
+      "age_adjusted_rate": 24.4
     },
     {
       "year": 2021,
       "deaths": 283.0,
+      "population": 732673.0,
+      "crude_rate": 38.6,
       "overdose_rate": 38.6,
-      "population": 732673.0
+      "age_adjusted_rate": 39.1
     },
     {
       "year": 2022,
       "deaths": 276.0,
+      "population": 733583.0,
+      "crude_rate": 37.6,
       "overdose_rate": 37.6,
-      "population": 733583.0
+      "age_adjusted_rate": 37.5
     },
     {
       "year": 2023,
       "deaths": 386.0,
+      "population": 733406.0,
+      "crude_rate": 52.6,
       "overdose_rate": 52.6,
-      "population": 733406.0
+      "age_adjusted_rate": 53.5
     }
   ],
   "Arizona": [
     {
       "year": 2018,
       "deaths": 1893.0,
+      "population": 7171646.0,
+      "crude_rate": 26.4,
       "overdose_rate": 26.4,
-      "population": 7171646.0
+      "age_adjusted_rate": 27.5
     },
     {
       "year": 2019,
       "deaths": 2090.0,
+      "population": 7278717.0,
+      "crude_rate": 28.7,
       "overdose_rate": 28.7,
-      "population": 7278717.0
+      "age_adjusted_rate": 29.9
     },
     {
       "year": 2020,
       "deaths": 2745.0,
+      "population": 7421401.0,
+      "crude_rate": 37.0,
       "overdose_rate": 37.0,
-      "population": 7421401.0
+      "age_adjusted_rate": 39.0
     },
     {
       "year": 2021,
       "deaths": 2951.0,
+      "population": 7276316.0,
+      "crude_rate": 40.6,
       "overdose_rate": 40.6,
-      "population": 7276316.0
+      "age_adjusted_rate": 42.7
     },
     {
       "year": 2022,
       "deaths": 2898.0,
+      "population": 7359197.0,
+      "crude_rate": 39.4,
       "overdose_rate": 39.4,
-      "population": 7359197.0
+      "age_adjusted_rate": 41.3
     },
     {
       "year": 2023,
       "deaths": 2837.0,
+      "population": 7431344.0,
+      "crude_rate": 38.2,
       "overdose_rate": 38.2,
-      "population": 7431344.0
+      "age_adjusted_rate": 39.8
     }
   ],
   "Arkansas": [
     {
       "year": 2018,
       "deaths": 565.0,
+      "population": 3013825.0,
+      "crude_rate": 18.7,
       "overdose_rate": 18.7,
-      "population": 3013825.0
+      "age_adjusted_rate": 20.3
     },
     {
       "year": 2019,
       "deaths": 502.0,
+      "population": 3017804.0,
+      "crude_rate": 16.6,
       "overdose_rate": 16.6,
-      "population": 3017804.0
+      "age_adjusted_rate": 17.9
     },
     {
       "year": 2020,
       "deaths": 665.0,
+      "population": 3030522.0,
+      "crude_rate": 21.9,
       "overdose_rate": 21.9,
-      "population": 3030522.0
+      "age_adjusted_rate": 23.7
     },
     {
       "year": 2021,
       "deaths": 760.0,
+      "population": 3025891.0,
+      "crude_rate": 25.1,
       "overdose_rate": 25.1,
-      "population": 3025891.0
+      "age_adjusted_rate": 27.2
     },
     {
       "year": 2022,
       "deaths": 728.0,
+      "population": 3045637.0,
+      "crude_rate": 23.9,
       "overdose_rate": 23.9,
-      "population": 3045637.0
+      "age_adjusted_rate": 25.9
     },
     {
       "year": 2023,
       "deaths": 663.0,
+      "population": 3067732.0,
+      "crude_rate": 21.6,
       "overdose_rate": 21.6,
-      "population": 3067732.0
+      "age_adjusted_rate": 23.4
     }
   ],
   "California": [
     {
       "year": 2018,
       "deaths": 6346.0,
+      "population": 39557045.0,
+      "crude_rate": 16.0,
       "overdose_rate": 16.0,
-      "population": 39557045.0
+      "age_adjusted_rate": 15.7
     },
     {
       "year": 2019,
       "deaths": 7152.0,
+      "population": 39512223.0,
+      "crude_rate": 18.1,
       "overdose_rate": 18.1,
-      "population": 39512223.0
+      "age_adjusted_rate": 17.8
     },
     {
       "year": 2020,
       "deaths": 9788.0,
+      "population": 39368078.0,
+      "crude_rate": 24.9,
       "overdose_rate": 24.9,
-      "population": 39368078.0
+      "age_adjusted_rate": 24.5
     },
     {
       "year": 2021,
       "deaths": 11784.0,
+      "population": 39237836.0,
+      "crude_rate": 30.0,
       "overdose_rate": 30.0,
-      "population": 39237836.0
+      "age_adjusted_rate": 29.5
     },
     {
       "year": 2022,
       "deaths": 11862.0,
+      "population": 39029342.0,
+      "crude_rate": 30.4,
       "overdose_rate": 30.4,
-      "population": 39029342.0
+      "age_adjusted_rate": 29.9
     },
     {
       "year": 2023,
       "deaths": 12238.0,
+      "population": 38965193.0,
+      "crude_rate": 31.4,
       "overdose_rate": 31.4,
-      "population": 38965193.0
+      "age_adjusted_rate": 30.8
     }
   ],
   "Colorado": [
     {
       "year": 2018,
       "deaths": 1153.0,
+      "population": 5695564.0,
+      "crude_rate": 20.2,
       "overdose_rate": 20.2,
-      "population": 5695564.0
+      "age_adjusted_rate": 20.1
     },
     {
       "year": 2019,
       "deaths": 1237.0,
+      "population": 5758736.0,
+      "crude_rate": 21.5,
       "overdose_rate": 21.5,
-      "population": 5758736.0
+      "age_adjusted_rate": 21.4
     },
     {
       "year": 2020,
       "deaths": 1659.0,
+      "population": 5807719.0,
+      "crude_rate": 28.6,
       "overdose_rate": 28.6,
-      "population": 5807719.0
+      "age_adjusted_rate": 28.5
     },
     {
       "year": 2021,
       "deaths": 2054.0,
+      "population": 5812069.0,
+      "crude_rate": 35.3,
       "overdose_rate": 35.3,
-      "population": 5812069.0
+      "age_adjusted_rate": 35.2
     },
     {
       "year": 2022,
       "deaths": 1957.0,
+      "population": 5839926.0,
+      "crude_rate": 33.5,
       "overdose_rate": 33.5,
-      "population": 5839926.0
+      "age_adjusted_rate": 33.0
     },
     {
       "year": 2023,
       "deaths": 2027.0,
+      "population": 5877610.0,
+      "crude_rate": 34.5,
       "overdose_rate": 34.5,
-      "population": 5877610.0
+      "age_adjusted_rate": 34.0
     }
   ],
   "Connecticut": [
     {
       "year": 2018,
       "deaths": 1151.0,
+      "population": 3572665.0,
+      "crude_rate": 32.2,
       "overdose_rate": 32.2,
-      "population": 3572665.0
+      "age_adjusted_rate": 33.9
     },
     {
       "year": 2019,
       "deaths": 1296.0,
+      "population": 3565287.0,
+      "crude_rate": 36.4,
       "overdose_rate": 36.4,
-      "population": 3565287.0
+      "age_adjusted_rate": 37.9
     },
     {
       "year": 2020,
       "deaths": 1453.0,
+      "population": 3557006.0,
+      "crude_rate": 40.8,
       "overdose_rate": 40.8,
-      "population": 3557006.0
+      "age_adjusted_rate": 42.4
     },
     {
       "year": 2021,
       "deaths": 1642.0,
+      "population": 3605597.0,
+      "crude_rate": 45.5,
       "overdose_rate": 45.5,
-      "population": 3605597.0
+      "age_adjusted_rate": 46.1
     },
     {
       "year": 2022,
       "deaths": 1564.0,
+      "population": 3626205.0,
+      "crude_rate": 43.1,
       "overdose_rate": 43.1,
-      "population": 3626205.0
+      "age_adjusted_rate": 43.4
     },
     {
       "year": 2023,
       "deaths": 1404.0,
+      "population": 3617176.0,
+      "crude_rate": 38.8,
       "overdose_rate": 38.8,
-      "population": 3617176.0
+      "age_adjusted_rate": 38.6
     }
   ],
   "Delaware": [
     {
       "year": 2018,
       "deaths": 429.0,
+      "population": 967171.0,
+      "crude_rate": 44.4,
       "overdose_rate": 44.4,
-      "population": 967171.0
+      "age_adjusted_rate": 47.5
     },
     {
       "year": 2019,
       "deaths": 473.0,
+      "population": 973764.0,
+      "crude_rate": 48.6,
       "overdose_rate": 48.6,
-      "population": 973764.0
+      "age_adjusted_rate": 53.0
     },
     {
       "year": 2020,
       "deaths": 474.0,
+      "population": 986809.0,
+      "crude_rate": 48.0,
       "overdose_rate": 48.0,
-      "population": 986809.0
+      "age_adjusted_rate": 51.2
     },
     {
       "year": 2021,
       "deaths": 539.0,
+      "population": 1003384.0,
+      "crude_rate": 53.7,
       "overdose_rate": 53.7,
-      "population": 1003384.0
+      "age_adjusted_rate": 57.5
     },
     {
       "year": 2022,
       "deaths": 601.0,
+      "population": 1018396.0,
+      "crude_rate": 59.0,
       "overdose_rate": 59.0,
-      "population": 1018396.0
+      "age_adjusted_rate": 62.0
     },
     {
       "year": 2023,
       "deaths": 554.0,
+      "population": 1031890.0,
+      "crude_rate": 53.7,
       "overdose_rate": 53.7,
-      "population": 1031890.0
+      "age_adjusted_rate": 56.8
     }
   ],
   "District of Columbia": [
     {
       "year": 2018,
       "deaths": 285.0,
+      "population": 702455.0,
+      "crude_rate": 40.6,
       "overdose_rate": 40.6,
-      "population": 702455.0
+      "age_adjusted_rate": 39.7
     },
     {
       "year": 2019,
       "deaths": 333.0,
+      "population": 705749.0,
+      "crude_rate": 47.2,
       "overdose_rate": 47.2,
-      "population": 705749.0
+      "age_adjusted_rate": 46.4
     },
     {
       "year": 2020,
       "deaths": 443.0,
+      "population": 712816.0,
+      "crude_rate": 62.1,
       "overdose_rate": 62.1,
-      "population": 712816.0
+      "age_adjusted_rate": 60.9
     },
     {
       "year": 2021,
       "deaths": 480.0,
+      "population": 670050.0,
+      "crude_rate": 71.6,
       "overdose_rate": 71.6,
-      "population": 670050.0
+      "age_adjusted_rate": 68.4
     },
     {
       "year": 2022,
       "deaths": 471.0,
+      "population": 671803.0,
+      "crude_rate": 70.1,
       "overdose_rate": 70.1,
-      "population": 671803.0
+      "age_adjusted_rate": 67.6
     },
     {
       "year": 2023,
       "deaths": 447.0,
+      "population": 678972.0,
+      "crude_rate": 65.8,
       "overdose_rate": 65.8,
-      "population": 678972.0
+      "age_adjusted_rate": 64.2
     }
   ],
   "Florida": [
     {
       "year": 2018,
       "deaths": 5398.0,
+      "population": 21299325.0,
+      "crude_rate": 25.3,
       "overdose_rate": 25.3,
-      "population": 21299325.0
+      "age_adjusted_rate": 27.1
     },
     {
       "year": 2019,
       "deaths": 5984.0,
+      "population": 21477737.0,
+      "crude_rate": 27.9,
       "overdose_rate": 27.9,
-      "population": 21477737.0
+      "age_adjusted_rate": 30.0
     },
     {
       "year": 2020,
       "deaths": 7866.0,
+      "population": 21733312.0,
+      "crude_rate": 36.2,
       "overdose_rate": 36.2,
-      "population": 21733312.0
+      "age_adjusted_rate": 39.0
     },
     {
       "year": 2021,
       "deaths": 8498.0,
+      "population": 21781128.0,
+      "crude_rate": 39.0,
       "overdose_rate": 39.0,
-      "population": 21781128.0
+      "age_adjusted_rate": 41.9
     },
     {
       "year": 2022,
       "deaths": 8252.0,
+      "population": 22244823.0,
+      "crude_rate": 37.1,
       "overdose_rate": 37.1,
-      "population": 22244823.0
+      "age_adjusted_rate": 39.6
     },
     {
       "year": 2023,
       "deaths": 7741.0,
+      "population": 22610726.0,
+      "crude_rate": 34.2,
       "overdose_rate": 34.2,
-      "population": 22610726.0
+      "age_adjusted_rate": 36.2
     }
   ],
   "Georgia": [
     {
       "year": 2018,
       "deaths": 1870.0,
+      "population": 10519475.0,
+      "crude_rate": 17.8,
       "overdose_rate": 17.8,
-      "population": 10519475.0
+      "age_adjusted_rate": 18.3
     },
     {
       "year": 2019,
       "deaths": 1888.0,
+      "population": 10617423.0,
+      "crude_rate": 17.8,
       "overdose_rate": 17.8,
-      "population": 10617423.0
+      "age_adjusted_rate": 18.3
     },
     {
       "year": 2020,
       "deaths": 2288.0,
+      "population": 10710017.0,
+      "crude_rate": 21.4,
       "overdose_rate": 21.4,
-      "population": 10710017.0
+      "age_adjusted_rate": 22.1
     },
     {
       "year": 2021,
       "deaths": 2847.0,
+      "population": 10799566.0,
+      "crude_rate": 26.4,
       "overdose_rate": 26.4,
-      "population": 10799566.0
+      "age_adjusted_rate": 27.5
     },
     {
       "year": 2022,
       "deaths": 3110.0,
+      "population": 10912876.0,
+      "crude_rate": 28.5,
       "overdose_rate": 28.5,
-      "population": 10912876.0
+      "age_adjusted_rate": 29.6
     },
     {
       "year": 2023,
       "deaths": 3002.0,
+      "population": 11029227.0,
+      "crude_rate": 27.2,
       "overdose_rate": 27.2,
-      "population": 11029227.0
+      "age_adjusted_rate": 28.3
     }
   ],
   "Hawaii": [
     {
       "year": 2018,
       "deaths": 269.0,
+      "population": 1420491.0,
+      "crude_rate": 18.9,
       "overdose_rate": 18.9,
-      "population": 1420491.0
+      "age_adjusted_rate": 18.8
     },
     {
       "year": 2019,
       "deaths": 289.0,
+      "population": 1415872.0,
+      "crude_rate": 20.4,
       "overdose_rate": 20.4,
-      "population": 1415872.0
+      "age_adjusted_rate": 19.8
     },
     {
       "year": 2020,
       "deaths": 309.0,
+      "population": 1407006.0,
+      "crude_rate": 22.0,
       "overdose_rate": 22.0,
-      "population": 1407006.0
+      "age_adjusted_rate": 21.3
     },
     {
       "year": 2021,
       "deaths": 307.0,
+      "population": 1441553.0,
+      "crude_rate": 21.3,
       "overdose_rate": 21.3,
-      "population": 1441553.0
+      "age_adjusted_rate": 20.6
     },
     {
       "year": 2022,
       "deaths": 335.0,
+      "population": 1440196.0,
+      "crude_rate": 23.3,
       "overdose_rate": 23.3,
-      "population": 1440196.0
+      "age_adjusted_rate": 23.0
     },
     {
       "year": 2023,
       "deaths": 349.0,
+      "population": 1435138.0,
+      "crude_rate": 24.3,
       "overdose_rate": 24.3,
-      "population": 1435138.0
+      "age_adjusted_rate": 24.0
     }
   ],
   "Idaho": [
     {
       "year": 2018,
       "deaths": 305.0,
+      "population": 1754208.0,
+      "crude_rate": 17.4,
       "overdose_rate": 17.4,
-      "population": 1754208.0
+      "age_adjusted_rate": 18.0
     },
     {
       "year": 2019,
       "deaths": 307.0,
+      "population": 1787065.0,
+      "crude_rate": 17.2,
       "overdose_rate": 17.2,
-      "population": 1787065.0
+      "age_adjusted_rate": 17.7
     },
     {
       "year": 2020,
       "deaths": 335.0,
+      "population": 1826913.0,
+      "crude_rate": 18.3,
       "overdose_rate": 18.3,
-      "population": 1826913.0
+      "age_adjusted_rate": 19.0
     },
     {
       "year": 2021,
       "deaths": 408.0,
+      "population": 1900923.0,
+      "crude_rate": 21.5,
       "overdose_rate": 21.5,
-      "population": 1900923.0
+      "age_adjusted_rate": 22.5
     },
     {
       "year": 2022,
       "deaths": 442.0,
+      "population": 1939033.0,
+      "crude_rate": 22.8,
       "overdose_rate": 22.8,
-      "population": 1939033.0
+      "age_adjusted_rate": 24.2
     },
     {
       "year": 2023,
       "deaths": 429.0,
+      "population": 1964726.0,
+      "crude_rate": 21.8,
       "overdose_rate": 21.8,
-      "population": 1964726.0
+      "age_adjusted_rate": 23.1
     }
   ],
   "Illinois": [
     {
       "year": 2018,
       "deaths": 3233.0,
+      "population": 12741080.0,
+      "crude_rate": 25.4,
       "overdose_rate": 25.4,
-      "population": 12741080.0
+      "age_adjusted_rate": 26.1
     },
     {
       "year": 2019,
       "deaths": 3218.0,
+      "population": 12671821.0,
+      "crude_rate": 25.4,
       "overdose_rate": 25.4,
-      "population": 12671821.0
+      "age_adjusted_rate": 26.0
     },
     {
       "year": 2020,
       "deaths": 3949.0,
+      "population": 12587530.0,
+      "crude_rate": 31.4,
       "overdose_rate": 31.4,
-      "population": 12587530.0
+      "age_adjusted_rate": 32.0
     },
     {
       "year": 2021,
       "deaths": 4124.0,
+      "population": 12671469.0,
+      "crude_rate": 32.5,
       "overdose_rate": 32.5,
-      "population": 12671469.0
+      "age_adjusted_rate": 32.8
     },
     {
       "year": 2022,
       "deaths": 4271.0,
+      "population": 12582032.0,
+      "crude_rate": 33.9,
       "overdose_rate": 33.9,
-      "population": 12582032.0
+      "age_adjusted_rate": 34.4
     },
     {
       "year": 2023,
       "deaths": 3931.0,
+      "population": 12549689.0,
+      "crude_rate": 31.3,
       "overdose_rate": 31.3,
-      "population": 12549689.0
+      "age_adjusted_rate": 31.7
     }
   ],
   "Indiana": [
     {
       "year": 2018,
       "deaths": 1901.0,
+      "population": 6691878.0,
+      "crude_rate": 28.4,
       "overdose_rate": 28.4,
-      "population": 6691878.0
+      "age_adjusted_rate": 30.3
     },
     {
       "year": 2019,
       "deaths": 1906.0,
+      "population": 6732219.0,
+      "crude_rate": 28.3,
       "overdose_rate": 28.3,
-      "population": 6732219.0
+      "age_adjusted_rate": 30.2
     },
     {
       "year": 2020,
       "deaths": 2546.0,
+      "population": 6754953.0,
+      "crude_rate": 37.7,
       "overdose_rate": 37.7,
-      "population": 6754953.0
+      "age_adjusted_rate": 40.5
     },
     {
       "year": 2021,
       "deaths": 3048.0,
+      "population": 6805985.0,
+      "crude_rate": 44.8,
       "overdose_rate": 44.8,
-      "population": 6805985.0
+      "age_adjusted_rate": 47.3
     },
     {
       "year": 2022,
       "deaths": 2971.0,
+      "population": 6833037.0,
+      "crude_rate": 43.5,
       "overdose_rate": 43.5,
-      "population": 6833037.0
+      "age_adjusted_rate": 46.0
     },
     {
       "year": 2023,
       "deaths": 2504.0,
+      "population": 6862199.0,
+      "crude_rate": 36.5,
       "overdose_rate": 36.5,
-      "population": 6862199.0
+      "age_adjusted_rate": 38.7
     }
   ],
   "Iowa": [
     {
       "year": 2018,
       "deaths": 367.0,
+      "population": 3156145.0,
+      "crude_rate": 11.6,
       "overdose_rate": 11.6,
-      "population": 3156145.0
+      "age_adjusted_rate": 12.5
     },
     {
       "year": 2019,
       "deaths": 430.0,
+      "population": 3155070.0,
+      "crude_rate": 13.6,
       "overdose_rate": 13.6,
-      "population": 3155070.0
+      "age_adjusted_rate": 14.4
     },
     {
       "year": 2020,
       "deaths": 505.0,
+      "population": 3163561.0,
+      "crude_rate": 16.0,
       "overdose_rate": 16.0,
-      "population": 3163561.0
+      "age_adjusted_rate": 17.1
     },
     {
       "year": 2021,
       "deaths": 552.0,
+      "population": 3193079.0,
+      "crude_rate": 17.3,
       "overdose_rate": 17.3,
-      "population": 3193079.0
+      "age_adjusted_rate": 18.3
     },
     {
       "year": 2022,
       "deaths": 547.0,
+      "population": 3200517.0,
+      "crude_rate": 17.1,
       "overdose_rate": 17.1,
-      "population": 3200517.0
+      "age_adjusted_rate": 18.2
     },
     {
       "year": 2023,
       "deaths": 546.0,
+      "population": 3207004.0,
+      "crude_rate": 17.0,
       "overdose_rate": 17.0,
-      "population": 3207004.0
+      "age_adjusted_rate": 18.0
     }
   ],
   "Kansas": [
     {
       "year": 2018,
       "deaths": 452.0,
+      "population": 2911505.0,
+      "crude_rate": 15.5,
       "overdose_rate": 15.5,
-      "population": 2911505.0
+      "age_adjusted_rate": 16.5
     },
     {
       "year": 2019,
       "deaths": 494.0,
+      "population": 2913314.0,
+      "crude_rate": 17.0,
       "overdose_rate": 17.0,
-      "population": 2913314.0
+      "age_adjusted_rate": 17.8
     },
     {
       "year": 2020,
       "deaths": 592.0,
+      "population": 2913805.0,
+      "crude_rate": 20.3,
       "overdose_rate": 20.3,
-      "population": 2913805.0
+      "age_adjusted_rate": 21.4
     },
     {
       "year": 2021,
       "deaths": 755.0,
+      "population": 2934582.0,
+      "crude_rate": 25.7,
       "overdose_rate": 25.7,
-      "population": 2934582.0
+      "age_adjusted_rate": 27.4
     },
     {
       "year": 2022,
       "deaths": 841.0,
+      "population": 2937150.0,
+      "crude_rate": 28.6,
       "overdose_rate": 28.6,
-      "population": 2937150.0
+      "age_adjusted_rate": 29.9
     },
     {
       "year": 2023,
       "deaths": 758.0,
+      "population": 2940546.0,
+      "crude_rate": 25.8,
       "overdose_rate": 25.8,
-      "population": 2940546.0
+      "age_adjusted_rate": 27.0
     }
   ],
   "Kentucky": [
     {
       "year": 2018,
       "deaths": 1433.0,
+      "population": 4468402.0,
+      "crude_rate": 32.1,
       "overdose_rate": 32.1,
-      "population": 4468402.0
+      "age_adjusted_rate": 33.9
     },
     {
       "year": 2019,
       "deaths": 1501.0,
+      "population": 4467673.0,
+      "crude_rate": 33.6,
       "overdose_rate": 33.6,
-      "population": 4467673.0
+      "age_adjusted_rate": 35.7
     },
     {
       "year": 2020,
       "deaths": 2218.0,
+      "population": 4477251.0,
+      "crude_rate": 49.5,
       "overdose_rate": 49.5,
-      "population": 4477251.0
+      "age_adjusted_rate": 52.7
     },
     {
       "year": 2021,
       "deaths": 2502.0,
+      "population": 4509394.0,
+      "crude_rate": 55.5,
       "overdose_rate": 55.5,
-      "population": 4509394.0
+      "age_adjusted_rate": 58.9
     },
     {
       "year": 2022,
       "deaths": 2397.0,
+      "population": 4512310.0,
+      "crude_rate": 53.1,
       "overdose_rate": 53.1,
-      "population": 4512310.0
+      "age_adjusted_rate": 56.5
     },
     {
       "year": 2023,
       "deaths": 2210.0,
+      "population": 4526154.0,
+      "crude_rate": 48.8,
       "overdose_rate": 48.8,
-      "population": 4526154.0
+      "age_adjusted_rate": 51.5
     }
   ],
   "Louisiana": [
     {
       "year": 2018,
       "deaths": 1350.0,
+      "population": 4659978.0,
+      "crude_rate": 29.0,
       "overdose_rate": 29.0,
-      "population": 4659978.0
+      "age_adjusted_rate": 30.3
     },
     {
       "year": 2019,
       "deaths": 1477.0,
+      "population": 4648794.0,
+      "crude_rate": 31.8,
       "overdose_rate": 31.8,
-      "population": 4648794.0
+      "age_adjusted_rate": 33.3
     },
     {
       "year": 2020,
       "deaths": 2079.0,
+      "population": 4645318.0,
+      "crude_rate": 44.8,
       "overdose_rate": 44.8,
-      "population": 4645318.0
+      "age_adjusted_rate": 47.1
     },
     {
       "year": 2021,
       "deaths": 2628.0,
+      "population": 4624047.0,
+      "crude_rate": 56.8,
       "overdose_rate": 56.8,
-      "population": 4624047.0
+      "age_adjusted_rate": 60.0
     },
     {
       "year": 2022,
       "deaths": 2579.0,
+      "population": 4590241.0,
+      "crude_rate": 56.2,
       "overdose_rate": 56.2,
-      "population": 4590241.0
+      "age_adjusted_rate": 59.4
     },
     {
       "year": 2023,
       "deaths": 2395.0,
+      "population": 4573749.0,
+      "crude_rate": 52.4,
       "overdose_rate": 52.4,
-      "population": 4573749.0
+      "age_adjusted_rate": 54.9
     }
   ],
   "Maine": [
     {
       "year": 2018,
       "deaths": 376.0,
+      "population": 1338404.0,
+      "crude_rate": 28.1,
       "overdose_rate": 28.1,
-      "population": 1338404.0
+      "age_adjusted_rate": 31.4
     },
     {
       "year": 2019,
       "deaths": 402.0,
+      "population": 1344212.0,
+      "crude_rate": 29.9,
       "overdose_rate": 29.9,
-      "population": 1344212.0
+      "age_adjusted_rate": 33.5
     },
     {
       "year": 2020,
       "deaths": 537.0,
+      "population": 1350141.0,
+      "crude_rate": 39.8,
       "overdose_rate": 39.8,
-      "population": 1350141.0
+      "age_adjusted_rate": 44.3
     },
     {
       "year": 2021,
       "deaths": 636.0,
+      "population": 1372247.0,
+      "crude_rate": 46.3,
       "overdose_rate": 46.3,
-      "population": 1372247.0
+      "age_adjusted_rate": 50.1
     },
     {
       "year": 2022,
       "deaths": 749.0,
+      "population": 1385340.0,
+      "crude_rate": 54.1,
       "overdose_rate": 54.1,
-      "population": 1385340.0
+      "age_adjusted_rate": 59.1
     },
     {
       "year": 2023,
       "deaths": 639.0,
+      "population": 1395722.0,
+      "crude_rate": 45.8,
       "overdose_rate": 45.8,
-      "population": 1395722.0
+      "age_adjusted_rate": 49.6
     }
   ],
   "Maryland": [
     {
       "year": 2018,
       "deaths": 2579.0,
+      "population": 6042718.0,
+      "crude_rate": 42.7,
       "overdose_rate": 42.7,
-      "population": 6042718.0
+      "age_adjusted_rate": 42.2
     },
     {
       "year": 2019,
       "deaths": 2597.0,
+      "population": 6045680.0,
+      "crude_rate": 43.0,
       "overdose_rate": 43.0,
-      "population": 6045680.0
+      "age_adjusted_rate": 42.7
     },
     {
       "year": 2020,
       "deaths": 3012.0,
+      "population": 6055802.0,
+      "crude_rate": 49.7,
       "overdose_rate": 49.7,
-      "population": 6055802.0
+      "age_adjusted_rate": 49.3
     },
     {
       "year": 2021,
       "deaths": 2962.0,
+      "population": 6165129.0,
+      "crude_rate": 48.0,
       "overdose_rate": 48.0,
-      "population": 6165129.0
+      "age_adjusted_rate": 47.5
     },
     {
       "year": 2022,
       "deaths": 2816.0,
+      "population": 6164660.0,
+      "crude_rate": 45.7,
       "overdose_rate": 45.7,
-      "population": 6164660.0
+      "age_adjusted_rate": 45.1
     },
     {
       "year": 2023,
       "deaths": 2745.0,
+      "population": 6180253.0,
+      "crude_rate": 44.4,
       "overdose_rate": 44.4,
-      "population": 6180253.0
+      "age_adjusted_rate": 43.2
     }
   ],
   "Massachusetts": [
     {
       "year": 2018,
       "deaths": 2416.0,
+      "population": 6902149.0,
+      "crude_rate": 35.0,
       "overdose_rate": 35.0,
-      "population": 6902149.0
+      "age_adjusted_rate": 36.2
     },
     {
       "year": 2019,
       "deaths": 2358.0,
+      "population": 6892503.0,
+      "crude_rate": 34.2,
       "overdose_rate": 34.2,
-      "population": 6892503.0
+      "age_adjusted_rate": 35.0
     },
     {
       "year": 2020,
       "deaths": 2454.0,
+      "population": 6893574.0,
+      "crude_rate": 35.6,
       "overdose_rate": 35.6,
-      "population": 6893574.0
+      "age_adjusted_rate": 36.9
     },
     {
       "year": 2021,
       "deaths": 2708.0,
+      "population": 6984723.0,
+      "crude_rate": 38.8,
       "overdose_rate": 38.8,
-      "population": 6984723.0
+      "age_adjusted_rate": 39.3
     },
     {
       "year": 2022,
       "deaths": 2767.0,
+      "population": 6981974.0,
+      "crude_rate": 39.6,
       "overdose_rate": 39.6,
-      "population": 6981974.0
+      "age_adjusted_rate": 39.8
     },
     {
       "year": 2023,
       "deaths": 2511.0,
+      "population": 7001399.0,
+      "crude_rate": 35.9,
       "overdose_rate": 35.9,
-      "population": 7001399.0
+      "age_adjusted_rate": 36.1
     }
   ],
   "Michigan": [
     {
       "year": 2018,
       "deaths": 2936.0,
+      "population": 9995915.0,
+      "crude_rate": 29.4,
       "overdose_rate": 29.4,
-      "population": 9995915.0
+      "age_adjusted_rate": 31.0
     },
     {
       "year": 2019,
       "deaths": 2759.0,
+      "population": 9986857.0,
+      "crude_rate": 27.6,
       "overdose_rate": 27.6,
-      "population": 9986857.0
+      "age_adjusted_rate": 29.2
     },
     {
       "year": 2020,
       "deaths": 3123.0,
+      "population": 9966555.0,
+      "crude_rate": 31.3,
       "overdose_rate": 31.3,
-      "population": 9966555.0
+      "age_adjusted_rate": 33.3
     },
     {
       "year": 2021,
       "deaths": 3456.0,
+      "population": 10050811.0,
+      "crude_rate": 34.4,
       "overdose_rate": 34.4,
-      "population": 10050811.0
+      "age_adjusted_rate": 36.4
     },
     {
       "year": 2022,
       "deaths": 3327.0,
+      "population": 10034113.0,
+      "crude_rate": 33.2,
       "overdose_rate": 33.2,
-      "population": 10034113.0
+      "age_adjusted_rate": 35.0
     },
     {
       "year": 2023,
       "deaths": 3176.0,
+      "population": 10037261.0,
+      "crude_rate": 31.6,
       "overdose_rate": 31.6,
-      "population": 10037261.0
+      "age_adjusted_rate": 32.9
     }
   ],
   "Minnesota": [
     {
       "year": 2018,
       "deaths": 800.0,
+      "population": 5611179.0,
+      "crude_rate": 14.3,
       "overdose_rate": 14.3,
-      "population": 5611179.0
+      "age_adjusted_rate": 14.8
     },
     {
       "year": 2019,
       "deaths": 933.0,
+      "population": 5639632.0,
+      "crude_rate": 16.5,
       "overdose_rate": 16.5,
-      "population": 5639632.0
+      "age_adjusted_rate": 17.1
     },
     {
       "year": 2020,
       "deaths": 1182.0,
+      "population": 5657342.0,
+      "crude_rate": 20.9,
       "overdose_rate": 20.9,
-      "population": 5657342.0
+      "age_adjusted_rate": 21.8
     },
     {
       "year": 2021,
       "deaths": 1499.0,
+      "population": 5707390.0,
+      "crude_rate": 26.3,
       "overdose_rate": 26.3,
-      "population": 5707390.0
+      "age_adjusted_rate": 27.7
     },
     {
       "year": 2022,
       "deaths": 1536.0,
+      "population": 5717184.0,
+      "crude_rate": 26.9,
       "overdose_rate": 26.9,
-      "population": 5717184.0
+      "age_adjusted_rate": 28.1
     },
     {
       "year": 2023,
       "deaths": 1458.0,
+      "population": 5737915.0,
+      "crude_rate": 25.4,
       "overdose_rate": 25.4,
-      "population": 5737915.0
+      "age_adjusted_rate": 26.3
     }
   ],
   "Mississippi": [
     {
       "year": 2018,
       "deaths": 450.0,
+      "population": 2986530.0,
+      "crude_rate": 15.1,
       "overdose_rate": 15.1,
-      "population": 2986530.0
+      "age_adjusted_rate": 16.2
     },
     {
       "year": 2019,
       "deaths": 534.0,
+      "population": 2976149.0,
+      "crude_rate": 17.9,
       "overdose_rate": 17.9,
-      "population": 2976149.0
+      "age_adjusted_rate": 19.1
     },
     {
       "year": 2020,
       "deaths": 719.0,
+      "population": 2966786.0,
+      "crude_rate": 24.2,
       "overdose_rate": 24.2,
-      "population": 2966786.0
+      "age_adjusted_rate": 26.3
     },
     {
       "year": 2021,
       "deaths": 925.0,
+      "population": 2949965.0,
+      "crude_rate": 31.4,
       "overdose_rate": 31.4,
-      "population": 2949965.0
+      "age_adjusted_rate": 33.9
     },
     {
       "year": 2022,
       "deaths": 899.0,
+      "population": 2940057.0,
+      "crude_rate": 30.6,
       "overdose_rate": 30.6,
-      "population": 2940057.0
+      "age_adjusted_rate": 33.2
     },
     {
       "year": 2023,
       "deaths": 837.0,
+      "population": 2939690.0,
+      "crude_rate": 28.5,
       "overdose_rate": 28.5,
-      "population": 2939690.0
+      "age_adjusted_rate": 30.7
     }
   ],
   "Missouri": [
     {
       "year": 2018,
       "deaths": 1817.0,
+      "population": 6126452.0,
+      "crude_rate": 29.7,
       "overdose_rate": 29.7,
-      "population": 6126452.0
+      "age_adjusted_rate": 31.4
     },
     {
       "year": 2019,
       "deaths": 1778.0,
+      "population": 6137428.0,
+      "crude_rate": 29.0,
       "overdose_rate": 29.0,
-      "population": 6137428.0
+      "age_adjusted_rate": 30.7
     },
     {
       "year": 2020,
       "deaths": 2046.0,
+      "population": 6151548.0,
+      "crude_rate": 33.3,
       "overdose_rate": 33.3,
-      "population": 6151548.0
+      "age_adjusted_rate": 35.4
     },
     {
       "year": 2021,
       "deaths": 2337.0,
+      "population": 6168187.0,
+      "crude_rate": 37.9,
       "overdose_rate": 37.9,
-      "population": 6168187.0
+      "age_adjusted_rate": 40.2
     },
     {
       "year": 2022,
       "deaths": 2408.0,
+      "population": 6177957.0,
+      "crude_rate": 39.0,
       "overdose_rate": 39.0,
-      "population": 6177957.0
+      "age_adjusted_rate": 41.2
     },
     {
       "year": 2023,
       "deaths": 2162.0,
+      "population": 6196156.0,
+      "crude_rate": 34.9,
       "overdose_rate": 34.9,
-      "population": 6196156.0
+      "age_adjusted_rate": 37.1
     }
   ],
   "Montana": [
     {
       "year": 2018,
       "deaths": 150.0,
+      "population": 1062305.0,
+      "crude_rate": 14.1,
       "overdose_rate": 14.1,
-      "population": 1062305.0
+      "age_adjusted_rate": 15.0
     },
     {
       "year": 2019,
       "deaths": 164.0,
+      "population": 1068778.0,
+      "crude_rate": 15.3,
       "overdose_rate": 15.3,
-      "population": 1068778.0
+      "age_adjusted_rate": 16.6
     },
     {
       "year": 2020,
       "deaths": 183.0,
+      "population": 1080577.0,
+      "crude_rate": 16.9,
       "overdose_rate": 16.9,
-      "population": 1080577.0
+      "age_adjusted_rate": 18.1
     },
     {
       "year": 2021,
       "deaths": 218.0,
+      "population": 1104271.0,
+      "crude_rate": 19.7,
       "overdose_rate": 19.7,
-      "population": 1104271.0
+      "age_adjusted_rate": 21.9
     },
     {
       "year": 2022,
       "deaths": 231.0,
+      "population": 1122867.0,
+      "crude_rate": 20.6,
       "overdose_rate": 20.6,
-      "population": 1122867.0
+      "age_adjusted_rate": 22.2
     },
     {
       "year": 2023,
       "deaths": 218.0,
+      "population": 1132812.0,
+      "crude_rate": 19.2,
       "overdose_rate": 19.2,
-      "population": 1132812.0
+      "age_adjusted_rate": 20.8
     }
   ],
   "Nebraska": [
     {
       "year": 2018,
       "deaths": 215.0,
+      "population": 1929268.0,
+      "crude_rate": 11.1,
       "overdose_rate": 11.1,
-      "population": 1929268.0
+      "age_adjusted_rate": 11.5
     },
     {
       "year": 2019,
       "deaths": 213.0,
+      "population": 1934408.0,
+      "crude_rate": 11.0,
       "overdose_rate": 11.0,
-      "population": 1934408.0
+      "age_adjusted_rate": 11.5
     },
     {
       "year": 2020,
       "deaths": 270.0,
+      "population": 1937552.0,
+      "crude_rate": 13.9,
       "overdose_rate": 13.9,
-      "population": 1937552.0
+      "age_adjusted_rate": 14.4
     },
     {
       "year": 2021,
       "deaths": 271.0,
+      "population": 1963692.0,
+      "crude_rate": 13.8,
       "overdose_rate": 13.8,
-      "population": 1963692.0
+      "age_adjusted_rate": 14.7
     },
     {
       "year": 2022,
       "deaths": 291.0,
+      "population": 1967923.0,
+      "crude_rate": 14.8,
       "overdose_rate": 14.8,
-      "population": 1967923.0
+      "age_adjusted_rate": 15.6
     },
     {
       "year": 2023,
       "deaths": 243.0,
+      "population": 1978379.0,
+      "crude_rate": 12.3,
       "overdose_rate": 12.3,
-      "population": 1978379.0
+      "age_adjusted_rate": 13.1
     }
   ],
   "Nevada": [
     {
       "year": 2018,
       "deaths": 782.0,
+      "population": 3034392.0,
+      "crude_rate": 25.8,
       "overdose_rate": 25.8,
-      "population": 3034392.0
+      "age_adjusted_rate": 24.8
     },
     {
       "year": 2019,
       "deaths": 725.0,
+      "population": 3080156.0,
+      "crude_rate": 23.5,
       "overdose_rate": 23.5,
-      "population": 3080156.0
+      "age_adjusted_rate": 23.1
     },
     {
       "year": 2020,
       "deaths": 903.0,
+      "population": 3138259.0,
+      "crude_rate": 28.8,
       "overdose_rate": 28.8,
-      "population": 3138259.0
+      "age_adjusted_rate": 28.7
     },
     {
       "year": 2021,
       "deaths": 1033.0,
+      "population": 3143991.0,
+      "crude_rate": 32.9,
       "overdose_rate": 32.9,
-      "population": 3143991.0
+      "age_adjusted_rate": 32.6
     },
     {
       "year": 2022,
       "deaths": 1067.0,
+      "population": 3177772.0,
+      "crude_rate": 33.6,
       "overdose_rate": 33.6,
-      "population": 3177772.0
+      "age_adjusted_rate": 32.9
     },
     {
       "year": 2023,
       "deaths": 1373.0,
+      "population": 3194176.0,
+      "crude_rate": 43.0,
       "overdose_rate": 43.0,
-      "population": 3194176.0
+      "age_adjusted_rate": 42.0
     }
   ],
   "New Hampshire": [
     {
       "year": 2018,
       "deaths": 477.0,
+      "population": 1356458.0,
+      "crude_rate": 35.2,
       "overdose_rate": 35.2,
-      "population": 1356458.0
+      "age_adjusted_rate": 38.6
     },
     {
       "year": 2019,
       "deaths": 428.0,
+      "population": 1359711.0,
+      "crude_rate": 31.5,
       "overdose_rate": 31.5,
-      "population": 1359711.0
+      "age_adjusted_rate": 34.4
     },
     {
       "year": 2020,
       "deaths": 422.0,
+      "population": 1366275.0,
+      "crude_rate": 30.9,
       "overdose_rate": 30.9,
-      "population": 1366275.0
+      "age_adjusted_rate": 33.6
     },
     {
       "year": 2021,
       "deaths": 467.0,
+      "population": 1388992.0,
+      "crude_rate": 33.6,
       "overdose_rate": 33.6,
-      "population": 1388992.0
+      "age_adjusted_rate": 35.5
     },
     {
       "year": 2022,
       "deaths": 506.0,
+      "population": 1395231.0,
+      "crude_rate": 36.3,
       "overdose_rate": 36.3,
-      "population": 1395231.0
+      "age_adjusted_rate": 38.2
     },
     {
       "year": 2023,
       "deaths": 464.0,
+      "population": 1402054.0,
+      "crude_rate": 33.1,
       "overdose_rate": 33.1,
-      "population": 1402054.0
+      "age_adjusted_rate": 35.5
     }
   ],
   "New Jersey": [
     {
       "year": 2018,
       "deaths": 3112.0,
+      "population": 8908520.0,
+      "crude_rate": 34.9,
       "overdose_rate": 34.9,
-      "population": 8908520.0
+      "age_adjusted_rate": 36.0
     },
     {
       "year": 2019,
       "deaths": 3033.0,
+      "population": 8882190.0,
+      "crude_rate": 34.1,
       "overdose_rate": 34.1,
-      "population": 8882190.0
+      "age_adjusted_rate": 34.9
     },
     {
       "year": 2020,
       "deaths": 3036.0,
+      "population": 8882371.0,
+      "crude_rate": 34.2,
       "overdose_rate": 34.2,
-      "population": 8882371.0
+      "age_adjusted_rate": 34.8
     },
     {
       "year": 2021,
       "deaths": 3246.0,
+      "population": 9267130.0,
+      "crude_rate": 35.0,
       "overdose_rate": 35.0,
-      "population": 9267130.0
+      "age_adjusted_rate": 35.2
     },
     {
       "year": 2022,
       "deaths": 3181.0,
+      "population": 9261699.0,
+      "crude_rate": 34.3,
       "overdose_rate": 34.3,
-      "population": 9261699.0
+      "age_adjusted_rate": 34.3
     },
     {
       "year": 2023,
       "deaths": 2903.0,
+      "population": 9290841.0,
+      "crude_rate": 31.2,
       "overdose_rate": 31.2,
-      "population": 9290841.0
+      "age_adjusted_rate": 31.2
     }
   ],
   "New Mexico": [
     {
       "year": 2018,
       "deaths": 604.0,
+      "population": 2095428.0,
+      "crude_rate": 28.8,
       "overdose_rate": 28.8,
-      "population": 2095428.0
+      "age_adjusted_rate": 30.6
     },
     {
       "year": 2019,
       "deaths": 661.0,
+      "population": 2096829.0,
+      "crude_rate": 31.5,
       "overdose_rate": 31.5,
-      "population": 2096829.0
+      "age_adjusted_rate": 33.9
     },
     {
       "year": 2020,
       "deaths": 844.0,
+      "population": 2106319.0,
+      "crude_rate": 40.1,
       "overdose_rate": 40.1,
-      "population": 2106319.0
+      "age_adjusted_rate": 42.7
     },
     {
       "year": 2021,
       "deaths": 1087.0,
+      "population": 2115877.0,
+      "crude_rate": 51.4,
       "overdose_rate": 51.4,
-      "population": 2115877.0
+      "age_adjusted_rate": 53.8
     },
     {
       "year": 2022,
       "deaths": 1081.0,
+      "population": 2113344.0,
+      "crude_rate": 51.2,
       "overdose_rate": 51.2,
-      "population": 2113344.0
+      "age_adjusted_rate": 54.1
     },
     {
       "year": 2023,
       "deaths": 1031.0,
+      "population": 2114371.0,
+      "crude_rate": 48.8,
       "overdose_rate": 48.8,
-      "population": 2114371.0
+      "age_adjusted_rate": 51.4
     }
   ],
   "New York": [
     {
       "year": 2018,
       "deaths": 4219.0,
+      "population": 19542209.0,
+      "crude_rate": 21.6,
       "overdose_rate": 21.6,
-      "population": 19542209.0
+      "age_adjusted_rate": 21.6
     },
     {
       "year": 2019,
       "deaths": 4106.0,
+      "population": 19453561.0,
+      "crude_rate": 21.1,
       "overdose_rate": 21.1,
-      "population": 19453561.0
+      "age_adjusted_rate": 21.3
     },
     {
       "year": 2020,
       "deaths": 5418.0,
+      "population": 19336776.0,
+      "crude_rate": 28.0,
       "overdose_rate": 28.0,
-      "population": 19336776.0
+      "age_adjusted_rate": 28.2
     },
     {
       "year": 2021,
       "deaths": 6271.0,
+      "population": 19835913.0,
+      "crude_rate": 31.6,
       "overdose_rate": 31.6,
-      "population": 19835913.0
+      "age_adjusted_rate": 31.6
     },
     {
       "year": 2022,
       "deaths": 6787.0,
+      "population": 19677151.0,
+      "crude_rate": 34.5,
       "overdose_rate": 34.5,
-      "population": 19677151.0
+      "age_adjusted_rate": 34.2
     },
     {
       "year": 2023,
       "deaths": 6745.0,
+      "population": 19571216.0,
+      "crude_rate": 34.5,
       "overdose_rate": 34.5,
-      "population": 19571216.0
+      "age_adjusted_rate": 33.8
     }
   ],
   "North Carolina": [
     {
       "year": 2018,
       "deaths": 2660.0,
+      "population": 10383620.0,
+      "crude_rate": 25.6,
       "overdose_rate": 25.6,
-      "population": 10383620.0
+      "age_adjusted_rate": 27.1
     },
     {
       "year": 2019,
       "deaths": 2689.0,
+      "population": 10488084.0,
+      "crude_rate": 25.6,
       "overdose_rate": 25.6,
-      "population": 10488084.0
+      "age_adjusted_rate": 27.2
     },
     {
       "year": 2020,
       "deaths": 3578.0,
+      "population": 10600823.0,
+      "crude_rate": 33.8,
       "overdose_rate": 33.8,
-      "population": 10600823.0
+      "age_adjusted_rate": 35.9
     },
     {
       "year": 2021,
       "deaths": 4359.0,
+      "population": 10551162.0,
+      "crude_rate": 41.3,
       "overdose_rate": 41.3,
-      "population": 10551162.0
+      "age_adjusted_rate": 43.8
     },
     {
       "year": 2022,
       "deaths": 4740.0,
+      "population": 10698973.0,
+      "crude_rate": 44.3,
       "overdose_rate": 44.3,
-      "population": 10698973.0
+      "age_adjusted_rate": 46.7
     },
     {
       "year": 2023,
       "deaths": 3966.0,
+      "population": 10835491.0,
+      "crude_rate": 36.6,
       "overdose_rate": 36.6,
-      "population": 10835491.0
+      "age_adjusted_rate": 38.8
     }
   ],
   "North Dakota": [
     {
       "year": 2018,
       "deaths": 96.0,
+      "population": 760077.0,
+      "crude_rate": 12.6,
       "overdose_rate": 12.6,
-      "population": 760077.0
+      "age_adjusted_rate": 13.5
     },
     {
       "year": 2019,
       "deaths": 113.0,
+      "population": 762062.0,
+      "crude_rate": 14.8,
       "overdose_rate": 14.8,
-      "population": 762062.0
+      "age_adjusted_rate": 15.4
     },
     {
       "year": 2020,
       "deaths": 137.0,
+      "population": 765309.0,
+      "crude_rate": 17.9,
       "overdose_rate": 17.9,
-      "population": 765309.0
+      "age_adjusted_rate": 18.6
     },
     {
       "year": 2021,
       "deaths": 138.0,
+      "population": 774948.0,
+      "crude_rate": 17.8,
       "overdose_rate": 17.8,
-      "population": 774948.0
+      "age_adjusted_rate": 19.1
     },
     {
       "year": 2022,
       "deaths": 168.0,
+      "population": 779261.0,
+      "crude_rate": 21.6,
       "overdose_rate": 21.6,
-      "population": 779261.0
+      "age_adjusted_rate": 22.5
     },
     {
       "year": 2023,
       "deaths": 140.0,
+      "population": 783926.0,
+      "crude_rate": 17.9,
       "overdose_rate": 17.9,
-      "population": 783926.0
+      "age_adjusted_rate": 19.0
     }
   ],
   "Ohio": [
     {
       "year": 2018,
       "deaths": 4444.0,
+      "population": 11689442.0,
+      "crude_rate": 38.0,
       "overdose_rate": 38.0,
-      "population": 11689442.0
+      "age_adjusted_rate": 40.7
     },
     {
       "year": 2019,
       "deaths": 4713.0,
+      "population": 11689100.0,
+      "crude_rate": 40.3,
       "overdose_rate": 40.3,
-      "population": 11689100.0
+      "age_adjusted_rate": 43.1
     },
     {
       "year": 2020,
       "deaths": 5629.0,
+      "population": 11693217.0,
+      "crude_rate": 48.1,
       "overdose_rate": 48.1,
-      "population": 11693217.0
+      "age_adjusted_rate": 51.6
     },
     {
       "year": 2021,
       "deaths": 5859.0,
+      "population": 11780017.0,
+      "crude_rate": 49.7,
       "overdose_rate": 49.7,
-      "population": 11780017.0
+      "age_adjusted_rate": 53.1
     },
     {
       "year": 2022,
       "deaths": 5602.0,
+      "population": 11756058.0,
+      "crude_rate": 47.7,
       "overdose_rate": 47.7,
-      "population": 11756058.0
+      "age_adjusted_rate": 50.5
     },
     {
       "year": 2023,
       "deaths": 5209.0,
+      "population": 11785935.0,
+      "crude_rate": 44.2,
       "overdose_rate": 44.2,
-      "population": 11785935.0
+      "age_adjusted_rate": 46.6
     }
   ],
   "Oklahoma": [
     {
       "year": 2018,
       "deaths": 864.0,
+      "population": 3943079.0,
+      "crude_rate": 21.9,
       "overdose_rate": 21.9,
-      "population": 3943079.0
+      "age_adjusted_rate": 22.4
     },
     {
       "year": 2019,
       "deaths": 807.0,
+      "population": 3956971.0,
+      "crude_rate": 20.4,
       "overdose_rate": 20.4,
-      "population": 3956971.0
+      "age_adjusted_rate": 21.3
     },
     {
       "year": 2020,
       "deaths": 863.0,
+      "population": 3980783.0,
+      "crude_rate": 21.7,
       "overdose_rate": 21.7,
-      "population": 3980783.0
+      "age_adjusted_rate": 22.3
     },
     {
       "year": 2021,
       "deaths": 1121.0,
+      "population": 3986639.0,
+      "crude_rate": 28.1,
       "overdose_rate": 28.1,
-      "population": 3986639.0
+      "age_adjusted_rate": 29.2
     },
     {
       "year": 2022,
       "deaths": 1349.0,
+      "population": 4019800.0,
+      "crude_rate": 33.6,
       "overdose_rate": 33.6,
-      "population": 4019800.0
+      "age_adjusted_rate": 35.1
     },
     {
       "year": 2023,
       "deaths": 1432.0,
+      "population": 4053824.0,
+      "crude_rate": 35.3,
       "overdose_rate": 35.3,
-      "population": 4053824.0
+      "age_adjusted_rate": 36.9
     }
   ],
   "Oregon": [
     {
       "year": 2018,
       "deaths": 628.0,
+      "population": 4190713.0,
+      "crude_rate": 15.0,
       "overdose_rate": 15.0,
-      "population": 4190713.0
+      "age_adjusted_rate": 15.0
     },
     {
       "year": 2019,
       "deaths": 703.0,
+      "population": 4217737.0,
+      "crude_rate": 16.7,
       "overdose_rate": 16.7,
-      "population": 4217737.0
+      "age_adjusted_rate": 16.8
     },
     {
       "year": 2020,
       "deaths": 886.0,
+      "population": 4241507.0,
+      "crude_rate": 20.9,
       "overdose_rate": 20.9,
-      "population": 4241507.0
+      "age_adjusted_rate": 21.4
     },
     {
       "year": 2021,
       "deaths": 1249.0,
+      "population": 4246155.0,
+      "crude_rate": 29.4,
       "overdose_rate": 29.4,
-      "population": 4246155.0
+      "age_adjusted_rate": 29.5
     },
     {
       "year": 2022,
       "deaths": 1454.0,
+      "population": 4240137.0,
+      "crude_rate": 34.3,
       "overdose_rate": 34.3,
-      "population": 4240137.0
+      "age_adjusted_rate": 34.1
     },
     {
       "year": 2023,
       "deaths": 1880.0,
+      "population": 4233358.0,
+      "crude_rate": 44.4,
       "overdose_rate": 44.4,
-      "population": 4233358.0
+      "age_adjusted_rate": 44.3
     }
   ],
   "Pennsylvania": [
     {
       "year": 2018,
       "deaths": 4844.0,
+      "population": 12807060.0,
+      "crude_rate": 37.8,
       "overdose_rate": 37.8,
-      "population": 12807060.0
+      "age_adjusted_rate": 40.5
     },
     {
       "year": 2019,
       "deaths": 4802.0,
+      "population": 12801989.0,
+      "crude_rate": 37.5,
       "overdose_rate": 37.5,
-      "population": 12801989.0
+      "age_adjusted_rate": 40.0
     },
     {
       "year": 2020,
       "deaths": 5552.0,
+      "population": 12783254.0,
+      "crude_rate": 43.4,
       "overdose_rate": 43.4,
-      "population": 12783254.0
+      "age_adjusted_rate": 46.4
     },
     {
       "year": 2021,
       "deaths": 5834.0,
+      "population": 12964056.0,
+      "crude_rate": 45.0,
       "overdose_rate": 45.0,
-      "population": 12964056.0
+      "age_adjusted_rate": 47.4
     },
     {
       "year": 2022,
       "deaths": 5581.0,
+      "population": 12972008.0,
+      "crude_rate": 43.0,
       "overdose_rate": 43.0,
-      "population": 12972008.0
+      "age_adjusted_rate": 45.2
     },
     {
       "year": 2023,
       "deaths": 5137.0,
+      "population": 12961683.0,
+      "crude_rate": 39.6,
       "overdose_rate": 39.6,
-      "population": 12961683.0
+      "age_adjusted_rate": 41.2
     }
   ],
   "Rhode Island": [
     {
       "year": 2018,
       "deaths": 352.0,
+      "population": 1057315.0,
+      "crude_rate": 33.3,
       "overdose_rate": 33.3,
-      "population": 1057315.0
+      "age_adjusted_rate": 34.7
     },
     {
       "year": 2019,
       "deaths": 347.0,
+      "population": 1059361.0,
+      "crude_rate": 32.8,
       "overdose_rate": 32.8,
-      "population": 1059361.0
+      "age_adjusted_rate": 34.7
     },
     {
       "year": 2020,
       "deaths": 418.0,
+      "population": 1057125.0,
+      "crude_rate": 39.5,
       "overdose_rate": 39.5,
-      "population": 1057125.0
+      "age_adjusted_rate": 41.0
     },
     {
       "year": 2021,
       "deaths": 476.0,
+      "population": 1095610.0,
+      "crude_rate": 43.4,
       "overdose_rate": 43.4,
-      "population": 1095610.0
+      "age_adjusted_rate": 44.7
     },
     {
       "year": 2022,
       "deaths": 449.0,
+      "population": 1093734.0,
+      "crude_rate": 41.1,
       "overdose_rate": 41.1,
-      "population": 1093734.0
+      "age_adjusted_rate": 41.4
     },
     {
       "year": 2023,
       "deaths": 437.0,
+      "population": 1095962.0,
+      "crude_rate": 39.9,
       "overdose_rate": 39.9,
-      "population": 1095962.0
+      "age_adjusted_rate": 40.8
     }
   ],
   "South Carolina": [
     {
       "year": 2018,
       "deaths": 1326.0,
+      "population": 5084127.0,
+      "crude_rate": 26.1,
       "overdose_rate": 26.1,
-      "population": 5084127.0
+      "age_adjusted_rate": 27.6
     },
     {
       "year": 2019,
       "deaths": 1335.0,
+      "population": 5148714.0,
+      "crude_rate": 25.9,
       "overdose_rate": 25.9,
-      "population": 5148714.0
+      "age_adjusted_rate": 27.8
     },
     {
       "year": 2020,
       "deaths": 1934.0,
+      "population": 5218040.0,
+      "crude_rate": 37.1,
       "overdose_rate": 37.1,
-      "population": 5218040.0
+      "age_adjusted_rate": 39.7
     },
     {
       "year": 2021,
       "deaths": 2345.0,
+      "population": 5190705.0,
+      "crude_rate": 45.2,
       "overdose_rate": 45.2,
-      "population": 5190705.0
+      "age_adjusted_rate": 48.0
     },
     {
       "year": 2022,
       "deaths": 2465.0,
+      "population": 5282634.0,
+      "crude_rate": 46.7,
       "overdose_rate": 46.7,
-      "population": 5282634.0
+      "age_adjusted_rate": 49.3
     },
     {
       "year": 2023,
       "deaths": 2391.0,
+      "population": 5373555.0,
+      "crude_rate": 44.5,
       "overdose_rate": 44.5,
-      "population": 5373555.0
+      "age_adjusted_rate": 46.4
     }
   ],
   "South Dakota": [
     {
       "year": 2018,
       "deaths": 80.0,
+      "population": 882235.0,
+      "crude_rate": 9.1,
       "overdose_rate": 9.1,
-      "population": 882235.0
+      "age_adjusted_rate": 9.5
     },
     {
       "year": 2019,
       "deaths": 113.0,
+      "population": 884659.0,
+      "crude_rate": 12.8,
       "overdose_rate": 12.8,
-      "population": 884659.0
+      "age_adjusted_rate": 13.6
     },
     {
       "year": 2020,
       "deaths": 118.0,
+      "population": 892717.0,
+      "crude_rate": 13.2,
       "overdose_rate": 13.2,
-      "population": 892717.0
+      "age_adjusted_rate": 14.3
     },
     {
       "year": 2021,
       "deaths": 126.0,
+      "population": 895376.0,
+      "crude_rate": 14.1,
       "overdose_rate": 14.1,
-      "population": 895376.0
+      "age_adjusted_rate": 15.3
     },
     {
       "year": 2022,
       "deaths": 128.0,
+      "population": 909824.0,
+      "crude_rate": 14.1,
       "overdose_rate": 14.1,
-      "population": 909824.0
+      "age_adjusted_rate": 15.3
     },
     {
       "year": 2023,
       "deaths": 123.0,
+      "population": 919318.0,
+      "crude_rate": 13.4,
       "overdose_rate": 13.4,
-      "population": 919318.0
+      "age_adjusted_rate": 14.6
     }
   ],
   "Tennessee": [
     {
       "year": 2018,
       "deaths": 2085.0,
+      "population": 6770010.0,
+      "crude_rate": 30.8,
       "overdose_rate": 30.8,
-      "population": 6770010.0
+      "age_adjusted_rate": 32.0
     },
     {
       "year": 2019,
       "deaths": 2371.0,
+      "population": 6829174.0,
+      "crude_rate": 34.7,
       "overdose_rate": 34.7,
-      "population": 6829174.0
+      "age_adjusted_rate": 36.1
     },
     {
       "year": 2020,
       "deaths": 3256.0,
+      "population": 6886834.0,
+      "crude_rate": 47.3,
       "overdose_rate": 47.3,
-      "population": 6886834.0
+      "age_adjusted_rate": 49.5
     },
     {
       "year": 2021,
       "deaths": 3989.0,
+      "population": 6975218.0,
+      "crude_rate": 57.2,
       "overdose_rate": 57.2,
-      "population": 6975218.0
+      "age_adjusted_rate": 59.8
     },
     {
       "year": 2022,
       "deaths": 4026.0,
+      "population": 7051339.0,
+      "crude_rate": 57.1,
       "overdose_rate": 57.1,
-      "population": 7051339.0
+      "age_adjusted_rate": 59.4
     },
     {
       "year": 2023,
       "deaths": 3829.0,
+      "population": 7126489.0,
+      "crude_rate": 53.7,
       "overdose_rate": 53.7,
-      "population": 7126489.0
+      "age_adjusted_rate": 55.9
     }
   ],
   "Texas": [
     {
       "year": 2018,
       "deaths": 4025.0,
+      "population": 28701845.0,
+      "crude_rate": 14.0,
       "overdose_rate": 14.0,
-      "population": 28701845.0
+      "age_adjusted_rate": 14.0
     },
     {
       "year": 2019,
       "deaths": 4151.0,
+      "population": 28995881.0,
+      "crude_rate": 14.3,
       "overdose_rate": 14.3,
-      "population": 28995881.0
+      "age_adjusted_rate": 14.5
     },
     {
       "year": 2020,
       "deaths": 5101.0,
+      "population": 29360759.0,
+      "crude_rate": 17.4,
       "overdose_rate": 17.4,
-      "population": 29360759.0
+      "age_adjusted_rate": 17.5
     },
     {
       "year": 2021,
       "deaths": 5938.0,
+      "population": 29527941.0,
+      "crude_rate": 20.1,
       "overdose_rate": 20.1,
-      "population": 29527941.0
+      "age_adjusted_rate": 20.4
     },
     {
       "year": 2022,
       "deaths": 6523.0,
+      "population": 30029572.0,
+      "crude_rate": 21.7,
       "overdose_rate": 21.7,
-      "population": 30029572.0
+      "age_adjusted_rate": 22.0
     },
     {
       "year": 2023,
       "deaths": 6752.0,
+      "population": 30503301.0,
+      "crude_rate": 22.1,
       "overdose_rate": 22.1,
-      "population": 30503301.0
+      "age_adjusted_rate": 22.3
     }
   ],
   "Utah": [
     {
       "year": 2018,
       "deaths": 758.0,
+      "population": 3161105.0,
+      "crude_rate": 24.0,
       "overdose_rate": 24.0,
-      "population": 3161105.0
+      "age_adjusted_rate": 24.9
     },
     {
       "year": 2019,
       "deaths": 704.0,
+      "population": 3205958.0,
+      "crude_rate": 22.0,
       "overdose_rate": 22.0,
-      "population": 3205958.0
+      "age_adjusted_rate": 22.7
     },
     {
       "year": 2020,
       "deaths": 733.0,
+      "population": 3249879.0,
+      "crude_rate": 22.6,
       "overdose_rate": 22.6,
-      "population": 3249879.0
+      "age_adjusted_rate": 23.8
     },
     {
       "year": 2021,
       "deaths": 760.0,
+      "population": 3337975.0,
+      "crude_rate": 22.8,
       "overdose_rate": 22.8,
-      "population": 3337975.0
+      "age_adjusted_rate": 24.1
     },
     {
       "year": 2022,
       "deaths": 751.0,
+      "population": 3380800.0,
+      "crude_rate": 22.2,
       "overdose_rate": 22.2,
-      "population": 3380800.0
+      "age_adjusted_rate": 23.5
     },
     {
       "year": 2023,
       "deaths": 816.0,
+      "population": 3417734.0,
+      "crude_rate": 23.9,
       "overdose_rate": 23.9,
-      "population": 3417734.0
+      "age_adjusted_rate": 25.1
     }
   ],
   "Vermont": [
     {
       "year": 2018,
       "deaths": 171.0,
+      "population": 626299.0,
+      "crude_rate": 27.3,
       "overdose_rate": 27.3,
-      "population": 626299.0
+      "age_adjusted_rate": 30.9
     },
     {
       "year": 2019,
       "deaths": 140.0,
+      "population": 623989.0,
+      "crude_rate": 22.4,
       "overdose_rate": 22.4,
-      "population": 623989.0
+      "age_adjusted_rate": 25.5
     },
     {
       "year": 2020,
       "deaths": 198.0,
+      "population": 623347.0,
+      "crude_rate": 31.8,
       "overdose_rate": 31.8,
-      "population": 623347.0
+      "age_adjusted_rate": 35.0
     },
     {
       "year": 2021,
       "deaths": 264.0,
+      "population": 645570.0,
+      "crude_rate": 40.9,
       "overdose_rate": 40.9,
-      "population": 645570.0
+      "age_adjusted_rate": 45.5
     },
     {
       "year": 2022,
       "deaths": 284.0,
+      "population": 647064.0,
+      "crude_rate": 43.9,
       "overdose_rate": 43.9,
-      "population": 647064.0
+      "age_adjusted_rate": 48.0
     },
     {
       "year": 2023,
       "deaths": 270.0,
+      "population": 647464.0,
+      "crude_rate": 41.7,
       "overdose_rate": 41.7,
-      "population": 647464.0
+      "age_adjusted_rate": 45.2
     }
   ],
   "Virginia": [
     {
       "year": 2018,
       "deaths": 1727.0,
+      "population": 8517685.0,
+      "crude_rate": 20.3,
       "overdose_rate": 20.3,
-      "population": 8517685.0
+      "age_adjusted_rate": 21.0
     },
     {
       "year": 2019,
       "deaths": 1847.0,
+      "population": 8535519.0,
+      "crude_rate": 21.6,
       "overdose_rate": 21.6,
-      "population": 8535519.0
+      "age_adjusted_rate": 22.5
     },
     {
       "year": 2020,
       "deaths": 2509.0,
+      "population": 8590563.0,
+      "crude_rate": 29.2,
       "overdose_rate": 29.2,
-      "population": 8590563.0
+      "age_adjusted_rate": 30.3
     },
     {
       "year": 2021,
       "deaths": 2902.0,
+      "population": 8642274.0,
+      "crude_rate": 33.6,
       "overdose_rate": 33.6,
-      "population": 8642274.0
+      "age_adjusted_rate": 34.6
     },
     {
       "year": 2022,
       "deaths": 2812.0,
+      "population": 8683619.0,
+      "crude_rate": 32.4,
       "overdose_rate": 32.4,
-      "population": 8683619.0
+      "age_adjusted_rate": 33.3
     },
     {
       "year": 2023,
       "deaths": 2756.0,
+      "population": 8715698.0,
+      "crude_rate": 31.6,
       "overdose_rate": 31.6,
-      "population": 8715698.0
+      "age_adjusted_rate": 32.5
     }
   ],
   "Washington": [
     {
       "year": 2018,
       "deaths": 1357.0,
+      "population": 7535591.0,
+      "crude_rate": 18.0,
       "overdose_rate": 18.0,
-      "population": 7535591.0
+      "age_adjusted_rate": 17.7
     },
     {
       "year": 2019,
       "deaths": 1428.0,
+      "population": 7614893.0,
+      "crude_rate": 18.8,
       "overdose_rate": 18.8,
-      "population": 7614893.0
+      "age_adjusted_rate": 18.5
     },
     {
       "year": 2020,
       "deaths": 1898.0,
+      "population": 7693612.0,
+      "crude_rate": 24.7,
       "overdose_rate": 24.7,
-      "population": 7693612.0
+      "age_adjusted_rate": 24.7
     },
     {
       "year": 2021,
       "deaths": 2428.0,
+      "population": 7738692.0,
+      "crude_rate": 31.4,
       "overdose_rate": 31.4,
-      "population": 7738692.0
+      "age_adjusted_rate": 30.9
     },
     {
       "year": 2022,
       "deaths": 2914.0,
+      "population": 7785786.0,
+      "crude_rate": 37.4,
       "overdose_rate": 37.4,
-      "population": 7785786.0
+      "age_adjusted_rate": 36.8
     },
     {
       "year": 2023,
       "deaths": 3660.0,
+      "population": 7812880.0,
+      "crude_rate": 46.8,
       "overdose_rate": 46.8,
-      "population": 7812880.0
+      "age_adjusted_rate": 45.5
     }
   ],
   "West Virginia": [
     {
       "year": 2018,
       "deaths": 903.0,
+      "population": 1805832.0,
+      "crude_rate": 50.0,
       "overdose_rate": 50.0,
-      "population": 1805832.0
+      "age_adjusted_rate": 55.1
     },
     {
       "year": 2019,
       "deaths": 917.0,
+      "population": 1792147.0,
+      "crude_rate": 51.2,
       "overdose_rate": 51.2,
-      "population": 1792147.0
+      "age_adjusted_rate": 56.5
     },
     {
       "year": 2020,
       "deaths": 1385.0,
+      "population": 1784787.0,
+      "crude_rate": 77.6,
       "overdose_rate": 77.6,
-      "population": 1784787.0
+      "age_adjusted_rate": 85.7
     },
     {
       "year": 2021,
       "deaths": 1552.0,
+      "population": 1782959.0,
+      "crude_rate": 87.0,
       "overdose_rate": 87.0,
-      "population": 1782959.0
+      "age_adjusted_rate": 95.0
     },
     {
       "year": 2022,
       "deaths": 1392.0,
+      "population": 1775156.0,
+      "crude_rate": 78.4,
       "overdose_rate": 78.4,
-      "population": 1775156.0
+      "age_adjusted_rate": 85.5
     },
     {
       "year": 2023,
       "deaths": 1417.0,
+      "population": 1770071.0,
+      "crude_rate": 80.1,
       "overdose_rate": 80.1,
-      "population": 1770071.0
+      "age_adjusted_rate": 85.1
     }
   ],
   "Wisconsin": [
     {
       "year": 2018,
       "deaths": 1259.0,
+      "population": 5813568.0,
+      "crude_rate": 21.7,
       "overdose_rate": 21.7,
-      "population": 5813568.0
+      "age_adjusted_rate": 23.1
     },
     {
       "year": 2019,
       "deaths": 1392.0,
+      "population": 5822434.0,
+      "crude_rate": 23.9,
       "overdose_rate": 23.9,
-      "population": 5822434.0
+      "age_adjusted_rate": 25.3
     },
     {
       "year": 2020,
       "deaths": 1725.0,
+      "population": 5832655.0,
+      "crude_rate": 29.6,
       "overdose_rate": 29.6,
-      "population": 5832655.0
+      "age_adjusted_rate": 31.9
     },
     {
       "year": 2021,
       "deaths": 1933.0,
+      "population": 5895908.0,
+      "crude_rate": 32.8,
       "overdose_rate": 32.8,
-      "population": 5895908.0
+      "age_adjusted_rate": 35.2
     },
     {
       "year": 2022,
       "deaths": 1964.0,
+      "population": 5892539.0,
+      "crude_rate": 33.3,
       "overdose_rate": 33.3,
-      "population": 5892539.0
+      "age_adjusted_rate": 35.6
     },
     {
       "year": 2023,
       "deaths": 1925.0,
+      "population": 5910955.0,
+      "crude_rate": 32.6,
       "overdose_rate": 32.6,
-      "population": 5910955.0
+      "age_adjusted_rate": 34.2
     }
   ],
   "Wyoming": [
     {
       "year": 2018,
       "deaths": 77.0,
+      "population": 577737.0,
+      "crude_rate": 13.3,
       "overdose_rate": 13.3,
-      "population": 577737.0
+      "age_adjusted_rate": 13.3
     },
     {
       "year": 2019,
       "deaths": 105.0,
+      "population": 578759.0,
+      "crude_rate": 18.1,
       "overdose_rate": 18.1,
-      "population": 578759.0
+      "age_adjusted_rate": 19.6
     },
     {
       "year": 2020,
       "deaths": 108.0,
+      "population": 582328.0,
+      "crude_rate": 18.5,
       "overdose_rate": 18.5,
-      "population": 582328.0
+      "age_adjusted_rate": 19.3
     },
     {
       "year": 2021,
       "deaths": 132.0,
+      "population": 578803.0,
+      "crude_rate": 22.8,
       "overdose_rate": 22.8,
-      "population": 578803.0
+      "age_adjusted_rate": 24.1
     },
     {
       "year": 2022,
       "deaths": 148.0,
+      "population": 581381.0,
+      "crude_rate": 25.5,
       "overdose_rate": 25.5,
-      "population": 581381.0
+      "age_adjusted_rate": 26.8
     },
     {
       "year": 2023,
       "deaths": 141.0,
+      "population": 584057.0,
+      "crude_rate": 24.1,
       "overdose_rate": 24.1,
-      "population": 584057.0
+      "age_adjusted_rate": 25.1
     }
   ]
 }

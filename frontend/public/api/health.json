@@ -1,29 +1,8 @@
 {
   "ok": true,
-  "db_exists": true,
-  "db_path": "D:\\Downloads\\opioid_ai_dashboard_full\\data\\opioid.db",
-  "out_dir": "D:\\Downloads\\opioid_ai_dashboard_full\\frontend\\public\\api",
-  "tables": [
-    "state_year_overdoses",
-    "acs_state_features"
-  ],
-  "schema": {
-    "state_year_overdoses": [
-      "year",
-      "state",
-      "deaths",
-      "population",
-      "crude_rate",
-      "age_adjusted_rate"
-    ],
-    "acs_state_features": [
-      "state_name",
-      "acs_population",
-      "state_fips",
-      "pct_poverty",
-      "pct_uninsured",
-      "median_household_income"
-    ]
-  },
-  "chosen_table": "state_year_overdoses"
+  "source": "csv:D:\\Downloads\\Opioid Git\\Opioid-visualization-Dashboard\\data\\overdoses_state_year_clean_typed.csv",
+  "rows": 306,
+  "latest_year": 2023,
+  "quality_status": "pass",
+  "quality_checked_at": "2026-03-08T22:19:30.673364+00:00"
 }

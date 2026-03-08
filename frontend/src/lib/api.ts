@@ -25,8 +25,45 @@ type ForecastRow = {
   year: number;
   deaths?: number;
   forecast_deaths?: number;
+  forecast_deaths_lo?: number;
+  forecast_deaths_hi?: number;
   yhat?: number;
+  yhat_lo?: number;
+  yhat_hi?: number;
   overdose_rate?: number;
+};
+
+export type ForecastResponse = {
+  forecast: ForecastRow[];
+  model_name?: string;
+  train_start_year?: number;
+  train_end_year?: number;
+  mae?: number | null;
+  mape?: number | null;
+  interval_coverage?: number | null;
+};
+
+export type QualityStatus = {
+  status: "pass" | "fail";
+  checked_at: string;
+  checks: Array<{ name: string; status: "pass" | "fail"; value: unknown; threshold: unknown; detail: string }>;
+  summary: {
+    rows: number;
+    columns: string[];
+    latest_year: number;
+    pass_count: number;
+    fail_count: number;
+    pass_rate: number;
+  };
+};
+
+export type HealthPayload = {
+  ok: boolean;
+  source?: string;
+  rows?: number;
+  latest_year?: number;
+  quality_status?: string;
+  quality_checked_at?: string;
 };
 
 async function getJSON<T>(url: string): Promise<T> {
@@ -45,17 +82,13 @@ export async function fetchStates(): Promise<string[]> {
     }
   }
 
-  const latest = await getJSON<{ year: number; rows: LatestRow[] }>(
-    `${API_BASE}/api/metrics/states-latest`
-  );
+  const latest = await getJSON<{ year: number; rows: LatestRow[] }>(`${API_BASE}/api/metrics/states-latest`);
   return latest.rows.map((r) => r.state).sort();
 }
 
 export async function fetchStatesLatest(): Promise<LatestRow[]> {
   if (USE_STATIC) return getJSON<LatestRow[]>("api/states_latest.json");
-  const payload = await getJSON<{ year: number; rows: LatestRow[] }>(
-    `${API_BASE}/api/metrics/states-latest`
-  );
+  const payload = await getJSON<{ year: number; rows: LatestRow[] }>(`${API_BASE}/api/metrics/states-latest`);
   return payload.rows;
 }
 
@@ -64,33 +97,47 @@ export async function fetchMetricsByState(state: string): Promise<StateYearRow[]
     const all = await getJSON<Record<string, StateYearRow[]>>("api/metrics_state_year.json");
     return all[state] ?? [];
   }
-  const payload = await getJSON<{ rows: StateYearRow[] }>(
-    `${API_BASE}/api/metrics/state-year?state=${encodeURIComponent(state)}`
-  );
+  const payload = await getJSON<{ rows: StateYearRow[] }>(`${API_BASE}/api/metrics/state-year?state=${encodeURIComponent(state)}`);
   return payload.rows ?? [];
 }
 
-export async function fetchForecast(
-  state: string
-): Promise<{ year: number; forecast_deaths?: number }[]> {
+export async function fetchForecastDetailed(state: string): Promise<ForecastResponse> {
   if (USE_STATIC) {
-    const all = await getJSON<Record<string, ForecastRow[]>>(
-      "api/forecast_by_state.json"
-    );
-    return (all[state] ?? []).map((row) => ({
-      year: row.year,
-      forecast_deaths: row.forecast_deaths ?? row.deaths ?? row.yhat ?? row.overdose_rate,
-    }));
+    const all = await getJSON<Record<string, ForecastRow[]>>("api/forecast_by_state.json");
+    const evalPayload = await getJSON<{ by_state: Array<{ state: string; selected_model?: string; mae?: number; mape?: number; interval_coverage?: number }> }>("api/forecast_evaluation.json").catch(() => ({ by_state: [] }));
+    const evalRow = evalPayload.by_state.find((row) => row.state === state);
+    return {
+      forecast: all[state] ?? [],
+      model_name: evalRow?.selected_model,
+      mae: evalRow?.mae,
+      mape: evalRow?.mape,
+      interval_coverage: evalRow?.interval_coverage,
+    };
   }
+  return getJSON<ForecastResponse>(`${API_BASE}/api/forecast/simple?state=${encodeURIComponent(state)}`);
+}
 
-  const payload = await getJSON<{ forecast: ForecastRow[] }>(
-    `${API_BASE}/api/forecast/simple?state=${encodeURIComponent(state)}`
-  );
-
+export async function fetchForecast(state: string): Promise<{ year: number; forecast_deaths?: number }[]> {
+  const payload = await fetchForecastDetailed(state);
   return (payload.forecast ?? []).map((row) => ({
     year: row.year,
     forecast_deaths: row.forecast_deaths ?? row.deaths ?? row.yhat ?? row.overdose_rate,
   }));
+}
+
+export async function fetchQualityStatus(): Promise<QualityStatus> {
+  if (USE_STATIC) return getJSON<QualityStatus>("api/quality_report.json");
+  return getJSON<QualityStatus>(`${API_BASE}/api/quality/status`);
+}
+
+export async function fetchHealth(): Promise<HealthPayload> {
+  if (USE_STATIC) return getJSON<HealthPayload>("api/health.json");
+  return getJSON<HealthPayload>(`${API_BASE}/health`);
+}
+
+export async function fetchForecastEvaluation() {
+  if (USE_STATIC) return getJSON<{ by_state: any[]; aggregate: any }>("api/forecast_evaluation.json");
+  return getJSON<{ by_state: any[]; aggregate: any }>(`${API_BASE}/api/forecast/evaluation`);
 }
 
 export async function fetchHotspots(year?: number, k: number = 4) {

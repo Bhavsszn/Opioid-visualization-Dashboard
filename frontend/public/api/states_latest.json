@@ -1,359 +1,461 @@
 [
   {
-    "state": "Alabama",
+    "state": "West Virginia",
     "year": 2023,
-    "deaths": 1804.0,
-    "overdose_rate": 35.3,
-    "population": 5108468.0
-  },
-  {
-    "state": "Alaska",
-    "year": 2023,
-    "deaths": 386.0,
-    "overdose_rate": 52.6,
-    "population": 733406.0
-  },
-  {
-    "state": "Arizona",
-    "year": 2023,
-    "deaths": 2837.0,
-    "overdose_rate": 38.2,
-    "population": 7431344.0
-  },
-  {
-    "state": "Arkansas",
-    "year": 2023,
-    "deaths": 663.0,
-    "overdose_rate": 21.6,
-    "population": 3067732.0
-  },
-  {
-    "state": "California",
-    "year": 2023,
-    "deaths": 12238.0,
-    "overdose_rate": 31.4,
-    "population": 38965193.0
-  },
-  {
-    "state": "Colorado",
-    "year": 2023,
-    "deaths": 2027.0,
-    "overdose_rate": 34.5,
-    "population": 5877610.0
-  },
-  {
-    "state": "Connecticut",
-    "year": 2023,
-    "deaths": 1404.0,
-    "overdose_rate": 38.8,
-    "population": 3617176.0
-  },
-  {
-    "state": "Delaware",
-    "year": 2023,
-    "deaths": 554.0,
-    "overdose_rate": 53.7,
-    "population": 1031890.0
+    "population": 1770071.0,
+    "deaths": 1417.0,
+    "crude_rate": 80.1,
+    "overdose_rate": 80.1,
+    "age_adjusted_rate": 85.1
   },
   {
     "state": "District of Columbia",
     "year": 2023,
+    "population": 678972.0,
     "deaths": 447.0,
+    "crude_rate": 65.8,
     "overdose_rate": 65.8,
-    "population": 678972.0
+    "age_adjusted_rate": 64.2
   },
   {
-    "state": "Florida",
+    "state": "Delaware",
     "year": 2023,
-    "deaths": 7741.0,
-    "overdose_rate": 34.2,
-    "population": 22610726.0
-  },
-  {
-    "state": "Georgia",
-    "year": 2023,
-    "deaths": 3002.0,
-    "overdose_rate": 27.2,
-    "population": 11029227.0
-  },
-  {
-    "state": "Hawaii",
-    "year": 2023,
-    "deaths": 349.0,
-    "overdose_rate": 24.3,
-    "population": 1435138.0
-  },
-  {
-    "state": "Idaho",
-    "year": 2023,
-    "deaths": 429.0,
-    "overdose_rate": 21.8,
-    "population": 1964726.0
-  },
-  {
-    "state": "Illinois",
-    "year": 2023,
-    "deaths": 3931.0,
-    "overdose_rate": 31.3,
-    "population": 12549689.0
-  },
-  {
-    "state": "Indiana",
-    "year": 2023,
-    "deaths": 2504.0,
-    "overdose_rate": 36.5,
-    "population": 6862199.0
-  },
-  {
-    "state": "Iowa",
-    "year": 2023,
-    "deaths": 546.0,
-    "overdose_rate": 17.0,
-    "population": 3207004.0
-  },
-  {
-    "state": "Kansas",
-    "year": 2023,
-    "deaths": 758.0,
-    "overdose_rate": 25.8,
-    "population": 2940546.0
-  },
-  {
-    "state": "Kentucky",
-    "year": 2023,
-    "deaths": 2210.0,
-    "overdose_rate": 48.8,
-    "population": 4526154.0
-  },
-  {
-    "state": "Louisiana",
-    "year": 2023,
-    "deaths": 2395.0,
-    "overdose_rate": 52.4,
-    "population": 4573749.0
-  },
-  {
-    "state": "Maine",
-    "year": 2023,
-    "deaths": 639.0,
-    "overdose_rate": 45.8,
-    "population": 1395722.0
-  },
-  {
-    "state": "Maryland",
-    "year": 2023,
-    "deaths": 2745.0,
-    "overdose_rate": 44.4,
-    "population": 6180253.0
-  },
-  {
-    "state": "Massachusetts",
-    "year": 2023,
-    "deaths": 2511.0,
-    "overdose_rate": 35.9,
-    "population": 7001399.0
-  },
-  {
-    "state": "Michigan",
-    "year": 2023,
-    "deaths": 3176.0,
-    "overdose_rate": 31.6,
-    "population": 10037261.0
-  },
-  {
-    "state": "Minnesota",
-    "year": 2023,
-    "deaths": 1458.0,
-    "overdose_rate": 25.4,
-    "population": 5737915.0
-  },
-  {
-    "state": "Mississippi",
-    "year": 2023,
-    "deaths": 837.0,
-    "overdose_rate": 28.5,
-    "population": 2939690.0
-  },
-  {
-    "state": "Missouri",
-    "year": 2023,
-    "deaths": 2162.0,
-    "overdose_rate": 34.9,
-    "population": 6196156.0
-  },
-  {
-    "state": "Montana",
-    "year": 2023,
-    "deaths": 218.0,
-    "overdose_rate": 19.2,
-    "population": 1132812.0
-  },
-  {
-    "state": "Nebraska",
-    "year": 2023,
-    "deaths": 243.0,
-    "overdose_rate": 12.3,
-    "population": 1978379.0
-  },
-  {
-    "state": "Nevada",
-    "year": 2023,
-    "deaths": 1373.0,
-    "overdose_rate": 43.0,
-    "population": 3194176.0
-  },
-  {
-    "state": "New Hampshire",
-    "year": 2023,
-    "deaths": 464.0,
-    "overdose_rate": 33.1,
-    "population": 1402054.0
-  },
-  {
-    "state": "New Jersey",
-    "year": 2023,
-    "deaths": 2903.0,
-    "overdose_rate": 31.2,
-    "population": 9290841.0
-  },
-  {
-    "state": "New Mexico",
-    "year": 2023,
-    "deaths": 1031.0,
-    "overdose_rate": 48.8,
-    "population": 2114371.0
-  },
-  {
-    "state": "New York",
-    "year": 2023,
-    "deaths": 6745.0,
-    "overdose_rate": 34.5,
-    "population": 19571216.0
-  },
-  {
-    "state": "North Carolina",
-    "year": 2023,
-    "deaths": 3966.0,
-    "overdose_rate": 36.6,
-    "population": 10835491.0
-  },
-  {
-    "state": "North Dakota",
-    "year": 2023,
-    "deaths": 140.0,
-    "overdose_rate": 17.9,
-    "population": 783926.0
-  },
-  {
-    "state": "Ohio",
-    "year": 2023,
-    "deaths": 5209.0,
-    "overdose_rate": 44.2,
-    "population": 11785935.0
-  },
-  {
-    "state": "Oklahoma",
-    "year": 2023,
-    "deaths": 1432.0,
-    "overdose_rate": 35.3,
-    "population": 4053824.0
-  },
-  {
-    "state": "Oregon",
-    "year": 2023,
-    "deaths": 1880.0,
-    "overdose_rate": 44.4,
-    "population": 4233358.0
-  },
-  {
-    "state": "Pennsylvania",
-    "year": 2023,
-    "deaths": 5137.0,
-    "overdose_rate": 39.6,
-    "population": 12961683.0
-  },
-  {
-    "state": "Rhode Island",
-    "year": 2023,
-    "deaths": 437.0,
-    "overdose_rate": 39.9,
-    "population": 1095962.0
-  },
-  {
-    "state": "South Carolina",
-    "year": 2023,
-    "deaths": 2391.0,
-    "overdose_rate": 44.5,
-    "population": 5373555.0
-  },
-  {
-    "state": "South Dakota",
-    "year": 2023,
-    "deaths": 123.0,
-    "overdose_rate": 13.4,
-    "population": 919318.0
+    "population": 1031890.0,
+    "deaths": 554.0,
+    "crude_rate": 53.7,
+    "overdose_rate": 53.7,
+    "age_adjusted_rate": 56.8
   },
   {
     "state": "Tennessee",
     "year": 2023,
+    "population": 7126489.0,
     "deaths": 3829.0,
+    "crude_rate": 53.7,
     "overdose_rate": 53.7,
-    "population": 7126489.0
+    "age_adjusted_rate": 55.9
   },
   {
-    "state": "Texas",
+    "state": "Alaska",
     "year": 2023,
-    "deaths": 6752.0,
-    "overdose_rate": 22.1,
-    "population": 30503301.0
+    "population": 733406.0,
+    "deaths": 386.0,
+    "crude_rate": 52.6,
+    "overdose_rate": 52.6,
+    "age_adjusted_rate": 53.5
   },
   {
-    "state": "Utah",
+    "state": "Louisiana",
     "year": 2023,
-    "deaths": 816.0,
-    "overdose_rate": 23.9,
-    "population": 3417734.0
+    "population": 4573749.0,
+    "deaths": 2395.0,
+    "crude_rate": 52.4,
+    "overdose_rate": 52.4,
+    "age_adjusted_rate": 54.9
   },
   {
-    "state": "Vermont",
+    "state": "Kentucky",
     "year": 2023,
-    "deaths": 270.0,
-    "overdose_rate": 41.7,
-    "population": 647464.0
+    "population": 4526154.0,
+    "deaths": 2210.0,
+    "crude_rate": 48.8,
+    "overdose_rate": 48.8,
+    "age_adjusted_rate": 51.5
   },
   {
-    "state": "Virginia",
+    "state": "New Mexico",
     "year": 2023,
-    "deaths": 2756.0,
-    "overdose_rate": 31.6,
-    "population": 8715698.0
+    "population": 2114371.0,
+    "deaths": 1031.0,
+    "crude_rate": 48.8,
+    "overdose_rate": 48.8,
+    "age_adjusted_rate": 51.4
   },
   {
     "state": "Washington",
     "year": 2023,
+    "population": 7812880.0,
     "deaths": 3660.0,
+    "crude_rate": 46.8,
     "overdose_rate": 46.8,
-    "population": 7812880.0
+    "age_adjusted_rate": 45.5
   },
   {
-    "state": "West Virginia",
+    "state": "Maine",
     "year": 2023,
-    "deaths": 1417.0,
-    "overdose_rate": 80.1,
-    "population": 1770071.0
+    "population": 1395722.0,
+    "deaths": 639.0,
+    "crude_rate": 45.8,
+    "overdose_rate": 45.8,
+    "age_adjusted_rate": 49.6
+  },
+  {
+    "state": "South Carolina",
+    "year": 2023,
+    "population": 5373555.0,
+    "deaths": 2391.0,
+    "crude_rate": 44.5,
+    "overdose_rate": 44.5,
+    "age_adjusted_rate": 46.4
+  },
+  {
+    "state": "Oregon",
+    "year": 2023,
+    "population": 4233358.0,
+    "deaths": 1880.0,
+    "crude_rate": 44.4,
+    "overdose_rate": 44.4,
+    "age_adjusted_rate": 44.3
+  },
+  {
+    "state": "Maryland",
+    "year": 2023,
+    "population": 6180253.0,
+    "deaths": 2745.0,
+    "crude_rate": 44.4,
+    "overdose_rate": 44.4,
+    "age_adjusted_rate": 43.2
+  },
+  {
+    "state": "Ohio",
+    "year": 2023,
+    "population": 11785935.0,
+    "deaths": 5209.0,
+    "crude_rate": 44.2,
+    "overdose_rate": 44.2,
+    "age_adjusted_rate": 46.6
+  },
+  {
+    "state": "Nevada",
+    "year": 2023,
+    "population": 3194176.0,
+    "deaths": 1373.0,
+    "crude_rate": 43.0,
+    "overdose_rate": 43.0,
+    "age_adjusted_rate": 42.0
+  },
+  {
+    "state": "Vermont",
+    "year": 2023,
+    "population": 647464.0,
+    "deaths": 270.0,
+    "crude_rate": 41.7,
+    "overdose_rate": 41.7,
+    "age_adjusted_rate": 45.2
+  },
+  {
+    "state": "Rhode Island",
+    "year": 2023,
+    "population": 1095962.0,
+    "deaths": 437.0,
+    "crude_rate": 39.9,
+    "overdose_rate": 39.9,
+    "age_adjusted_rate": 40.8
+  },
+  {
+    "state": "Pennsylvania",
+    "year": 2023,
+    "population": 12961683.0,
+    "deaths": 5137.0,
+    "crude_rate": 39.6,
+    "overdose_rate": 39.6,
+    "age_adjusted_rate": 41.2
+  },
+  {
+    "state": "Connecticut",
+    "year": 2023,
+    "population": 3617176.0,
+    "deaths": 1404.0,
+    "crude_rate": 38.8,
+    "overdose_rate": 38.8,
+    "age_adjusted_rate": 38.6
+  },
+  {
+    "state": "Arizona",
+    "year": 2023,
+    "population": 7431344.0,
+    "deaths": 2837.0,
+    "crude_rate": 38.2,
+    "overdose_rate": 38.2,
+    "age_adjusted_rate": 39.8
+  },
+  {
+    "state": "North Carolina",
+    "year": 2023,
+    "population": 10835491.0,
+    "deaths": 3966.0,
+    "crude_rate": 36.6,
+    "overdose_rate": 36.6,
+    "age_adjusted_rate": 38.8
+  },
+  {
+    "state": "Indiana",
+    "year": 2023,
+    "population": 6862199.0,
+    "deaths": 2504.0,
+    "crude_rate": 36.5,
+    "overdose_rate": 36.5,
+    "age_adjusted_rate": 38.7
+  },
+  {
+    "state": "Massachusetts",
+    "year": 2023,
+    "population": 7001399.0,
+    "deaths": 2511.0,
+    "crude_rate": 35.9,
+    "overdose_rate": 35.9,
+    "age_adjusted_rate": 36.1
+  },
+  {
+    "state": "Alabama",
+    "year": 2023,
+    "population": 5108468.0,
+    "deaths": 1804.0,
+    "crude_rate": 35.3,
+    "overdose_rate": 35.3,
+    "age_adjusted_rate": 38.5
+  },
+  {
+    "state": "Oklahoma",
+    "year": 2023,
+    "population": 4053824.0,
+    "deaths": 1432.0,
+    "crude_rate": 35.3,
+    "overdose_rate": 35.3,
+    "age_adjusted_rate": 36.9
+  },
+  {
+    "state": "Missouri",
+    "year": 2023,
+    "population": 6196156.0,
+    "deaths": 2162.0,
+    "crude_rate": 34.9,
+    "overdose_rate": 34.9,
+    "age_adjusted_rate": 37.1
+  },
+  {
+    "state": "New York",
+    "year": 2023,
+    "population": 19571216.0,
+    "deaths": 6745.0,
+    "crude_rate": 34.5,
+    "overdose_rate": 34.5,
+    "age_adjusted_rate": 33.8
+  },
+  {
+    "state": "Colorado",
+    "year": 2023,
+    "population": 5877610.0,
+    "deaths": 2027.0,
+    "crude_rate": 34.5,
+    "overdose_rate": 34.5,
+    "age_adjusted_rate": 34.0
+  },
+  {
+    "state": "Florida",
+    "year": 2023,
+    "population": 22610726.0,
+    "deaths": 7741.0,
+    "crude_rate": 34.2,
+    "overdose_rate": 34.2,
+    "age_adjusted_rate": 36.2
+  },
+  {
+    "state": "New Hampshire",
+    "year": 2023,
+    "population": 1402054.0,
+    "deaths": 464.0,
+    "crude_rate": 33.1,
+    "overdose_rate": 33.1,
+    "age_adjusted_rate": 35.5
   },
   {
     "state": "Wisconsin",
     "year": 2023,
+    "population": 5910955.0,
     "deaths": 1925.0,
+    "crude_rate": 32.6,
     "overdose_rate": 32.6,
-    "population": 5910955.0
+    "age_adjusted_rate": 34.2
+  },
+  {
+    "state": "Michigan",
+    "year": 2023,
+    "population": 10037261.0,
+    "deaths": 3176.0,
+    "crude_rate": 31.6,
+    "overdose_rate": 31.6,
+    "age_adjusted_rate": 32.9
+  },
+  {
+    "state": "Virginia",
+    "year": 2023,
+    "population": 8715698.0,
+    "deaths": 2756.0,
+    "crude_rate": 31.6,
+    "overdose_rate": 31.6,
+    "age_adjusted_rate": 32.5
+  },
+  {
+    "state": "California",
+    "year": 2023,
+    "population": 38965193.0,
+    "deaths": 12238.0,
+    "crude_rate": 31.4,
+    "overdose_rate": 31.4,
+    "age_adjusted_rate": 30.8
+  },
+  {
+    "state": "Illinois",
+    "year": 2023,
+    "population": 12549689.0,
+    "deaths": 3931.0,
+    "crude_rate": 31.3,
+    "overdose_rate": 31.3,
+    "age_adjusted_rate": 31.7
+  },
+  {
+    "state": "New Jersey",
+    "year": 2023,
+    "population": 9290841.0,
+    "deaths": 2903.0,
+    "crude_rate": 31.2,
+    "overdose_rate": 31.2,
+    "age_adjusted_rate": 31.2
+  },
+  {
+    "state": "Mississippi",
+    "year": 2023,
+    "population": 2939690.0,
+    "deaths": 837.0,
+    "crude_rate": 28.5,
+    "overdose_rate": 28.5,
+    "age_adjusted_rate": 30.7
+  },
+  {
+    "state": "Georgia",
+    "year": 2023,
+    "population": 11029227.0,
+    "deaths": 3002.0,
+    "crude_rate": 27.2,
+    "overdose_rate": 27.2,
+    "age_adjusted_rate": 28.3
+  },
+  {
+    "state": "Kansas",
+    "year": 2023,
+    "population": 2940546.0,
+    "deaths": 758.0,
+    "crude_rate": 25.8,
+    "overdose_rate": 25.8,
+    "age_adjusted_rate": 27.0
+  },
+  {
+    "state": "Minnesota",
+    "year": 2023,
+    "population": 5737915.0,
+    "deaths": 1458.0,
+    "crude_rate": 25.4,
+    "overdose_rate": 25.4,
+    "age_adjusted_rate": 26.3
+  },
+  {
+    "state": "Hawaii",
+    "year": 2023,
+    "population": 1435138.0,
+    "deaths": 349.0,
+    "crude_rate": 24.3,
+    "overdose_rate": 24.3,
+    "age_adjusted_rate": 24.0
   },
   {
     "state": "Wyoming",
     "year": 2023,
+    "population": 584057.0,
     "deaths": 141.0,
+    "crude_rate": 24.1,
     "overdose_rate": 24.1,
-    "population": 584057.0
+    "age_adjusted_rate": 25.1
+  },
+  {
+    "state": "Utah",
+    "year": 2023,
+    "population": 3417734.0,
+    "deaths": 816.0,
+    "crude_rate": 23.9,
+    "overdose_rate": 23.9,
+    "age_adjusted_rate": 25.1
+  },
+  {
+    "state": "Texas",
+    "year": 2023,
+    "population": 30503301.0,
+    "deaths": 6752.0,
+    "crude_rate": 22.1,
+    "overdose_rate": 22.1,
+    "age_adjusted_rate": 22.3
+  },
+  {
+    "state": "Idaho",
+    "year": 2023,
+    "population": 1964726.0,
+    "deaths": 429.0,
+    "crude_rate": 21.8,
+    "overdose_rate": 21.8,
+    "age_adjusted_rate": 23.1
+  },
+  {
+    "state": "Arkansas",
+    "year": 2023,
+    "population": 3067732.0,
+    "deaths": 663.0,
+    "crude_rate": 21.6,
+    "overdose_rate": 21.6,
+    "age_adjusted_rate": 23.4
+  },
+  {
+    "state": "Montana",
+    "year": 2023,
+    "population": 1132812.0,
+    "deaths": 218.0,
+    "crude_rate": 19.2,
+    "overdose_rate": 19.2,
+    "age_adjusted_rate": 20.8
+  },
+  {
+    "state": "North Dakota",
+    "year": 2023,
+    "population": 783926.0,
+    "deaths": 140.0,
+    "crude_rate": 17.9,
+    "overdose_rate": 17.9,
+    "age_adjusted_rate": 19.0
+  },
+  {
+    "state": "Iowa",
+    "year": 2023,
+    "population": 3207004.0,
+    "deaths": 546.0,
+    "crude_rate": 17.0,
+    "overdose_rate": 17.0,
+    "age_adjusted_rate": 18.0
+  },
+  {
+    "state": "South Dakota",
+    "year": 2023,
+    "population": 919318.0,
+    "deaths": 123.0,
+    "crude_rate": 13.4,
+    "overdose_rate": 13.4,
+    "age_adjusted_rate": 14.6
+  },
+  {
+    "state": "Nebraska",
+    "year": 2023,
+    "population": 1978379.0,
+    "deaths": 243.0,
+    "crude_rate": 12.3,
+    "overdose_rate": 12.3,
+    "age_adjusted_rate": 13.1
   }
 ]
