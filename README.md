@@ -1,48 +1,46 @@
-# Opioid Visualization Dashboard
+# Opioid Analytics Portfolio Project
 
-An end-to-end opioid overdose analytics project that combines a public-facing React dashboard with an enterprise BI analytics layer built with Databricks, Microsoft Fabric, and Power BI.
+This project demonstrates a full analytics lifecycle for opioid overdose data: data ingestion and cleaning, quality contracts, forecasting with benchmark evaluation, API delivery, and stakeholder dashboards (React and Power BI/Fabric).
 
-## What this project includes
-
-This repository now has **two visualization layers** built on the same curated overdose dataset:
-
-### 1. React dashboard
-A web-based interactive dashboard for public-facing exploration of state-by-state overdose trends.
-
-### 2. Power BI / Fabric dashboard
-An enterprise BI version of the project built on top of a Fabric Lakehouse and Direct Lake semantic model.
+## 60-second value statement
+- Built an end-to-end analytics system that turns raw public-health records into decision-ready state-year insights.
+- Added explicit quality contracts with machine-readable pass/fail reporting.
+- Added forecast credibility evidence via rolling backtests (naive vs SARIMAX) with model-selection metadata.
+- Delivered both a product-style React dashboard and enterprise BI artifacts (Databricks + Fabric + Power BI).
 
 ## Architecture
 
 ```text
 CDC / Public Health Data
-        ↓
-Python ETL / Backend Processing
-        ↓
-Curated Dataset (SQLite / CSV)
-        ↓
-┌────────────────────────────┬────────────────────────────┐
-│ React Frontend Dashboard   │ Fabric Lakehouse          │
-│ Public-facing visualization│ Enterprise BI data layer  │
-└────────────────────────────┴────────────────────────────┘
-                                      ↓
-                               Power BI Semantic Model
-                                      ↓
-                               Power BI Dashboard
+  -> Python ETL (cleaning + typing)
+  -> SQLite analytical table (state_year_overdoses)
+  -> Quality contracts + forecast evaluation artifacts
+  -> FastAPI endpoints / static JSON export
+  -> React dashboard and Power BI semantic model
 ```
 
 ## Repository structure
 
 ```text
-backend/               FastAPI backend, ETL helpers, static export
+backend/               FastAPI API, ETL, quality + forecast modules
 frontend/              React + Vite dashboard
-pipeline/databricks/   Bronze → Silver → Gold ETL pipeline
+pipeline/databricks/   Bronze -> Silver -> Gold ETL scripts
 pipeline/fabric/       Lakehouse and semantic model documentation
 pipeline/powerbi/      DAX, model notes, dashboard documentation
-scripts/               Local runner scripts
+scripts/               Local/CI runner scripts
+artifacts/             Versioned portfolio evidence snapshots
+docs/                  Case study and milestone docs
 ```
 
-## Quick start (local demo)
+## Quick start
+
+### One command run (backend + frontend)
+
+```bash
+python run.py
+```
+
+This runs static export, then starts FastAPI and the React dev server.
 
 ### 1. Install dependencies
 
@@ -53,56 +51,47 @@ cd ../backend
 python -m pip install -r requirements.txt
 ```
 
-### 2. Export static API files
+### 2. Export static API + artifacts
 
 ```bash
 cd backend
 python export_static.py
 ```
 
-This generates:
+This generates static data in `frontend/public/api/` including:
+- `quality_report.json`
+- `forecast_evaluation.json`
+- `forecast_by_state.json`
 
-- `frontend/public/api/states.json`
-- `frontend/public/api/states_latest.json`
-- `frontend/public/api/metrics_state_year.json`
-- `frontend/public/api/forecast_by_state.json`
+And a versioned artifact snapshot in `artifacts/portfolio_analysis_snapshot.json`.
 
-### 3. Run the React app
+### 3. Run app (frontend + backend)
 
 ```bash
-cd ../frontend
-npm run dev
+python scripts/run_demo.py
 ```
 
-## Analytics layers
+## One-command reproducibility run
 
-### React dashboard
-The React dashboard is the public demo layer. It reads from static JSON exported by the backend or from the live FastAPI API.
+For local validation and CI-style checks:
 
-### Databricks pipeline
-The Databricks pipeline implements a medallion architecture:
+```bash
+python scripts/run_portfolio_pipeline.py
+```
 
-- Bronze: raw ingestion
-- Silver: cleaning and standardization
-- Gold: analytics-ready aggregates
-- Publish: send curated output to Fabric / OneLake
+It runs ETL, static export, backend tests, quality validation, and frontend build.
 
-### Microsoft Fabric + Power BI
-The Fabric / Power BI layer uses the curated dataset in a Lakehouse table (`gold_state_year`) and exposes it to Power BI through a Direct Lake semantic model.
+## What I would ship next in production
+- Add monitoring and alerting for data-quality regressions.
+- Add model retraining schedule and model registry versioning.
+- Add richer feature set for forecasting (policy and socioeconomic covariates).
 
-## Why this project is stronger now
+## Design tradeoffs
+- Static export vs live API: static mode improves reproducibility and low-cost hosting; live mode improves freshness.
+- Model simplicity vs interpretability: benchmark + SARIMAX is transparent and explainable; more complex models may reduce interpretability.
+- Fast portfolio iteration vs full MLOps: current setup prioritizes evidence and clarity; production would add orchestration and observability.
 
-This repo demonstrates:
-
-- Python data processing
-- FastAPI backend development
-- React frontend visualization
-- Databricks medallion pipeline design
-- Microsoft Fabric data modeling
-- Power BI dashboarding and DAX
-
-## Notes
-
-- The local demo is the easiest version to run.
-- The Databricks / Fabric / Power BI assets are documented in `pipeline/`.
-- The Power BI dashboard is the enterprise BI extension of the original React project, not a separate unrelated dashboard.
+## Additional docs
+- Case study: `docs/case_study.md`
+- Milestones: `docs/milestones.md`
+- Power BI and Fabric notes: `pipeline/`

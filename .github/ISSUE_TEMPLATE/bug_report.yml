@@ -1,0 +1,30 @@
+name: Bug report
+about: Report a reproducible defect in data pipeline, API, or dashboard behavior
+labels: [bug]
+body:
+  - type: textarea
+    id: summary
+    attributes:
+      label: Summary
+      description: One-paragraph description of the bug and impact.
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Reproduction steps
+      description: Ordered steps and sample inputs.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected vs actual
+      description: Explain expected behavior and what happened instead.
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Logs or screenshots
+      description: Include stack traces, API payloads, or screenshots.

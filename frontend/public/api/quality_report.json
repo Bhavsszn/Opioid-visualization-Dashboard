@@ -1,0 +1,94 @@
+{
+  "status": "pass",
+  "checked_at": "2026-03-08T22:43:26.859626+00:00",
+  "checks": [
+    {
+      "name": "required_columns_present",
+      "status": "pass",
+      "value": {
+        "missing": []
+      },
+      "threshold": {
+        "required": [
+          "state",
+          "year",
+          "deaths",
+          "crude_rate",
+          "population"
+        ]
+      },
+      "detail": "Core schema columns must be present."
+    },
+    {
+      "name": "row_count_positive",
+      "status": "pass",
+      "value": 306,
+      "threshold": "> 0",
+      "detail": "Dataset must contain at least one row."
+    },
+    {
+      "name": "nonnull_rate_state",
+      "status": "pass",
+      "value": 1.0,
+      "threshold": 1.0,
+      "detail": "Non-null coverage for state."
+    },
+    {
+      "name": "nonnull_rate_year",
+      "status": "pass",
+      "value": 1.0,
+      "threshold": 1.0,
+      "detail": "Non-null coverage for year."
+    },
+    {
+      "name": "nonnull_rate_deaths",
+      "status": "pass",
+      "value": 1.0,
+      "threshold": 0.98,
+      "detail": "Non-null coverage for deaths."
+    },
+    {
+      "name": "nonnull_rate_crude_rate",
+      "status": "pass",
+      "value": 1.0,
+      "threshold": 0.9,
+      "detail": "Non-null coverage for crude_rate."
+    },
+    {
+      "name": "nonnull_rate_population",
+      "status": "pass",
+      "value": 1.0,
+      "threshold": 0.98,
+      "detail": "Non-null coverage for population."
+    },
+    {
+      "name": "state_year_unique",
+      "status": "pass",
+      "value": 0,
+      "threshold": 0,
+      "detail": "(state, year) should be unique."
+    },
+    {
+      "name": "latest_year_coverage",
+      "status": "pass",
+      "value": 1.0,
+      "threshold": 0.95,
+      "detail": "Share of states represented in latest year."
+    }
+  ],
+  "summary": {
+    "rows": 306,
+    "columns": [
+      "age_adjusted_rate",
+      "crude_rate",
+      "deaths",
+      "population",
+      "state",
+      "year"
+    ],
+    "latest_year": 2023,
+    "pass_count": 9,
+    "fail_count": 0,
+    "pass_rate": 1.0
+  }
+}

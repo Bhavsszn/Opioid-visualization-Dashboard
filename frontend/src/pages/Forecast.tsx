@@ -1,17 +1,7 @@
 import { useEffect, useState } from "react";
 import Explainer from "../components/Explainer";
-import { fetchForecast, fetchStates } from "../lib/api";
-import {
-  LineChart,
-  Line,
-  XAxis,
-  YAxis,
-  Tooltip,
-  CartesianGrid,
-  ResponsiveContainer,
-  Area,
-  AreaChart,
-} from "recharts";
+import { fetchForecastDetailed, fetchStates, type ForecastResponse } from "../lib/api";
+import { LineChart, Line, XAxis, YAxis, Tooltip, CartesianGrid, ResponsiveContainer, Area, AreaChart } from "recharts";
 
 const tooltipStyles = {
   backgroundColor: "#0b1220",
@@ -23,13 +13,10 @@ const tooltipStyles = {
   boxShadow: "0 6px 24px rgba(0,0,0,0.35)",
 } as const;
 
-const tooltipLabel = { color: "#a5e4f3", fontWeight: 600, fontSize: 14 } as const;
-const tooltipItem = { color: "#ffffff", fontSize: 14 } as const;
-
 export default function Forecast() {
   const [states, setStates] = useState<string[]>([]);
   const [stateSel, setStateSel] = useState<string>("Kansas");
-  const [series, setSeries] = useState<{ year: number; forecast_deaths?: number }[]>([]);
+  const [payload, setPayload] = useState<ForecastResponse>({ forecast: [] });
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
@@ -43,16 +30,23 @@ export default function Forecast() {
   useEffect(() => {
     if (!stateSel) return;
     setLoading(true);
-    fetchForecast(stateSel)
-      .then((rows) => setSeries(rows || []))
-      .catch(() => setSeries([]))
+    fetchForecastDetailed(stateSel)
+      .then((res) => setPayload(res ?? { forecast: [] }))
+      .catch(() => setPayload({ forecast: [] }))
       .finally(() => setLoading(false));
   }, [stateSel]);
 
+  const series = (payload.forecast ?? []).map((row) => ({
+    year: row.year,
+    forecast_deaths: row.forecast_deaths ?? row.deaths ?? row.yhat,
+    lo: row.forecast_deaths_lo ?? row.yhat_lo,
+    hi: row.forecast_deaths_hi ?? row.yhat_hi,
+  }));
+
   const band = series.map((d) => ({
     year: d.year,
-    lo: Math.round((d.forecast_deaths ?? 0) * 0.9),
-    hi: Math.round((d.forecast_deaths ?? 0) * 1.1),
+    lo: d.lo ?? Math.round((d.forecast_deaths ?? 0) * 0.9),
+    hi: d.hi ?? Math.round((d.forecast_deaths ?? 0) * 1.1),
   }));
 
   return (
@@ -71,7 +65,13 @@ export default function Forecast() {
           </select>
         </div>
 
-        <div className="w-full h-[380px] rounded-2xl border border-cyan-500/20 bg-black/10 p-3">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+          <Meta label="Selected model" value={payload.model_name ?? "-"} />
+          <Meta label="Train window" value={payload.train_start_year && payload.train_end_year ? `${payload.train_start_year}-${payload.train_end_year}` : "-"} />
+          <Meta label="MAE / MAPE / Coverage" value={`${fmt(payload.mae)} / ${fmt(payload.mape)}% / ${fmt(payload.interval_coverage)}`} />
+        </div>
+
+        <div className="w-full h-[360px] rounded-2xl border border-cyan-500/20 bg-black/10 p-3">
           {loading ? (
             <div className="h-full grid place-items-center text-base opacity-80">Loading...</div>
           ) : series.length ? (
@@ -82,22 +82,12 @@ export default function Forecast() {
                 <YAxis />
                 <Tooltip
                   contentStyle={tooltipStyles}
-                  labelStyle={tooltipLabel}
-                  itemStyle={tooltipItem}
                   formatter={(val: any, key: string) => {
                     if (key === "forecast_deaths") return [val == null ? "-" : `${Math.round(val)} deaths`, "Projected deaths"];
                     return [val, key];
                   }}
-                  labelFormatter={(l) => `Year: ${l}`}
                 />
-                <Line
-                  type="monotone"
-                  dataKey="forecast_deaths"
-                  dot={false}
-                  stroke="#f59e0b"
-                  strokeWidth={2}
-                  name="Projected deaths"
-                />
+                <Line type="monotone" dataKey="forecast_deaths" dot={false} stroke="#f59e0b" strokeWidth={2} name="Projected deaths" />
               </LineChart>
             </ResponsiveContainer>
           ) : (
@@ -119,14 +109,11 @@ export default function Forecast() {
               <YAxis />
               <Tooltip
                 contentStyle={tooltipStyles}
-                labelStyle={tooltipLabel}
-                itemStyle={tooltipItem}
                 formatter={(val: any, key: string) => {
                   if (key === "hi") return [val == null ? "-" : `${Math.round(val)} deaths`, "Upper range"];
                   if (key === "lo") return [val == null ? "-" : `${Math.round(val)} deaths`, "Lower range"];
                   return [val, key];
                 }}
-                labelFormatter={(l) => `Year: ${l}`}
               />
               <Area type="monotone" dataKey="hi" stroke="none" fillOpacity={1} fill="url(#band)" />
               <Area type="monotone" dataKey="lo" stroke="none" fillOpacity={1} fill="#00000000" />
@@ -134,17 +121,27 @@ export default function Forecast() {
           </ResponsiveContainer>
         </div>
 
-        <Explainer title="How the forecast is calculated">
-          <p className="mb-3">
-            This chart projects overdose deaths for the selected state and shows a basic uncertainty range.
-          </p>
+        <Explainer title="How model credibility is shown">
           <ul className="list-disc pl-5 space-y-2">
-            <li>The backend returns yearly projected deaths for the selected horizon.</li>
-            <li>The shaded band is a preview range of plus/minus 10% around each projection.</li>
-            <li>Use this as directional planning support, not clinical prediction.</li>
+            <li>Model selection uses rolling backtests comparing naive last-value and SARIMAX.</li>
+            <li>MAE and MAPE summarize error, and interval coverage shows uncertainty calibration.</li>
+            <li>Forecast API remains backward compatible (`yhat` aliases preserved).</li>
           </ul>
         </Explainer>
       </section>
     </div>
   );
+}
+
+function Meta({ label, value }: { label: string; value: string }) {
+  return (
+    <div className="rounded-2xl border border-cyan-500/20 bg-black/10 p-4">
+      <div className="text-xs uppercase opacity-70">{label}</div>
+      <div className="text-base font-semibold">{value}</div>
+    </div>
+  );
+}
+
+function fmt(value: number | null | undefined): string {
+  return value == null ? "-" : String(Number(value).toFixed(2));
 }
