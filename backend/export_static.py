@@ -111,12 +111,14 @@ def build_static_payloads(df: pd.DataFrame) -> None:
             forecasts[state] = []
             continue
         last = rows[-1]
-        base = last.get("overdose_rate") or last.get("age_adjusted_rate") or 0
+        base = last.get("deaths") or 0
         year0 = int(last["year"])
         forecasts[state] = [
             {
                 "year": year0 + i,
-                "overdose_rate": round(float(base) * (1 + 0.02 * i), 2),
+                "forecast_deaths": int(round(float(base) * (1 + 0.02 * i))),
+                # Backward-compatible alias for older clients
+                "yhat": int(round(float(base) * (1 + 0.02 * i))),
             }
             for i in range(1, 6)
         ]
