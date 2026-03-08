@@ -2,10 +2,12 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 from typing import Any
+import warnings
 
 import numpy as np
 import pandas as pd
 from statsmodels.tsa.statespace.sarimax import SARIMAX
+from statsmodels.tools.sm_exceptions import ConvergenceWarning
 
 
 @dataclass
@@ -36,9 +38,13 @@ def _coverage(actual: np.ndarray, lo: np.ndarray, hi: np.ndarray) -> float:
 def _safe_sarimax_forecast(train: pd.Series) -> tuple[float, float, float]:
     last = float(train.iloc[-1])
     try:
-        model = SARIMAX(train, order=(1, 1, 1), enforce_stationarity=False, enforce_invertibility=False)
-        res = model.fit(disp=False)
-        fc = res.get_forecast(steps=1)
+        with warnings.catch_warnings():
+            warnings.filterwarnings("ignore", category=UserWarning)
+            warnings.filterwarnings("ignore", category=FutureWarning)
+            warnings.filterwarnings("ignore", category=ConvergenceWarning)
+            model = SARIMAX(train, order=(1, 1, 1), enforce_stationarity=False, enforce_invertibility=False)
+            res = model.fit(disp=False)
+            fc = res.get_forecast(steps=1)
         yhat = float(fc.predicted_mean.iloc[0])
         lo, hi = fc.conf_int(alpha=0.2).iloc[0].tolist()
         return yhat, float(lo), float(hi)
@@ -150,9 +156,13 @@ def forecast_state(df_state: pd.DataFrame, horizon: int = 3) -> tuple[list[dict[
 
     if model_name == "sarimax":
         try:
-            model = SARIMAX(y, order=(1, 1, 1), enforce_stationarity=False, enforce_invertibility=False)
-            res = model.fit(disp=False)
-            fc = res.get_forecast(steps=horizon)
+            with warnings.catch_warnings():
+                warnings.filterwarnings("ignore", category=UserWarning)
+                warnings.filterwarnings("ignore", category=FutureWarning)
+                warnings.filterwarnings("ignore", category=ConvergenceWarning)
+                model = SARIMAX(y, order=(1, 1, 1), enforce_stationarity=False, enforce_invertibility=False)
+                res = model.fit(disp=False)
+                fc = res.get_forecast(steps=horizon)
             preds = fc.predicted_mean.tolist()
             ci = fc.conf_int(alpha=0.2).values.tolist()
         except Exception:

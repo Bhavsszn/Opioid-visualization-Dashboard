@@ -34,6 +34,14 @@ docs/                  Case study and milestone docs
 
 ## Quick start
 
+### One command run (backend + frontend)
+
+```bash
+python run.py
+```
+
+This runs static export, then starts FastAPI and the React dev server.
+
 ### 1. Install dependencies
 
 ```bash
