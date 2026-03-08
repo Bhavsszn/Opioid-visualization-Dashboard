@@ -21,6 +21,14 @@ type StateYearRow = {
   age_adjusted_rate?: number;
 };
 
+type ForecastRow = {
+  year: number;
+  deaths?: number;
+  forecast_deaths?: number;
+  yhat?: number;
+  overdose_rate?: number;
+};
+
 async function getJSON<T>(url: string): Promise<T> {
   const res = await fetch(url);
   if (!res.ok) throw new Error(`${url} -> ${res.status}`);
@@ -62,20 +70,45 @@ export async function fetchMetricsByState(state: string): Promise<StateYearRow[]
   return payload.rows ?? [];
 }
 
-export async function fetchForecast(state: string): Promise<{ year: number; overdose_rate?: number }[]> {
+export async function fetchForecast(
+  state: string
+): Promise<{ year: number; forecast_deaths?: number }[]> {
   if (USE_STATIC) {
-    const all = await getJSON<Record<string, { year: number; overdose_rate?: number }[]>>(
+    const all = await getJSON<Record<string, ForecastRow[]>>(
       "api/forecast_by_state.json"
     );
-    return all[state] ?? [];
+    return (all[state] ?? []).map((row) => ({
+      year: row.year,
+      forecast_deaths: row.forecast_deaths ?? row.deaths ?? row.yhat ?? row.overdose_rate,
+    }));
   }
 
-  const payload = await getJSON<{ forecast: { year: number; yhat: number }[] }>(
+  const payload = await getJSON<{ forecast: ForecastRow[] }>(
     `${API_BASE}/api/forecast/simple?state=${encodeURIComponent(state)}`
   );
 
   return (payload.forecast ?? []).map((row) => ({
     year: row.year,
-    overdose_rate: row.yhat,
+    forecast_deaths: row.forecast_deaths ?? row.deaths ?? row.yhat ?? row.overdose_rate,
   }));
+}
+
+export async function fetchHotspots(year?: number, k: number = 4) {
+  if (USE_STATIC) return { year: undefined, clusters: [] };
+  const query = new URLSearchParams({ k: String(k) });
+  if (year != null) query.set("year", String(year));
+  return getJSON<{ year?: number; clusters: Array<{ state: string; crude_rate?: number; cluster_rank?: number }> }>(
+    `${API_BASE}/api/hotspots/kmeans?${query.toString()}`
+  );
+}
+
+export async function fetchAnomalies(state: string, zThreshold: number = 1.5) {
+  if (USE_STATIC) return { rows: [] };
+  const query = new URLSearchParams({
+    state,
+    z_threshold: String(zThreshold),
+  });
+  return getJSON<{ rows: Array<{ year: number; deaths: number; z: number; is_anomaly: boolean }> }>(
+    `${API_BASE}/api/anomalies?${query.toString()}`
+  );
 }

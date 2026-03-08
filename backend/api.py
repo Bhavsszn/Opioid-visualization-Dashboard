@@ -58,7 +58,16 @@ def forecast_simple(state: str, horizon: int = 3):
     if not rows: raise HTTPException(404, "No data")
     df = pd.DataFrame(rows)
     last = int(df["deaths"].iloc[-1]); last_year = int(df["year"].iloc[-1])
-    out = [{"year": last_year + i, "yhat": last, "yhat_lo": max(0, last-100), "yhat_hi": last+100} for i in range(1, horizon+1)]
+    out = [{
+        "year": last_year + i,
+        "forecast_deaths": last,
+        "forecast_deaths_lo": max(0, last - 100),
+        "forecast_deaths_hi": last + 100,
+        # Backward-compatible aliases
+        "yhat": last,
+        "yhat_lo": max(0, last - 100),
+        "yhat_hi": last + 100,
+    } for i in range(1, horizon + 1)]
     df["diff"] = df["deaths"].diff()
     z = (df["diff"] - df["diff"].mean())/df["diff"].std(ddof=0) if df["diff"].std(ddof=0) else pd.Series([0]*len(df))
     hist = [{"year": int(df["year"].iloc[i]), "deaths": int(df["deaths"].iloc[i]), "z": float(z.iloc[i] if not math.isnan(z.iloc[i]) else 0)} for i in range(len(df))]
@@ -82,7 +91,16 @@ def forecast_sarimax(state: str, horizon: int = 3):
         ci = [[max(0,last-100), last+100]]*horizon
         res = None
     last_year = int(df["year"].iloc[-1])
-    out = [{"year": last_year+i+1, "yhat": float(yhat[i]), "yhat_lo": float(ci[i][0]), "yhat_hi": float(ci[i][1])} for i in range(horizon)]
+    out = [{
+        "year": last_year + i + 1,
+        "forecast_deaths": float(yhat[i]),
+        "forecast_deaths_lo": float(ci[i][0]),
+        "forecast_deaths_hi": float(ci[i][1]),
+        # Backward-compatible aliases
+        "yhat": float(yhat[i]),
+        "yhat_lo": float(ci[i][0]),
+        "yhat_hi": float(ci[i][1]),
+    } for i in range(horizon)]
     return {"forecast": out, "aic": getattr(res, "aic", None)}
 
 @app.get("/api/anomalies")
