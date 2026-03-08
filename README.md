@@ -40,7 +40,8 @@ docs/                  Case study and milestone docs
 python run.py
 ```
 
-This runs static export, then starts FastAPI and the React dev server.
+This runs ETL + static export, then starts FastAPI and the React dev server.
+If ETL cannot hydrate SQLite, it automatically falls back to static JSON mode so charts still render.
 
 ### 1. Install dependencies
 
