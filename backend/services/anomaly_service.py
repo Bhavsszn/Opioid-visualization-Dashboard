@@ -6,15 +6,14 @@ import pandas as pd
 from fastapi import HTTPException
 from sklearn.cluster import KMeans
 
-from repositories.metrics_repository import MetricsRepository
+from repositories.anomaly_repository import AnomalyRepository
 from services.metrics_service import get_states_latest
 from utils.validation import normalize_state
 
-repo = MetricsRepository()
+repo = AnomalyRepository()
 
 
 def get_anomalies(state: str, window: int = 3, z_threshold: float = 2.0) -> dict:
-    """Return rolling z-score anomalies for one state."""
     normalized_state = normalize_state(state)
     rows = repo.fetch_state_deaths_history(normalized_state or "")
     if not rows:
@@ -35,7 +34,6 @@ def get_anomalies(state: str, window: int = 3, z_threshold: float = 2.0) -> dict
 
 
 def get_hotspots_kmeans(k: int = 3, year: int | None = None) -> dict:
-    """Cluster states by latest crude rate using KMeans."""
     latest = get_states_latest(year)
     frame = pd.DataFrame(latest["rows"])
     if frame.empty or "crude_rate" not in frame.columns:

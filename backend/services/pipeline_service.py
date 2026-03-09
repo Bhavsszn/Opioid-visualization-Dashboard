@@ -1,16 +1,20 @@
-"""Pipeline summary service with artifact fallback."""
+"""Pipeline summary service with Postgres-first and fallback behavior."""
 
 from __future__ import annotations
 
+import json
+
 from quality import build_quality_report
+from repositories.pipeline_repository import PipelineRepository
 from services.metrics_service import load_state_year_df
 from utils.artifact_loader import load_artifact
 
+repo = PipelineRepository()
+
 
 def build_pipeline_summary(df, quality_status: str, checked_at: str) -> dict:
-    """Build pipeline summary used by dashboard pipeline page."""
     return {
-        "run_id": checked_at.replace(":", "").replace("-", ""),
+        "run_id": checked_at.replace(":", "").replace("-", "") if checked_at else "",
         "checked_at": checked_at,
         "source": "databricks-medallion-pattern",
         "row_count": int(len(df)),
@@ -24,40 +28,64 @@ def build_pipeline_summary(df, quality_status: str, checked_at: str) -> dict:
             {
                 "name": "Bronze",
                 "purpose": "Ingest raw opioid source records with minimal transformation.",
-                "output": "opioid.bronze_raw",
+                "output": "bronze.overdose_raw",
                 "script": "pipeline/databricks/01_bronze_ingest.py",
             },
             {
                 "name": "Silver",
-                "purpose": "Clean and standardize types, column names, and quality edge cases.",
-                "output": "opioid.silver_clean",
+                "purpose": "Clean and standardize types, field names, and quality checks.",
+                "output": "silver.overdose_clean",
                 "script": "pipeline/databricks/02_silver_clean.py",
             },
             {
                 "name": "Gold",
-                "purpose": "Produce analytics-ready state-year and latest-state aggregates.",
-                "output": "opioid.gold_state_year / opioid.gold_state_latest",
+                "purpose": "Produce serving-ready analytics tables for API and BI.",
+                "output": "gold.state_year_overdoses / gold.states_latest",
                 "script": "pipeline/databricks/03_gold_aggregates.py",
             },
             {
                 "name": "Publish",
-                "purpose": "Export curated Gold outputs to OneLake/Fabric for BI consumption.",
-                "output": "OneLake parquet folders",
-                "script": "pipeline/databricks/04_publish_to_onelake.py",
+                "purpose": "Upsert Gold outputs into PostgreSQL analytics schema.",
+                "output": "analytics.* tables",
+                "script": "scripts/sync_databricks_to_postgres.py",
             },
         ],
         "databricks_assets": [
             "pipeline/databricks/01_bronze_ingest.py",
             "pipeline/databricks/02_silver_clean.py",
             "pipeline/databricks/03_gold_aggregates.py",
-            "pipeline/databricks/04_publish_to_onelake.py",
-            "pipeline/databricks/pipeline_overview.md",
+            "pipeline/databricks/05_gold_quality_and_forecast.sql",
+            "pipeline/postgres/analytics_schema.sql",
+            "scripts/sync_databricks_to_postgres.py",
         ],
     }
 
 
+def _from_serving_table() -> dict | None:
+    row = repo.fetch_latest_summary()
+    if not row:
+        return None
+
+    stages = row.get("stages_json")
+    assets = row.get("databricks_assets_json")
+    return {
+        "run_id": row.get("run_id", ""),
+        "checked_at": row.get("checked_at", ""),
+        "source": row.get("source", "databricks-medallion-pattern"),
+        "row_count": int(row.get("row_count", 0)),
+        "states": int(row.get("states", 0)),
+        "years": {"min": int(row.get("min_year", 0)), "max": int(row.get("max_year", 0))},
+        "quality_status": row.get("quality_status", "unknown"),
+        "stages": json.loads(stages) if isinstance(stages, str) else (stages or []),
+        "databricks_assets": json.loads(assets) if isinstance(assets, str) else (assets or []),
+    }
+
+
 def get_pipeline_run_summary() -> dict:
-    """Return static pipeline summary if available, else compute from DB."""
+    serving = _from_serving_table()
+    if serving:
+        return serving
+
     artifact = load_artifact("pipeline_run_summary.json")
     if artifact:
         return artifact
