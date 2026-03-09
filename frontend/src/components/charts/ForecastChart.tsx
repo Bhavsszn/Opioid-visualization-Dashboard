@@ -26,6 +26,14 @@ export const ForecastChart = React.memo(function ForecastChart({ payload }: { pa
             <XAxis dataKey="year" />
             <YAxis />
             <Tooltip
+              contentStyle={{
+                backgroundColor: "#0b1b3a",
+                border: "1px solid #22d3ee",
+                borderRadius: "10px",
+                color: "#e2f2ff",
+              }}
+              labelStyle={{ color: "#e2f2ff", fontWeight: 700 }}
+              itemStyle={{ color: "#e2f2ff" }}
               formatter={(value: number, key: string) => {
                 if (key === "forecast_deaths") return [Math.round(value), "Forecast deaths"];
                 if (key === "hi") return [Math.round(value), "Upper"];

@@ -7,4 +7,4 @@ class ResizeObserverMock {
 }
 
 // Recharts relies on this browser API.
-(globalThis as { ResizeObserver?: typeof ResizeObserverMock }).ResizeObserver = ResizeObserverMock;
+(globalThis as unknown as { ResizeObserver?: unknown }).ResizeObserver = ResizeObserverMock;
