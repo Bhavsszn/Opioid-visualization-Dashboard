@@ -2,12 +2,39 @@
 
 from __future__ import annotations
 
+import logging
+
 from db import fetch_all, fetch_one
 from settings import settings
 
+logger = logging.getLogger("opioid.metrics_repository")
+
 
 def _table(name: str) -> str:
-    return f"{settings.postgres_schema}.{name}"
+    if settings.db_backend == "postgres":
+        schema = settings.postgres_schema.strip()
+        return f'"{schema}"."{name}"'
+    return name
+
+
+def _log_table_error(operation: str, table_name: str, exc: Exception) -> None:
+    if settings.db_backend == "postgres":
+        logger.exception(
+            "query_failed op=%s table=%s.%s backend=%s error=%s",
+            operation,
+            settings.postgres_schema,
+            table_name,
+            settings.db_backend,
+            str(exc),
+        )
+    else:
+        logger.exception(
+            "query_failed op=%s table=%s backend=%s error=%s",
+            operation,
+            table_name,
+            settings.db_backend,
+            str(exc),
+        )
 
 
 class MetricsRepository:
@@ -28,60 +55,84 @@ class MetricsRepository:
             sql += " AND year = ?"
             params.append(year)
         sql += " ORDER BY year, state"
-        return fetch_all(sql, params)
+        try:
+            return fetch_all(sql, params)
+        except Exception as exc:
+            _log_table_error("fetch_state_year_data", "state_year_overdoses", exc)
+            raise
 
     @staticmethod
     def fetch_latest_state_metrics(year: int | None = None) -> tuple[int | None, list[dict]]:
         selected_year = year
         if selected_year is None:
-            row = fetch_one(f"SELECT MAX(year) AS latest_year FROM {_table('state_year_overdoses')}")
+            try:
+                row = fetch_one(f"SELECT MAX(year) AS latest_year FROM {_table('state_year_overdoses')}")
+            except Exception as exc:
+                _log_table_error("fetch_latest_state_metrics.max_year", "state_year_overdoses", exc)
+                raise
             if not row or row.get("latest_year") is None:
                 return None, []
             selected_year = int(row["latest_year"])
 
-        rows = fetch_all(
-            f"""
-            SELECT year, state, deaths, population, crude_rate, age_adjusted_rate
-            FROM {_table('states_latest')}
-            WHERE year = ?
-            ORDER BY crude_rate DESC
-            """,
-            (selected_year,),
-        )
-
-        if not rows:
+        try:
             rows = fetch_all(
                 f"""
                 SELECT year, state, deaths, population, crude_rate, age_adjusted_rate
-                FROM {_table('state_year_overdoses')}
+                FROM {_table('states_latest')}
                 WHERE year = ?
                 ORDER BY crude_rate DESC
                 """,
                 (selected_year,),
             )
+        except Exception as exc:
+            _log_table_error("fetch_latest_state_metrics.states_latest", "states_latest", exc)
+            raise
+
+        if not rows:
+            try:
+                rows = fetch_all(
+                    f"""
+                    SELECT year, state, deaths, population, crude_rate, age_adjusted_rate
+                    FROM {_table('state_year_overdoses')}
+                    WHERE year = ?
+                    ORDER BY crude_rate DESC
+                    """,
+                    (selected_year,),
+                )
+            except Exception as exc:
+                _log_table_error("fetch_latest_state_metrics.state_year_overdoses", "state_year_overdoses", exc)
+                raise
 
         return selected_year, rows
 
     @staticmethod
     def fetch_state_history(state: str) -> list[dict]:
-        return fetch_all(
-            f"""
-            SELECT year, state, deaths, population, crude_rate, age_adjusted_rate
-            FROM {_table('state_year_overdoses')}
-            WHERE state = ?
-            ORDER BY year
-            """,
-            (state,),
-        )
+        try:
+            return fetch_all(
+                f"""
+                SELECT year, state, deaths, population, crude_rate, age_adjusted_rate
+                FROM {_table('state_year_overdoses')}
+                WHERE state = ?
+                ORDER BY year
+                """,
+                (state,),
+            )
+        except Exception as exc:
+            _log_table_error("fetch_state_history", "state_year_overdoses", exc)
+            raise
 
     @staticmethod
     def fetch_state_deaths_history(state: str) -> list[dict]:
-        return fetch_all(
-            f"""
-            SELECT year, deaths
-            FROM {_table('state_year_overdoses')}
-            WHERE state = ?
-            ORDER BY year
-            """,
-            (state,),
-        )
+        try:
+            return fetch_all(
+                f"""
+                SELECT year, deaths
+                FROM {_table('state_year_overdoses')}
+                WHERE state = ?
+                ORDER BY year
+                """,
+                (state,),
+            )
+        except Exception as exc:
+            _log_table_error("fetch_state_deaths_history", "state_year_overdoses", exc)
+            raise

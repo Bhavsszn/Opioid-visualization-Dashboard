@@ -1,7 +1,8 @@
-"""Database access helpers for PostgreSQL analytics serving."""
+"""Database access helpers for PostgreSQL and optional SQLite serving."""
 
 from __future__ import annotations
 
+import sqlite3
 from collections.abc import Iterable
 from contextlib import contextmanager
 from typing import Any
@@ -18,15 +19,26 @@ except Exception:  # pragma: no cover - optional local dependency
 
 def _translate_sql(sql: str) -> str:
     """Translate sqlite-style placeholders to psycopg placeholders."""
-    return sql.replace("?", "%s")
+    if settings.db_backend == "postgres":
+        return sql.replace("?", "%s")
+    return sql
 
 
 @contextmanager
 def get_connection(db_path: str | None = None):
-    """Yield configured PostgreSQL connection."""
-    if psycopg is None:
-        raise RuntimeError("psycopg is required for Postgres backend")
-    conn = psycopg.connect(settings.postgres_dsn, row_factory=dict_row, autocommit=False)
+    """Yield configured connection for selected backend."""
+    if settings.db_backend == "postgres":
+        if psycopg is None:
+            raise RuntimeError("psycopg is required for Postgres backend")
+        conn = psycopg.connect(settings.postgres_dsn, row_factory=dict_row, autocommit=False)
+        try:
+            yield conn
+        finally:
+            conn.close()
+        return
+
+    conn = sqlite3.connect(db_path or str(settings.db_path))
+    conn.row_factory = sqlite3.Row
     try:
         yield conn
     finally:
@@ -39,7 +51,9 @@ def fetch_all(sql: str, params: Iterable[Any] = (), db_path: str | None = None) 
     with get_connection(db_path=db_path) as conn:
         cur = conn.execute(query, tuple(params))
         rows = cur.fetchall()
-    return [dict(row) for row in rows]
+    if settings.db_backend == "postgres":
+        return [dict(row) for row in rows]
+    return [{key: row[key] for key in row.keys()} for row in rows]
 
 
 def fetch_one(sql: str, params: Iterable[Any] = (), db_path: str | None = None) -> dict[str, Any] | None:
@@ -49,7 +63,9 @@ def fetch_one(sql: str, params: Iterable[Any] = (), db_path: str | None = None) 
         row = conn.execute(query, tuple(params)).fetchone()
     if not row:
         return None
-    return dict(row)
+    if settings.db_backend == "postgres":
+        return dict(row)
+    return {key: row[key] for key in row.keys()}
 
 
 def ping() -> bool:

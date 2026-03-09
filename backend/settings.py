@@ -71,8 +71,8 @@ class Settings(BaseSettings):
     @classmethod
     def validate_backend(cls, value: str) -> str:
         normalized = value.lower().strip()
-        if normalized != "postgres":
-            raise ValueError("DB_BACKEND must be 'postgres' for production serving")
+        if normalized not in {"postgres", "sqlite"}:
+            raise ValueError("DB_BACKEND must be 'postgres' or 'sqlite'")
         return normalized
 
     @property
