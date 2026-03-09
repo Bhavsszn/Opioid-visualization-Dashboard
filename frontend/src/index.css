@@ -6,89 +6,36 @@
 @tailwind components;
 @tailwind utilities;
 
-/* keep the rest of your CSS below */
-
-
 :root {
-  color-scheme: dark;
-  --bg: #0c0f16;
-  --panel: #121726;
-  --ink: #e6f3ff;
-  --accent: #00fff0;
-  --accent-2: #ff00e6;
+  --bg-1: #061028;
+  --bg-2: #0c1a3e;
+  --panel: rgba(7, 18, 42, 0.82);
+  --panel-border: rgba(14, 165, 233, 0.28);
+  --ink: #e2f2ff;
+  --muted: #9db7cf;
+  --accent: #22d3ee;
 }
 
-html, body, #root { height: 100%; }
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
 body {
-  background: radial-gradient(1200px 600px at 10% -10%, rgba(0,255,240,0.12), transparent 60%),
-              radial-gradient(1000px 800px at 110% 20%, rgba(255,0,230,0.08), transparent 60%),
-              var(--bg);
+  margin: 0;
   color: var(--ink);
-  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
-}
-
-.card {
-  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-  border: 1px solid rgba(0,255,240,0.18);
-  box-shadow: 0 0 12px rgba(0,255,240,0.18);
-  border-radius: 14px;
-}
-
-.neon-title {
-  font-family: Orbitron, system-ui;
-  letter-spacing: 0.02em;
-  text-shadow: 0 0 10px rgba(0,255,240,0.7), 0 0 20px rgba(255,0,230,0.4);
-}
-
-.btn-neon {
-  border: 1px solid rgba(255,0,230,0.45);
-  background: rgba(255,0,230,0.12);
-  transition: transform .12s ease, box-shadow .12s ease;
-}
-.btn-neon:hover {
-  box-shadow: 0 0 10px rgba(255,0,230,0.5), 0 0 20px rgba(0,255,240,0.4);
-  transform: translateY(-1px);
-}
-
-.select-neon {
-  background-color: #0f1322 !important;
-  color: #e6f3ff !important;
-  border: 1px solid rgba(0,255,240,0.35) !important;
-  box-shadow: 0 0 12px rgba(0,255,240,0.12);
-}
-.select-neon:focus {
-  outline: none !important;
-  box-shadow: 0 0 0 3px rgba(0,255,240,0.25);
-}
-.select-neon option {
-  background-color: #0f1322;
-  color: #e6f3ff;
-}
-
-
-/* Animated cyan lines background for tables */
-.scrolling-lines-bg::before{
-  content:"";
-  position:absolute;
-  inset:-100% -20% -100% -20%;
+  font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
   background:
-    repeating-linear-gradient(
-      to top,
-      rgba(45,226,230,0.06) 0px,
-      rgba(45,226,230,0.06) 2px,
-      transparent 2px,
-      transparent 16px
-    );
-  animation: scrollUp 12s linear infinite;
-  pointer-events:none;
-  z-index:0;
-  filter: drop-shadow(0 0 8px rgba(45,226,230,0.25));
+    radial-gradient(1200px 550px at 0% 0%, rgba(20, 184, 166, 0.15), transparent 60%),
+    radial-gradient(1000px 700px at 100% 0%, rgba(2, 132, 199, 0.2), transparent 55%),
+    linear-gradient(150deg, var(--bg-1), var(--bg-2));
 }
-.scrolling-lines-bg > *{
-  position:relative;
-  z-index:1;
-}
-@keyframes scrollUp{
-  from{ transform: translateY(0); }
-  to{ transform: translateY(-50%); }
+
+a {
+  color: #67e8f9;
 }
