@@ -1,16 +1,14 @@
-"""Pipeline summary services for Databricks showcase evidence."""
+"""Pipeline summary service with artifact fallback."""
 
-import json
-
-from fastapi import HTTPException
+from __future__ import annotations
 
 from quality import build_quality_report
 from services.metrics_service import load_state_year_df
-from settings import settings
+from utils.artifact_loader import load_artifact
 
 
 def build_pipeline_summary(df, quality_status: str, checked_at: str) -> dict:
-    """Build the pipeline run summary payload used by the frontend pipeline page."""
+    """Build pipeline summary used by dashboard pipeline page."""
     return {
         "run_id": checked_at.replace(":", "").replace("-", ""),
         "checked_at": checked_at,
@@ -59,14 +57,14 @@ def build_pipeline_summary(df, quality_status: str, checked_at: str) -> dict:
 
 
 def get_pipeline_run_summary() -> dict:
-    """Return pipeline summary from static artifact when present, else compute from DB."""
-    report_path = settings.static_api_dir / "pipeline_run_summary.json"
-    if report_path.exists():
-        return json.loads(report_path.read_text(encoding="utf-8"))
+    """Return static pipeline summary if available, else compute from DB."""
+    artifact = load_artifact("pipeline_run_summary.json")
+    if artifact:
+        return artifact
 
     df = load_state_year_df()
     if df.empty:
-        raise HTTPException(404, "No data")
+        return build_pipeline_summary(df, "fail", "")
 
-    q_report = build_quality_report(df)
-    return build_pipeline_summary(df, q_report["status"], q_report["checked_at"])
+    quality_report = build_quality_report(df)
+    return build_pipeline_summary(df, quality_report["status"], quality_report["checked_at"])

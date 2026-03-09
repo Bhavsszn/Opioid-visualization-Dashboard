@@ -1,42 +1,33 @@
-"""Metric retrieval services (state-year and latest snapshots)."""
+"""Metric retrieval and aggregation services."""
+
+from __future__ import annotations
 
 import pandas as pd
 
-from db import query
+from repositories.metrics_repository import MetricsRepository
+from utils.validation import ensure_contract_columns, normalize_state
+
+
+repo = MetricsRepository()
 
 
 def load_state_year_df() -> pd.DataFrame:
-    """Load canonical state-year data from sqlite."""
-    rows = query(
-        """
-        SELECT year, state, deaths, population, crude_rate, age_adjusted_rate
-        FROM state_year_overdoses
-        ORDER BY year, state
-        """
-    )
+    """Load canonical state-year dataset into a validated dataframe."""
+    rows = repo.fetch_state_year_data()
     if not rows:
         return pd.DataFrame(columns=["year", "state", "deaths", "population", "crude_rate", "age_adjusted_rate"])
-    return pd.DataFrame(rows)
+    frame = pd.DataFrame(rows)
+    ensure_contract_columns(frame)
+    return frame
 
 
 def get_state_year(state: str | None = None, year: int | None = None) -> dict:
-    sql = "SELECT * FROM state_year_overdoses WHERE 1=1"
-    params: list = []
-    if state:
-        sql += " AND state=?"
-        params.append(state)
-    if year:
-        sql += " AND year=?"
-        params.append(year)
-    sql += " ORDER BY year, state"
-    return {"rows": query(sql, tuple(params))}
+    """Return state/year rows for optional filters."""
+    rows = repo.fetch_state_year_data(state=normalize_state(state), year=year)
+    return {"rows": rows}
 
 
 def get_states_latest(year: int | None = None) -> dict:
-    if year is None:
-        max_year = query("SELECT MAX(year) AS y FROM state_year_overdoses")
-        if not max_year or max_year[0]["y"] is None:
-            return {"year": None, "rows": []}
-        year = int(max_year[0]["y"])
-    rows = query("SELECT * FROM state_year_overdoses WHERE year=? ORDER BY crude_rate DESC", (year,))
-    return {"year": year, "rows": rows}
+    """Return latest-state snapshot for selected year or max available year."""
+    selected_year, rows = repo.fetch_latest_state_metrics(year=year)
+    return {"year": selected_year, "rows": rows}
