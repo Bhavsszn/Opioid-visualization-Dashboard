@@ -28,7 +28,7 @@ class Settings(BaseSettings):
         validation_alias=AliasChoices("STATIC_API_DIR", "STATIC_OUT_DIR"),
     )
 
-    db_backend: str = Field(default="sqlite", validation_alias=AliasChoices("DB_BACKEND"))
+    db_backend: str = Field(default="postgres", validation_alias=AliasChoices("DB_BACKEND"))
     postgres_host: str = Field(default="localhost", validation_alias=AliasChoices("POSTGRES_HOST"))
     postgres_port: int = Field(default=5432, validation_alias=AliasChoices("POSTGRES_PORT"))
     postgres_db: str = Field(default="opioid", validation_alias=AliasChoices("POSTGRES_DB"))
@@ -50,8 +50,8 @@ class Settings(BaseSettings):
         validation_alias=AliasChoices("ALLOWED_CORS_ORIGINS", "CORS_ORIGINS"),
     )
 
-    enable_static_fallback: bool = Field(default=True, validation_alias=AliasChoices("ENABLE_STATIC_FALLBACK"))
-    enable_sqlite_fallback: bool = Field(default=True, validation_alias=AliasChoices("ENABLE_SQLITE_FALLBACK"))
+    enable_static_fallback: bool = Field(default=False, validation_alias=AliasChoices("ENABLE_STATIC_FALLBACK"))
+    enable_sqlite_fallback: bool = Field(default=False, validation_alias=AliasChoices("ENABLE_SQLITE_FALLBACK"))
     slow_request_ms: int = Field(default=750, ge=1, validation_alias=AliasChoices("SLOW_REQUEST_MS"))
 
     @field_validator("allowed_cors_origins", mode="before")
@@ -73,8 +73,8 @@ class Settings(BaseSettings):
     @classmethod
     def validate_backend(cls, value: str) -> str:
         normalized = value.lower().strip()
-        if normalized not in {"sqlite", "postgres"}:
-            raise ValueError("DB_BACKEND must be 'sqlite' or 'postgres'")
+        if normalized != "postgres":
+            raise ValueError("DB_BACKEND must be 'postgres' for production serving")
         return normalized
 
     @property

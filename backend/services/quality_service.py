@@ -1,4 +1,4 @@
-"""Data quality service with Postgres-first behavior and optional static fallback."""
+"""Data quality service sourced from PostgreSQL serving tables."""
 
 from __future__ import annotations
 
@@ -9,7 +9,6 @@ from fastapi import HTTPException
 from quality import build_quality_report
 from repositories.quality_repository import QualityRepository
 from services.metrics_service import load_state_year_df
-from utils.artifact_loader import load_artifact
 
 repo = QualityRepository()
 
@@ -61,10 +60,6 @@ def get_quality_status() -> dict:
     serving = _from_serving_table()
     if serving:
         return serving
-
-    artifact = load_artifact("quality_report.json")
-    if artifact:
-        return artifact
 
     df = load_state_year_df()
     if df.empty:

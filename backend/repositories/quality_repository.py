@@ -7,7 +7,7 @@ from settings import settings
 
 
 def _table(name: str) -> str:
-    return f"{settings.postgres_schema}.{name}" if settings.db_backend == "postgres" else name
+    return f"{settings.postgres_schema}.{name}"
 
 
 class QualityRepository:

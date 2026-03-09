@@ -1,4 +1,4 @@
-"""Pipeline summary service with Postgres-first and fallback behavior."""
+"""Pipeline summary service sourced from PostgreSQL serving tables."""
 
 from __future__ import annotations
 
@@ -7,7 +7,6 @@ import json
 from quality import build_quality_report
 from repositories.pipeline_repository import PipelineRepository
 from services.metrics_service import load_state_year_df
-from utils.artifact_loader import load_artifact
 
 repo = PipelineRepository()
 
@@ -85,10 +84,6 @@ def get_pipeline_run_summary() -> dict:
     serving = _from_serving_table()
     if serving:
         return serving
-
-    artifact = load_artifact("pipeline_run_summary.json")
-    if artifact:
-        return artifact
 
     df = load_state_year_df()
     if df.empty:

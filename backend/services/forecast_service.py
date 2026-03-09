@@ -15,7 +15,6 @@ from repositories.forecast_repository import ForecastRepository
 from repositories.metrics_repository import MetricsRepository
 from services.metrics_service import load_state_year_df
 from settings import settings
-from utils.artifact_loader import load_artifact
 from utils.validation import normalize_state
 
 metrics_repo = MetricsRepository()
@@ -106,10 +105,6 @@ def _cached_forecast(state: str, horizon: int) -> dict:
 
 def get_forecast_evaluation() -> dict:
     """Return benchmark comparison across states."""
-    artifact = load_artifact("forecast_evaluation.json")
-    if artifact:
-        return artifact
-
     df = load_state_year_df()
     if df.empty:
         raise HTTPException(status_code=404, detail="No data")
