@@ -3,12 +3,13 @@ import os, io, sqlite3, sys, re, json
 import pandas as pd
 import numpy as np
 from dotenv import load_dotenv
+from settings import settings
 
 load_dotenv()
 
 # --- Config / Paths ---
-DATA_DIR   = os.getenv("DATA_DIR", "../data")
-DB_PATH    = os.getenv("DB_PATH",  os.path.join(DATA_DIR, "opioid.db"))
+DATA_DIR   = os.getenv("DATA_DIR", str(settings.data_dir))
+DB_PATH    = os.getenv("DB_PATH",  str(settings.db_path))
 # Prefer the user's shared CSV; fall back to data/
 DEFAULT_CSV_NAME = "Underlying Cause of Death, 2018-2023, Single Race.csv"
 CSV_PATHS = [
