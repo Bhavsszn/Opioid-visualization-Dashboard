@@ -8,15 +8,16 @@ import pandas as pd
 
 from forecast_eval import evaluate_all_states, forecast_state
 from quality import build_quality_report
+from settings import settings
 
 HERE = os.path.dirname(__file__)
 ROOT = os.path.abspath(os.path.join(HERE, ".."))
-DB_PATH = os.environ.get("DB_PATH", os.path.join(ROOT, "data", "opioid.db"))
+DB_PATH = os.environ.get("DB_PATH", str(settings.db_path))
 CSV_PATH = os.environ.get(
-    "CSV_PATH", os.path.join(ROOT, "data", "overdoses_state_year_clean_typed.csv")
+    "CSV_PATH", os.path.join(str(settings.data_dir), "overdoses_state_year_clean_typed.csv")
 )
 OUT_DIR = os.environ.get(
-    "STATIC_OUT_DIR", os.path.join(ROOT, "frontend", "public", "api")
+    "STATIC_OUT_DIR", str(settings.static_api_dir)
 )
 ARTIFACTS_DIR = os.environ.get("ARTIFACTS_DIR", os.path.join(ROOT, "artifacts"))
 pathlib.Path(OUT_DIR).mkdir(parents=True, exist_ok=True)
