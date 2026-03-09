@@ -52,6 +52,54 @@ def _load_state_year_df() -> pd.DataFrame:
     return pd.DataFrame(rows)
 
 
+def _build_pipeline_summary(df: pd.DataFrame, quality_status: str, checked_at: str) -> dict:
+    return {
+        "run_id": checked_at.replace(":", "").replace("-", ""),
+        "checked_at": checked_at,
+        "source": "databricks-medallion-pattern",
+        "row_count": int(len(df)),
+        "states": int(df["state"].nunique()) if not df.empty else 0,
+        "years": {
+            "min": int(df["year"].min()) if not df.empty else 0,
+            "max": int(df["year"].max()) if not df.empty else 0,
+        },
+        "quality_status": quality_status,
+        "stages": [
+            {
+                "name": "Bronze",
+                "purpose": "Ingest raw opioid source records with minimal transformation.",
+                "output": "opioid.bronze_raw",
+                "script": "pipeline/databricks/01_bronze_ingest.py",
+            },
+            {
+                "name": "Silver",
+                "purpose": "Clean and standardize types, column names, and quality edge cases.",
+                "output": "opioid.silver_clean",
+                "script": "pipeline/databricks/02_silver_clean.py",
+            },
+            {
+                "name": "Gold",
+                "purpose": "Produce analytics-ready state-year and latest-state aggregates.",
+                "output": "opioid.gold_state_year / opioid.gold_state_latest",
+                "script": "pipeline/databricks/03_gold_aggregates.py",
+            },
+            {
+                "name": "Publish",
+                "purpose": "Export curated Gold outputs to OneLake/Fabric for BI consumption.",
+                "output": "OneLake parquet folders",
+                "script": "pipeline/databricks/04_publish_to_onelake.py",
+            },
+        ],
+        "databricks_assets": [
+            "pipeline/databricks/01_bronze_ingest.py",
+            "pipeline/databricks/02_silver_clean.py",
+            "pipeline/databricks/03_gold_aggregates.py",
+            "pipeline/databricks/04_publish_to_onelake.py",
+            "pipeline/databricks/pipeline_overview.md",
+        ],
+    }
+
+
 @app.get("/health")
 def health():
     return {"ok": True, "db_exists": os.path.exists(DB_PATH)}
@@ -69,6 +117,21 @@ def quality_status():
     if df.empty:
         raise HTTPException(404, "No data")
     return build_quality_report(df)
+
+
+@app.get("/api/pipeline/run-summary")
+def pipeline_run_summary():
+    report_path = STATIC_API_DIR / "pipeline_run_summary.json"
+    if report_path.exists():
+        import json
+
+        return json.loads(report_path.read_text(encoding="utf-8"))
+
+    df = _load_state_year_df()
+    if df.empty:
+        raise HTTPException(404, "No data")
+    q_report = build_quality_report(df)
+    return _build_pipeline_summary(df, q_report["status"], q_report["checked_at"])
 
 
 @app.get("/api/metrics/state-year")
