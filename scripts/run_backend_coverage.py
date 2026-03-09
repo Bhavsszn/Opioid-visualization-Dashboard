@@ -1,11 +1,29 @@
 import subprocess
 import sys
+import importlib.util
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 
 
 def main() -> None:
+    if importlib.util.find_spec("coverage") is None:
+        print(">> coverage module not installed; running unit tests without coverage gate")
+        fallback = [
+            sys.executable,
+            "-m",
+            "unittest",
+            "discover",
+            "-s",
+            "backend/tests",
+            "-p",
+            "test_*.py",
+            "-v",
+        ]
+        print(f">> {' '.join(fallback)}")
+        subprocess.run(fallback, cwd=str(ROOT), check=True)
+        return
+
     cmd = [
         sys.executable,
         "-m",
