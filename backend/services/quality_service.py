@@ -1,21 +1,22 @@
-"""Quality-report services and static artifact fallback loading."""
+"""Data quality service with artifact fallback."""
 
-import json
+from __future__ import annotations
 
 from fastapi import HTTPException
 
 from quality import build_quality_report
 from services.metrics_service import load_state_year_df
-from settings import settings
+from utils.artifact_loader import load_artifact
 
 
 def get_quality_status() -> dict:
-    """Return quality status from static artifact when present, else compute from DB."""
-    report_path = settings.static_api_dir / "quality_report.json"
-    if report_path.exists():
-        return json.loads(report_path.read_text(encoding="utf-8"))
+    """Return quality report from artifact, otherwise compute against live DB data."""
+    artifact = load_artifact("quality_report.json")
+    if artifact:
+        return artifact
 
     df = load_state_year_df()
     if df.empty:
-        raise HTTPException(404, "No data")
+        raise HTTPException(status_code=404, detail="No data")
+
     return build_quality_report(df)

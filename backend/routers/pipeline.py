@@ -1,13 +1,17 @@
 """Pipeline router."""
 
+from __future__ import annotations
+
 from fastapi import APIRouter
 
+from schemas import PipelineRunSummary
 from services.pipeline_service import get_pipeline_run_summary
 
-router = APIRouter(prefix="/api/pipeline", tags=["pipeline"])
+router = APIRouter(tags=["pipeline"])
 
 
-@router.get("/run-summary")
-def pipeline_run_summary():
-    """Return pipeline run summary for frontend Databricks showcase."""
-    return get_pipeline_run_summary()
+@router.get("/api/pipeline", response_model=PipelineRunSummary)
+@router.get("/api/pipeline/run-summary", response_model=PipelineRunSummary)
+def pipeline_run_summary() -> PipelineRunSummary:
+    """Return pipeline summary for dashboard showcase."""
+    return PipelineRunSummary(**get_pipeline_run_summary())
