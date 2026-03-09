@@ -109,9 +109,12 @@ async def unhandled_exception_handler(request: Request, exc: Exception):
 @app.on_event("startup")
 def startup_log() -> None:
     logger.info(
-        "startup environment=%s backend=%s db_connected=%s",
+        "startup environment=%s backend=%s schema=%s static_fallback=%s sqlite_fallback=%s db_connected=%s",
         settings.environment,
         settings.db_backend,
+        settings.postgres_schema,
+        settings.enable_static_fallback,
+        settings.enable_sqlite_fallback,
         ping(),
         extra={"request_id": "-"},
     )

@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import logging
 import sqlite3
 from collections.abc import Iterable
 from contextlib import contextmanager
@@ -15,6 +16,8 @@ try:
 except Exception:  # pragma: no cover - optional local dependency
     psycopg = None
     dict_row = None
+
+logger = logging.getLogger("opioid.db")
 
 
 def _translate_sql(sql: str) -> str:
@@ -31,6 +34,8 @@ def get_connection(db_path: str | None = None):
         if psycopg is None:
             raise RuntimeError("psycopg is required for Postgres backend")
         conn = psycopg.connect(settings.postgres_dsn, row_factory=dict_row, autocommit=False)
+        schema = settings.postgres_schema.strip()
+        conn.execute(f'SET search_path TO "{schema}", public')
         try:
             yield conn
         finally:
@@ -75,4 +80,5 @@ def ping() -> bool:
             conn.execute(_translate_sql("SELECT 1"))
         return True
     except Exception:
+        logger.exception("db_ping_failed backend=%s schema=%s", settings.db_backend, settings.postgres_schema)
         return False

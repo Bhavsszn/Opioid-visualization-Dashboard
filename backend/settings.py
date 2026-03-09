@@ -75,6 +75,16 @@ class Settings(BaseSettings):
             raise ValueError("DB_BACKEND must be 'postgres' or 'sqlite'")
         return normalized
 
+    @field_validator("postgres_schema")
+    @classmethod
+    def validate_postgres_schema(cls, value: str) -> str:
+        normalized = value.strip()
+        if not normalized:
+            raise ValueError("POSTGRES_SCHEMA cannot be empty")
+        if not normalized.replace("_", "").isalnum():
+            raise ValueError("POSTGRES_SCHEMA must contain only letters, numbers, and underscores")
+        return normalized
+
     @property
     def postgres_dsn(self) -> str:
         if self.database_url:
