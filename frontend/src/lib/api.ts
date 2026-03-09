@@ -66,6 +66,23 @@ export type HealthPayload = {
   quality_checked_at?: string;
 };
 
+export type PipelineSummary = {
+  run_id: string;
+  checked_at: string;
+  source: string;
+  row_count: number;
+  states: number;
+  years: { min: number; max: number };
+  quality_status: string;
+  stages: Array<{
+    name: string;
+    purpose: string;
+    output: string;
+    script: string;
+  }>;
+  databricks_assets: string[];
+};
+
 async function getJSON<T>(url: string): Promise<T> {
   const res = await fetch(url);
   if (!res.ok) throw new Error(`${url} -> ${res.status}`);
@@ -138,6 +155,10 @@ export async function fetchHealth(): Promise<HealthPayload> {
 export async function fetchForecastEvaluation() {
   if (USE_STATIC) return getJSON<{ by_state: any[]; aggregate: any }>("api/forecast_evaluation.json");
   return getJSON<{ by_state: any[]; aggregate: any }>(`${API_BASE}/api/forecast/evaluation`);
+}
+
+export async function fetchPipelineSummary(): Promise<PipelineSummary> {
+  return getJSON<PipelineSummary>("api/pipeline_run_summary.json");
 }
 
 export async function fetchHotspots(year?: number, k: number = 4) {

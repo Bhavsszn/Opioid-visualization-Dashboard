@@ -103,3 +103,6 @@ Set this in `frontend/.env` to embed your published Power BI report at `/powerbi
 ```bash
 VITE_POWERBI_EMBED_URL=https://app.powerbi.com/view?r=YOUR_EMBED_URL
 ```
+
+## Databricks showcase on the webpage
+Open `/pipeline` in the app to view the medallion flow, stage outputs, and generated run evidence from `pipeline_run_summary.json`.
