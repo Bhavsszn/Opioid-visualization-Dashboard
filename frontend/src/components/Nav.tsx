@@ -20,6 +20,7 @@ export default function Nav() {
         <Tab to="/map">Map</Tab>
         <Tab to="/forecast">Forecast</Tab>
         <Tab to="/insights">AI Insights</Tab>
+        <Tab to="/pipeline">Pipeline</Tab>
         <Tab to="/powerbi">Power BI</Tab>
       </div>
     </nav>
