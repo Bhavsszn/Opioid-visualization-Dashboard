@@ -92,9 +92,9 @@ async function getJSON<T>(url: string): Promise<T> {
 export async function fetchStates(): Promise<string[]> {
   if (USE_STATIC) {
     try {
-      return await getJSON<string[]>("api/states.json");
+      return await getJSON<string[]>("/api/states.json");
     } catch {
-      const all = await getJSON<Record<string, StateYearRow[]>>("api/metrics_state_year.json");
+      const all = await getJSON<Record<string, StateYearRow[]>>("/api/metrics_state_year.json");
       return Object.keys(all).sort();
     }
   }
@@ -104,14 +104,14 @@ export async function fetchStates(): Promise<string[]> {
 }
 
 export async function fetchStatesLatest(): Promise<LatestRow[]> {
-  if (USE_STATIC) return getJSON<LatestRow[]>("api/states_latest.json");
+  if (USE_STATIC) return getJSON<LatestRow[]>("/api/states_latest.json");
   const payload = await getJSON<{ year: number; rows: LatestRow[] }>(`${API_BASE}/api/metrics/states-latest`);
   return payload.rows;
 }
 
 export async function fetchMetricsByState(state: string): Promise<StateYearRow[]> {
   if (USE_STATIC) {
-    const all = await getJSON<Record<string, StateYearRow[]>>("api/metrics_state_year.json");
+    const all = await getJSON<Record<string, StateYearRow[]>>("/api/metrics_state_year.json");
     return all[state] ?? [];
   }
   const payload = await getJSON<{ rows: StateYearRow[] }>(`${API_BASE}/api/metrics/state-year?state=${encodeURIComponent(state)}`);
@@ -120,8 +120,8 @@ export async function fetchMetricsByState(state: string): Promise<StateYearRow[]
 
 export async function fetchForecastDetailed(state: string): Promise<ForecastResponse> {
   if (USE_STATIC) {
-    const all = await getJSON<Record<string, ForecastRow[]>>("api/forecast_by_state.json");
-    const evalPayload = await getJSON<{ by_state: Array<{ state: string; selected_model?: string; mae?: number; mape?: number; interval_coverage?: number }> }>("api/forecast_evaluation.json").catch(() => ({ by_state: [] }));
+    const all = await getJSON<Record<string, ForecastRow[]>>("/api/forecast_by_state.json");
+    const evalPayload = await getJSON<{ by_state: Array<{ state: string; selected_model?: string; mae?: number; mape?: number; interval_coverage?: number }> }>("/api/forecast_evaluation.json").catch(() => ({ by_state: [] }));
     const evalRow = evalPayload.by_state.find((row) => row.state === state);
     return {
       forecast: all[state] ?? [],
@@ -143,22 +143,22 @@ export async function fetchForecast(state: string): Promise<{ year: number; fore
 }
 
 export async function fetchQualityStatus(): Promise<QualityStatus> {
-  if (USE_STATIC) return getJSON<QualityStatus>("api/quality_report.json");
+  if (USE_STATIC) return getJSON<QualityStatus>("/api/quality_report.json");
   return getJSON<QualityStatus>(`${API_BASE}/api/quality/status`);
 }
 
 export async function fetchHealth(): Promise<HealthPayload> {
-  if (USE_STATIC) return getJSON<HealthPayload>("api/health.json");
+  if (USE_STATIC) return getJSON<HealthPayload>("/api/health.json");
   return getJSON<HealthPayload>(`${API_BASE}/health`);
 }
 
 export async function fetchForecastEvaluation() {
-  if (USE_STATIC) return getJSON<{ by_state: any[]; aggregate: any }>("api/forecast_evaluation.json");
+  if (USE_STATIC) return getJSON<{ by_state: any[]; aggregate: any }>("/api/forecast_evaluation.json");
   return getJSON<{ by_state: any[]; aggregate: any }>(`${API_BASE}/api/forecast/evaluation`);
 }
 
 export async function fetchPipelineSummary(): Promise<PipelineSummary> {
-  return getJSON<PipelineSummary>("api/pipeline_run_summary.json");
+  return getJSON<PipelineSummary>("/api/pipeline_run_summary.json");
 }
 
 export async function fetchHotspots(year?: number, k: number = 4) {
