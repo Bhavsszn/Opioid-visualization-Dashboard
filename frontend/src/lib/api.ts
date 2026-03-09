@@ -158,7 +158,8 @@ export async function fetchForecastEvaluation() {
 }
 
 export async function fetchPipelineSummary(): Promise<PipelineSummary> {
-  return getJSON<PipelineSummary>("/api/pipeline_run_summary.json");
+  if (USE_STATIC) return getJSON<PipelineSummary>("/api/pipeline_run_summary.json");
+  return getJSON<PipelineSummary>(`${API_BASE}/api/pipeline/run-summary`);
 }
 
 export async function fetchHotspots(year?: number, k: number = 4) {
