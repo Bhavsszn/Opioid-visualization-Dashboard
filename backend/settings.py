@@ -46,7 +46,7 @@ class Settings(BaseSettings):
         default=3, ge=1, le=20, validation_alias=AliasChoices("DEFAULT_FORECAST_HORIZON")
     )
     allowed_cors_origins: list[str] = Field(
-        default_factory=lambda: ["*"],
+        default_factory=lambda: ["http://127.0.0.1:5173", "http://localhost:5173"],
         validation_alias=AliasChoices("ALLOWED_CORS_ORIGINS", "CORS_ORIGINS"),
     )
 
@@ -58,15 +58,13 @@ class Settings(BaseSettings):
     @classmethod
     def parse_cors_origins(cls, value: object) -> list[str]:
         if value is None:
-            return ["*"]
+            return ["http://127.0.0.1:5173", "http://localhost:5173"]
         if isinstance(value, list):
             cleaned = [str(item).strip() for item in value if str(item).strip()]
-            return cleaned or ["*"]
+            return cleaned or ["http://127.0.0.1:5173", "http://localhost:5173"]
         raw = str(value).strip()
         if not raw:
-            return ["*"]
-        if raw == "*":
-            return ["*"]
+            return ["http://127.0.0.1:5173", "http://localhost:5173"]
         return [part.strip() for part in raw.split(",") if part.strip()]
 
     @field_validator("db_backend")
