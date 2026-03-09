@@ -7,6 +7,7 @@ const Overview = lazy(() => import("./pages/Overview"));
 const MapPage = lazy(() => import("./pages/Map"));
 const Forecast = lazy(() => import("./pages/Forecast"));
 const AIInsights = lazy(() => import("./pages/AIInsights"));
+const PowerBI = lazy(() => import("./pages/PowerBI"));
 
 export default function App() {
   return (
@@ -20,6 +21,7 @@ export default function App() {
             <Route path="/map" element={<MapPage />} />
             <Route path="/forecast" element={<Forecast />} />
             <Route path="/insights" element={<AIInsights />} />
+            <Route path="/powerbi" element={<PowerBI />} />
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
         </Suspense>

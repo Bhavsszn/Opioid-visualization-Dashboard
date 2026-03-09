@@ -96,3 +96,10 @@ It runs ETL, static export, backend tests, quality validation, and frontend buil
 - Case study: `docs/case_study.md`
 - Milestones: `docs/milestones.md`
 - Power BI and Fabric notes: `pipeline/`
+
+## Power BI on the webpage
+Set this in `frontend/.env` to embed your published Power BI report at `/powerbi`:
+
+```bash
+VITE_POWERBI_EMBED_URL=https://app.powerbi.com/view?r=YOUR_EMBED_URL
+```
