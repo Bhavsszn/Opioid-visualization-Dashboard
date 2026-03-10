@@ -17,6 +17,10 @@ def _table(name: str) -> str:
     return name
 
 
+def _param() -> str:
+    return "%s" if settings.db_backend == "postgres" else "?"
+
+
 def _log_table_error(operation: str, table_name: str, exc: Exception) -> None:
     if settings.db_backend == "postgres":
         logger.exception(
@@ -42,6 +46,7 @@ class MetricsRepository:
 
     @staticmethod
     def fetch_state_year_data(state: str | None = None, year: int | None = None) -> list[dict]:
+        p = _param()
         sql = f"""
             SELECT year, state, deaths, population, crude_rate, age_adjusted_rate
             FROM {_table('state_year_overdoses')}
@@ -49,10 +54,10 @@ class MetricsRepository:
         """
         params: list[object] = []
         if state:
-            sql += " AND state = ?"
+            sql += f" AND state = {p}"
             params.append(state)
         if year is not None:
-            sql += " AND year = ?"
+            sql += f" AND year = {p}"
             params.append(year)
         sql += " ORDER BY year, state"
         try:
@@ -63,6 +68,7 @@ class MetricsRepository:
 
     @staticmethod
     def fetch_latest_state_metrics(year: int | None = None) -> tuple[int | None, list[dict]]:
+        p = _param()
         selected_year = year
         if selected_year is None:
             try:
@@ -79,7 +85,7 @@ class MetricsRepository:
                 f"""
                 SELECT year, state, deaths, population, crude_rate, age_adjusted_rate
                 FROM {_table('states_latest')}
-                WHERE year = ?
+                WHERE year = {p}
                 ORDER BY crude_rate DESC
                 """,
                 (selected_year,),
@@ -94,7 +100,7 @@ class MetricsRepository:
                     f"""
                     SELECT year, state, deaths, population, crude_rate, age_adjusted_rate
                     FROM {_table('state_year_overdoses')}
-                    WHERE year = ?
+                    WHERE year = {p}
                     ORDER BY crude_rate DESC
                     """,
                     (selected_year,),
@@ -107,12 +113,13 @@ class MetricsRepository:
 
     @staticmethod
     def fetch_state_history(state: str) -> list[dict]:
+        p = _param()
         try:
             return fetch_all(
                 f"""
                 SELECT year, state, deaths, population, crude_rate, age_adjusted_rate
                 FROM {_table('state_year_overdoses')}
-                WHERE state = ?
+                WHERE state = {p}
                 ORDER BY year
                 """,
                 (state,),
@@ -123,12 +130,13 @@ class MetricsRepository:
 
     @staticmethod
     def fetch_state_deaths_history(state: str) -> list[dict]:
+        p = _param()
         try:
             return fetch_all(
                 f"""
                 SELECT year, deaths
                 FROM {_table('state_year_overdoses')}
-                WHERE state = ?
+                WHERE state = {p}
                 ORDER BY year
                 """,
                 (state,),
