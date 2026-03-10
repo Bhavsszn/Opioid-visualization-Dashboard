@@ -21,7 +21,9 @@ export const anomalyService = {
     const params = new URLSearchParams({ k: String(k) });
     if (year != null) params.set("year", String(year));
 
-    const payload = await apiGet<{ year?: number; clusters: HotspotClusterPoint[] }>(`/api/hotspots/kmeans?${params.toString()}`);
+    const payload = await apiGet<{ year?: number; clusters: HotspotClusterPoint[] }>(
+      `/api/hotspots/kmeans?${params.toString()}`
+    );
     return payload.clusters ?? [];
   },
 };

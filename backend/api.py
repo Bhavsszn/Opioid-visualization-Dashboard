@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 import logging
-import uuid
+import time
 from pathlib import Path
 
 from fastapi import FastAPI, HTTPException, Request
@@ -11,6 +11,7 @@ from fastapi.exceptions import RequestValidationError
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 
+from db import ping
 from logging_config import configure_logging
 from routers.anomalies import router as anomalies_router
 from routers.forecast import router as forecast_router
@@ -23,16 +24,17 @@ from services.forecast_service import get_forecast_simple
 from services.pipeline_service import get_pipeline_run_summary
 from services.quality_service import get_quality_status
 from settings import settings
+from utils.ids import new_request_id
 
 configure_logging()
 logger = logging.getLogger("opioid.api")
 
-app = FastAPI(title="Opioid AI Dashboard API", version="1.0.0")
+app = FastAPI(title="Opioid AI Dashboard API", version="2.0.0")
 
 app.add_middleware(
     CORSMiddleware,
     allow_origins=settings.allowed_cors_origins,
-    allow_credentials=True,
+    allow_credentials=False,
     allow_methods=["*"],
     allow_headers=["*"],
 )
@@ -40,16 +42,26 @@ app.add_middleware(
 
 @app.middleware("http")
 async def request_context_middleware(request: Request, call_next):
-    request_id = request.headers.get("x-request-id") or str(uuid.uuid4())
+    request_id = request.headers.get("x-request-id") or new_request_id()
     request.state.request_id = request_id
+
+    started = time.perf_counter()
     logger.info("request.start %s %s", request.method, request.url.path, extra={"request_id": request_id})
+
     response = await call_next(request)
+
+    duration_ms = int((time.perf_counter() - started) * 1000)
     response.headers["x-request-id"] = request_id
-    logger.info(
-        "request.end %s %s status=%s",
+    response.headers["x-response-time-ms"] = str(duration_ms)
+
+    level = logging.WARNING if duration_ms >= settings.slow_request_ms else logging.INFO
+    logger.log(
+        level,
+        "request.end %s %s status=%s duration_ms=%s",
         request.method,
         request.url.path,
         response.status_code,
+        duration_ms,
         extra={"request_id": request_id},
     )
     return response
@@ -58,12 +70,7 @@ async def request_context_middleware(request: Request, call_next):
 @app.exception_handler(HTTPException)
 async def http_exception_handler(request: Request, exc: HTTPException):
     request_id = getattr(request.state, "request_id", "unknown")
-    logger.warning(
-        "http_error status=%s detail=%s",
-        exc.status_code,
-        exc.detail,
-        extra={"request_id": request_id},
-    )
+    logger.warning("http_error status=%s", exc.status_code, extra={"request_id": request_id})
     payload = APIErrorResponse(
         error_code="http_error",
         message=str(exc.detail),
@@ -102,9 +109,13 @@ async def unhandled_exception_handler(request: Request, exc: Exception):
 @app.on_event("startup")
 def startup_log() -> None:
     logger.info(
-        "startup environment=%s db_path=%s",
+        "startup environment=%s backend=%s schema=%s static_fallback=%s sqlite_fallback=%s db_connected=%s",
         settings.environment,
-        settings.db_path,
+        settings.db_backend,
+        settings.postgres_schema,
+        settings.enable_static_fallback,
+        settings.enable_sqlite_fallback,
+        ping(),
         extra={"request_id": "-"},
     )
 

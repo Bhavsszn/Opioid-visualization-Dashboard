@@ -11,13 +11,14 @@ from fastapi import HTTPException
 from sklearn.linear_model import LogisticRegression
 
 from forecast_eval import evaluate_all_states, forecast_state
+from repositories.forecast_repository import ForecastRepository
 from repositories.metrics_repository import MetricsRepository
 from services.metrics_service import load_state_year_df
 from settings import settings
-from utils.artifact_loader import load_artifact
 from utils.validation import normalize_state
 
-repo = MetricsRepository()
+metrics_repo = MetricsRepository()
+forecast_repo = ForecastRepository()
 
 
 def _build_history_anoms(df: pd.DataFrame) -> list[dict]:
@@ -35,9 +36,53 @@ def _build_history_anoms(df: pd.DataFrame) -> list[dict]:
     ]
 
 
+def _try_precomputed_forecast(state: str, horizon: int) -> dict | None:
+    try:
+        rows = forecast_repo.fetch_forecast_output(state)
+    except Exception:
+        return None
+
+    if not rows:
+        return None
+
+    selected = rows[:horizon]
+    out = []
+    for row in selected:
+        pred = row.get("forecast_deaths")
+        lo = row.get("forecast_deaths_lo")
+        hi = row.get("forecast_deaths_hi")
+        out.append(
+            {
+                "year": int(row["year"]),
+                "forecast_deaths": pred,
+                "forecast_deaths_lo": lo,
+                "forecast_deaths_hi": hi,
+                "yhat": pred,
+                "yhat_lo": lo,
+                "yhat_hi": hi,
+            }
+        )
+
+    return {
+        "forecast": out,
+        "history_anoms": [],
+        "model_name": "precomputed_gold",
+        "train_start_year": None,
+        "train_end_year": None,
+        "mae": None,
+        "mape": None,
+        "interval_coverage": None,
+        "evaluation": None,
+    }
+
+
 @lru_cache(maxsize=128)
 def _cached_forecast(state: str, horizon: int) -> dict:
-    rows = repo.fetch_state_deaths_history(state)
+    precomputed = _try_precomputed_forecast(state=state, horizon=horizon)
+    if precomputed is not None:
+        return precomputed
+
+    rows = metrics_repo.fetch_state_deaths_history(state)
     if not rows:
         raise HTTPException(status_code=404, detail="No data")
 
@@ -59,11 +104,7 @@ def _cached_forecast(state: str, horizon: int) -> dict:
 
 
 def get_forecast_evaluation() -> dict:
-    """Return benchmark comparison across states, preferring static artifact when present."""
-    artifact = load_artifact("forecast_evaluation.json")
-    if artifact:
-        return artifact
-
+    """Return benchmark comparison across states."""
     df = load_state_year_df()
     if df.empty:
         raise HTTPException(status_code=404, detail="No data")
@@ -84,7 +125,6 @@ def get_forecast_simple(state: str, horizon: int = settings.default_forecast_hor
 
 
 def get_forecast_sarimax(state: str, horizon: int = settings.default_forecast_horizon) -> dict:
-    """Compatibility endpoint retaining legacy path semantics."""
     payload = get_forecast_simple(state=state, horizon=horizon)
     if payload.get("model_name") == "sarimax":
         payload["model_name"] = "sarimax"
@@ -98,7 +138,7 @@ def run_simulator_whatif(
     naloxone_coverage_pct: float = 0.0,
     horizon: int = settings.default_forecast_horizon,
 ) -> dict:
-    rows = repo.fetch_state_deaths_history(normalize_state(state) or "")
+    rows = metrics_repo.fetch_state_deaths_history(normalize_state(state) or "")
     if not rows:
         raise HTTPException(status_code=404, detail="No data")
 

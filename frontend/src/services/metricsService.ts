@@ -1,4 +1,4 @@
-import { apiGet, USE_STATIC } from "./apiClient";
+import { apiGet, apiGetWithFallback, USE_STATIC } from "./apiClient";
 import type { LatestStateMetric, StateYearMetric } from "../types/apiTypes";
 
 function sortStateRows(rows: StateYearMetric[]): StateYearMetric[] {
@@ -16,7 +16,10 @@ export const metricsService = {
       }
     }
 
-    const payload = await apiGet<{ year: number; rows: LatestStateMetric[] }>("/api/metrics/states-latest");
+    const payload = await apiGetWithFallback<{ year: number; rows: LatestStateMetric[] }>(
+      "/api/metrics/states-latest",
+      "/api/states_latest.json"
+    );
     return payload.rows.map((row) => row.state).sort();
   },
 
@@ -26,8 +29,18 @@ export const metricsService = {
       return sortStateRows(all[state] ?? []);
     }
 
-    const payload = await apiGet<{ rows: StateYearMetric[] }>(`/api/metrics/state-year?state=${encodeURIComponent(state)}`);
-    return sortStateRows(payload.rows ?? []);
+    const payload = (await apiGetWithFallback<unknown>(
+      `/api/metrics/state-year?state=${encodeURIComponent(state)}`,
+      "/api/metrics_state_year.json"
+    )) as unknown;
+
+    const rowsPayload = payload as { rows?: StateYearMetric[] };
+    if (rowsPayload.rows) {
+      return sortStateRows(rowsPayload.rows);
+    }
+
+    const mapPayload = payload as Record<string, StateYearMetric[]>;
+    return sortStateRows(mapPayload[state] ?? []);
   },
 
   async getStatesLatest(): Promise<LatestStateMetric[]> {
@@ -35,7 +48,10 @@ export const metricsService = {
       return apiGet<LatestStateMetric[]>("/api/states_latest.json");
     }
 
-    const payload = await apiGet<{ year: number; rows: LatestStateMetric[] }>("/api/metrics/states-latest");
+    const payload = await apiGetWithFallback<{ year: number; rows: LatestStateMetric[] }>(
+      "/api/metrics/states-latest",
+      "/api/states_latest.json"
+    );
     return payload.rows;
   },
 };

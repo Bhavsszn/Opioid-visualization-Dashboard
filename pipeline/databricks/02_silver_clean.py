@@ -1,25 +1,32 @@
-# pipeline/02_silver_clean.py (Databricks)
+"""Databricks Silver cleaning: bronze.overdose_raw -> silver.overdose_clean."""
+
 from pyspark.sql import functions as F
 
-BRONZE_TABLE = "opioid.bronze_overdoses"
-SILVER_TABLE = "opioid.silver_overdoses"
+spark.sql("CREATE SCHEMA IF NOT EXISTS silver")
 
-df = spark.table(BRONZE_TABLE)
+raw = spark.table("bronze.overdose_raw")
 
-# Example: normalize columns (adjust names to match your CSV)
-# Inspect df.columns once and tweak mappings as needed.
 clean = (
-    df
-    .withColumn("state", F.trim(F.col("state")))
-    .withColumn("year", F.col("year").cast("int"))
-    .withColumn("deaths", F.col("deaths").cast("double"))
-    .withColumn("overdose_rate", F.col("overdose_rate").cast("double"))
-    .withColumn("population", F.col("population").cast("double"))
+    raw.select(
+        F.trim(F.col("state")).alias("state"),
+        F.col("year").cast("int").alias("year"),
+        F.col("deaths").cast("double").alias("deaths"),
+        F.col("population").cast("double").alias("population"),
+        F.col("crude_rate").cast("double").alias("crude_rate"),
+        F.col("age_adjusted_rate").cast("double").alias("age_adjusted_rate"),
+        F.col("_ingested_at"),
+    )
     .filter(F.col("state").isNotNull() & (F.col("state") != ""))
     .filter(F.col("year").isNotNull())
+    .dropDuplicates(["state", "year"])
 )
 
-clean.write.format("delta").mode("overwrite").saveAsTable(SILVER_TABLE)
+(
+    clean.write.format("delta")
+    .mode("overwrite")
+    .option("overwriteSchema", "true")
+    .saveAsTable("silver.overdose_clean")
+)
 
-display(clean.limit(10))
-print("Wrote:", SILVER_TABLE)
+print("Wrote silver.overdose_clean")
+display(clean.orderBy("year", "state").limit(10))

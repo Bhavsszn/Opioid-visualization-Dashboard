@@ -1,0 +1,9 @@
+"""Utility for generating request and job identifiers."""
+
+from __future__ import annotations
+
+import uuid
+
+
+def new_request_id() -> str:
+    return str(uuid.uuid4())

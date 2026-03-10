@@ -1,4 +1,4 @@
-import { apiGet, USE_STATIC } from "./apiClient";
+import { apiGet, apiGetWithFallback, USE_STATIC } from "./apiClient";
 import type { ForecastEvaluationSummary, ForecastPoint, ForecastResponse } from "../types/apiTypes";
 
 export const forecastService = {
@@ -18,12 +18,14 @@ export const forecastService = {
     }
 
     try {
-      return await apiGet<ForecastResponse>(
-        `/api/forecast?state=${encodeURIComponent(state)}&horizon=${encodeURIComponent(String(horizon))}`
+      return await apiGetWithFallback<ForecastResponse>(
+        `/api/forecast?state=${encodeURIComponent(state)}&horizon=${encodeURIComponent(String(horizon))}`,
+        "/api/forecast_by_state.json"
       );
     } catch {
-      return apiGet<ForecastResponse>(
-        `/api/forecast/simple?state=${encodeURIComponent(state)}&horizon=${encodeURIComponent(String(horizon))}`
+      return apiGetWithFallback<ForecastResponse>(
+        `/api/forecast/simple?state=${encodeURIComponent(state)}&horizon=${encodeURIComponent(String(horizon))}`,
+        "/api/forecast_by_state.json"
       );
     }
   },
@@ -32,6 +34,6 @@ export const forecastService = {
     if (USE_STATIC) {
       return apiGet<ForecastEvaluationSummary>("/api/forecast_evaluation.json");
     }
-    return apiGet<ForecastEvaluationSummary>("/api/forecast/evaluation");
+    return apiGetWithFallback<ForecastEvaluationSummary>("/api/forecast/evaluation", "/api/forecast_evaluation.json");
   },
 };

@@ -1,4 +1,4 @@
-import { apiGet, USE_STATIC } from "./apiClient";
+import { apiGetWithFallback, USE_STATIC } from "./apiClient";
 import type { PipelineSummary } from "../types/apiTypes";
 
 const EMPTY_PIPELINE: PipelineSummary = {
@@ -16,13 +16,13 @@ const EMPTY_PIPELINE: PipelineSummary = {
 export const pipelineService = {
   async getPipelineSummary(): Promise<PipelineSummary> {
     if (USE_STATIC) {
-      return apiGet<PipelineSummary>("/api/pipeline_run_summary.json");
+      return apiGetWithFallback<PipelineSummary>("/api/pipeline/run-summary", "/api/pipeline_run_summary.json");
     }
 
     try {
-      return await apiGet<PipelineSummary>("/api/pipeline");
+      return await apiGetWithFallback<PipelineSummary>("/api/pipeline", "/api/pipeline_run_summary.json");
     } catch {
-      return apiGet<PipelineSummary>("/api/pipeline/run-summary");
+      return apiGetWithFallback<PipelineSummary>("/api/pipeline/run-summary", "/api/pipeline_run_summary.json");
     }
   },
 

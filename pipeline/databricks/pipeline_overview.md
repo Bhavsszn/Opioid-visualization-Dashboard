@@ -1,81 +1,29 @@
-# Databricks Data Pipeline
+# Databricks Medallion Pipeline
 
-This folder contains the Databricks ETL pipeline used to process opioid overdose data.
+This pipeline implements:
 
-The pipeline follows a medallion architecture:
+Raw source files
+-> `bronze.overdose_raw`
+-> `silver.overdose_clean`
+-> `gold.state_year_overdoses`
+-> `gold.states_latest`
+-> `gold.quality_report`
+-> optional `gold.forecast_input` and `gold.forecast_output`
 
-```text
-Bronze → Silver → Gold → Publish to OneLake / Fabric
-```
+## Jobs order
 
-## Pipeline stages
+1. `01_bronze_ingest.py`
+2. `02_silver_clean.py`
+3. `03_gold_aggregates.py`
+4. `05_gold_quality_and_forecast.sql` (optional)
+5. `04_publish_to_onelake.py`
+6. `scripts/sync_databricks_to_postgres.py`
 
-### 1. Bronze layer — raw ingestion
-**File:** `01_bronze_ingest.py`
+## Serving contract columns
 
-Purpose:
-- ingest the raw overdose dataset
-- preserve source-level fidelity
-- store minimally transformed records
-
-Output:
-- `bronze_overdose_raw`
-
-### 2. Silver layer — cleaning and standardization
-**File:** `02_silver_clean.py`
-
-Purpose:
-- remove obvious null / malformed values
-- standardize data types
-- normalize year and state fields
-- prepare the dataset for downstream analytics
-
-Output:
-- `silver_overdose_clean`
-
-### 3. Gold layer — BI-ready aggregates
-**File:** `03_gold_aggregates.py`
-
-Purpose:
-- create analytics-ready state/year aggregates
-- support Fabric and Power BI consumption
-- produce a stable schema for dashboards
-
-Output:
-- `gold_state_year`
-
-Core columns:
-- `year`
 - `state`
-- `population`
+- `year`
 - `deaths`
+- `population`
 - `crude_rate`
 - `age_adjusted_rate`
-
-### 4. Publish to OneLake / Fabric
-**File:** `04_publish_to_onelake.py`
-
-Purpose:
-- publish the Gold dataset to OneLake / Fabric
-- make the curated table available to the Power BI semantic model
-
-Final destination:
-- Fabric Lakehouse table: `dbo.gold_state_year`
-
-## End-to-end data flow
-
-```text
-CDC Overdose Data
-↓
-Databricks Bronze Layer
-↓
-Databricks Silver Layer
-↓
-Databricks Gold Layer
-↓
-Microsoft Fabric Lakehouse
-↓
-Power BI Semantic Model
-↓
-Power BI Dashboard
-```
