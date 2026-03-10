@@ -1,4 +1,11 @@
--- PostgreSQL serving schema for FastAPI analytics application
+-- PostgreSQL serving schema for FastAPI analytics application.
+-- This contract is derived from backend repositories/services currently used in runtime.
+-- Required read paths:
+--   analytics.state_year_overdoses
+--   analytics.states_latest
+--   analytics.quality_report
+--   analytics.pipeline_run_summary
+--   analytics.forecast_output (optional precomputed forecast)
 
 CREATE SCHEMA IF NOT EXISTS analytics;
 
